@@ -93,7 +93,7 @@
   .card {
     position: relative;
     width: 100%;
-    min-height: 300px;
+    height: 340px;
     transform-style: preserve-3d;
     transition: transform .45s cubic-bezier(.2,.7,.3,1);
     cursor: pointer;
@@ -107,12 +107,23 @@
     background: var(--card-bg);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #c5cbe0 transparent;
+  }
+  .face::-webkit-scrollbar { width: 6px; }
+  .face::-webkit-scrollbar-thumb { background: #c5cbe0; border-radius: 3px; }
+  .face::-webkit-scrollbar-track { background: transparent; }
+  .face-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 28px 24px;
     text-align: center;
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
   }
   .face.back { transform: rotateY(180deg); background: linear-gradient(150deg, #ffffff, #f6f8ff); }
   .word {
@@ -201,7 +212,8 @@
     padding:1px 5px;font-size:11px;color:#5b6272;
   }
   @media (max-width: 480px) {
-    .card { min-height: 250px; }
+    .card { height: 280px; }
+    .face-inner { padding: 22px 18px; }
     .stats { font-size: 12px; }
   }
 </style>
@@ -227,17 +239,21 @@
   <div class="scene" id="study">
     <div class="card" id="card">
       <div class="face front">
-        <span class="tag" id="tagFront"></span>
-        <span class="known-dot" id="knownDot" hidden>已掌握</span>
-        <span class="wrong-dot" id="wrongDot" hidden>错题</span>
-        <div class="word" id="wordFront"></div>
-        <div class="hint">先在脑中回忆法条要点，点击卡片查看</div>
-        <span class="pos" id="posFront"></span>
+        <div class="face-inner">
+          <span class="tag" id="tagFront"></span>
+          <span class="known-dot" id="knownDot" hidden>已掌握</span>
+          <span class="wrong-dot" id="wrongDot" hidden>错题</span>
+          <div class="word" id="wordFront"></div>
+          <div class="hint">先在脑中回忆法条要点，点击卡片查看</div>
+          <span class="pos" id="posFront"></span>
+        </div>
       </div>
       <div class="face back">
-        <span class="tag" id="tagBack"></span>
-        <div class="word zh" id="wordBack"></div>
-        <div class="hint" id="enBack"></div>
+        <div class="face-inner">
+          <span class="tag" id="tagBack"></span>
+          <div class="word zh" id="wordBack"></div>
+          <div class="hint" id="enBack"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -329,12 +345,12 @@ function reviewUnknown() {
 function render() {
   if (queue.length === 0 || cur >= queue.length) { renderDone(); return; }
   const d = DATA[queue[cur]];
-  $('wordFront').textContent = d.en;
+  $('wordFront').innerHTML = d.en;
   $('tagFront').textContent = d.group;
   $('knownDot').hidden = mode === 'wrong' || !known.has(d.en);
   $('wrongDot').hidden = !wrong.has(d.en);
   $('posFront').textContent = `${cur + 1} / ${queue.length}`;
-  $('wordBack').textContent = d.zh;
+  $('wordBack').innerHTML = d.zh;
   $('tagBack').textContent = d.group;
   $('enBack').textContent = d.en;
   flipped = false;
