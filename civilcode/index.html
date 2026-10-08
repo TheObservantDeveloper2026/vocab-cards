@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#4f6ef7">
+<title>民法典背诵卡 | Vocabulary Cards</title>
+<style>
+  :root {
+    --primary: #4f6ef7;
+    --primary-dark: #3b55d9;
+    --green: #22a06b;
+    --red: #e5484d;
+    --bg: #f4f6fb;
+    --card-bg: #ffffff;
+    --text: #1c2333;
+    --text-sub: #6b7280;
+    --radius: 18px;
+    --shadow: 0 10px 30px rgba(28, 35, 51, .10);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(160deg, #eef1fb 0%, #f7f8fc 55%, #eef4f2 100%);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+  header {
+    padding: 14px 16px 8px;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  h1 { font-size: 17px; font-weight: 700; letter-spacing: .3px; }
+  h1 small { color: var(--text-sub); font-weight: 500; font-size: 12px; margin-left: 8px; }
+  .toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  select, .btn-ghost {
+    appearance: none;
+    border: 1px solid #dfe3ee;
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    cursor: pointer;
+  }
+  select { min-width: 130px; }
+  .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+  .btn-ghost.active { border-color: var(--red); color: var(--red); background: #fef0f0; }
+  .badge {
+    display: inline-block;
+    min-width: 18px;
+    padding: 0 5px;
+    margin-left: 5px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+  }
+  .stats { margin-left: auto; font-size: 13px; color: var(--text-sub); white-space: nowrap; }
+  .stats b { color: var(--green); }
+  .stats b.red { color: var(--red); }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px 8px;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .progress-wrap { width: 100%; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .progress-bar { flex: 1; height: 6px; background: #e4e8f4; border-radius: 3px; overflow: hidden; }
+  .progress-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--primary), #7c9bff); border-radius: 3px; transition: width .25s; }
+  .progress-num { font-size: 12px; color: var(--text-sub); white-space: nowrap; }
+
+  .scene { perspective: 1400px; width: 100%; max-width: 560px; }
+  .card {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    transform-style: preserve-3d;
+    transition: transform .45s cubic-bezier(.2,.7,.3,1);
+    cursor: pointer;
+  }
+  .card.flipped { transform: rotateY(180deg); }
+  .face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .face.back { transform: rotateY(180deg); background: linear-gradient(150deg, #ffffff, #f6f8ff); }
+  .word {
+    font-size: clamp(30px, 7vw, 52px);
+    font-weight: 700;
+    word-break: break-word;
+    line-height: 1.2;
+  }
+  .word.zh { font-size: clamp(26px, 6vw, 42px); color: var(--primary-dark); font-weight: 600; }
+  .hint { margin-top: 18px; font-size: 13px; color: var(--text-sub); }
+  .tag {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 11px;
+    color: var(--text-sub);
+    background: #eef1fb;
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+  .known-dot {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 11px;
+    border-radius: 999px;
+    padding: 3px 10px;
+    background: #e8f7f0;
+    color: var(--green);
+  }
+  .wrong-dot {
+    position: absolute;
+    top: 40px;
+    right: 16px;
+    font-size: 11px;
+    border-radius: 999px;
+    padding: 3px 10px;
+    background: #fdebec;
+    color: var(--red);
+  }
+  .pos { position: absolute; bottom: 12px; right: 16px; font-size: 11px; color: #b6bccb; }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 560px;
+  }
+  .actions button {
+    flex: 1;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    transition: transform .08s, filter .15s;
+  }
+  .actions button:active { transform: scale(.97); }
+  #btnUnknown { background: var(--red); }
+  #btnKnown { background: var(--green); }
+  #btnFlip { background: var(--primary); width: 100%; max-width: 560px; flex: none; }
+  .actions button[disabled] { opacity: .45; cursor: default; }
+
+  .done-panel { text-align: center; max-width: 480px; }
+  .done-panel h2 { font-size: 26px; margin-bottom: 10px; }
+  .done-panel p { color: var(--text-sub); font-size: 14px; line-height: 1.8; margin-bottom: 22px; }
+  .done-panel button {
+    display: block; width: 100%; margin-bottom: 10px;
+    border: none; border-radius: 14px; padding: 13px 0;
+    font-size: 15px; font-weight: 600; cursor: pointer; color: #fff;
+  }
+  #btnAgainUnknown { background: var(--primary); }
+  #btnRestart { background: #8a93a8; }
+
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #b0b6c4;
+    padding: 10px 0 calc(12px + env(safe-area-inset-bottom));
+  }
+  kbd {
+    background:#fff;border:1px solid #dfe3ee;border-bottom-width:2px;border-radius:5px;
+    padding:1px 5px;font-size:11px;color:#5b6272;
+  }
+  @media (max-width: 480px) {
+    .card { min-height: 250px; }
+    .stats { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>民法典背诵卡 <small>点击卡片 · 看问题想条文</small></h1>
+  <div class="toolbar">
+    <select id="groupSel"></select>
+    <button class="btn-ghost" id="btnShuffle">洗牌</button>
+    <button class="btn-ghost" id="btnWrongBook">错题本<span class="badge" id="wrongBadge">0</span></button>
+    <button class="btn-ghost" id="btnReset">清空进度</button>
+    <span class="stats" id="statsLine"></span>
+  </div>
+</header>
+
+<main>
+  <div class="progress-wrap">
+    <div class="progress-bar"><i id="progressFill"></i></div>
+    <span class="progress-num" id="progressNum">0 / 0</span>
+  </div>
+
+  <div class="scene" id="study">
+    <div class="card" id="card">
+      <div class="face front">
+        <span class="tag" id="tagFront"></span>
+        <span class="known-dot" id="knownDot" hidden>已掌握</span>
+        <span class="wrong-dot" id="wrongDot" hidden>错题</span>
+        <div class="word" id="wordFront"></div>
+        <div class="hint">先在脑中回忆法条要点，点击卡片查看</div>
+        <span class="pos" id="posFront"></span>
+      </div>
+      <div class="face back">
+        <span class="tag" id="tagBack"></span>
+        <div class="word zh" id="wordBack"></div>
+        <div class="hint" id="enBack"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="done-panel" id="done" hidden>
+    <h2 id="doneTitle">本组完成 🎉</h2>
+    <p id="doneText"></p>
+    <button id="btnAgainUnknown">只复习未掌握的卡片</button>
+    <button id="btnRestart">重新开始本组</button>
+  </div>
+
+  <div class="actions" id="actions">
+    <button id="btnFlip">翻转卡片（空格）</button>
+    <button id="btnUnknown" hidden>答错 ←</button>
+    <button id="btnKnown" hidden>答对 →</button>
+  </div>
+</main>
+
+<footer>答错自动收录错题本 · 在错题本答对后消除 · 数据保存在本地浏览器</footer>
+
+<script id="data" type="application/json">[{"en":"《民法典》的结构、条数与时间线？","zh":"共 7 编 1260 条。<br>2020-5-28 第十三届全国人大第三次会议通过，自 2021-1-1 起施行。<br>七编依次：总则、物权、合同、人格权、婚姻家庭、继承、侵权责任，以及附则。<br>新中国第一部以“法典”命名的法律。","group":"0·速记总览"},{"en":"民法典施行后同时废止的九部法律？（第1260条）","zh":"婚姻法、继承法、民法通则、收养法、担保法、合同法、物权法、侵权责任法、民法总则同时废止。","group":"0·速记总览"},{"en":"民事活动的基本原则有哪些？（第4-9条）","zh":"平等原则、自愿原则、公平原则、诚信原则；<br>不得违反法律、不得违背公序良俗（守法与公序良俗原则）；<br>应当有利于节约资源、保护生态环境（绿色原则）。","group":"0·速记总览"},{"en":"必背期限／年龄数字有哪些？","zh":"完全民事行为能力 18 周岁（16-18 以自己劳动收入为主要生活来源视为完全）；限制 8 周岁以上；不满 8 周岁无行为能力；<br>普通诉讼时效 3 年、最长保护期 20 年；<br>撤销权一般 1 年（重大误解 90 日）、最长 5 年；<br>结婚男 22、女 20；离婚冷静期 30 日＋领证期 30 日；<br>保证期间无约定为主债务届满起 6 个月；定金不超标的额 20%；租赁不超 20 年。","group":"0·速记总览"},{"en":"民法典相较旧法的几个重大变化？","zh":"①保证方式约定不明，由旧法“连带保证”改为“一般保证”（686条）；<br>②公证遗嘱不再效力优先，数份遗嘱以最后所立为准（1142条）；<br>③新增打印遗嘱、录像遗嘱形式（1136、1137条）；<br>④抵押期间抵押人可转让抵押财产（406条）；<br>⑤新增离婚冷静期（1077条）、居住权（366条）、自甘风险（1176条）、高空抛物治理（1254条）。","group":"0·速记总览"},{"en":"“以上、以下、以内、届满”与“不满、超过、以外”如何计数？（第1259条）","zh":"“以上”“以下”“以内”“届满”，包括本数；<br>“不满”“超过”“以外”，不包括本数。","group":"0·速记总览"},{"en":"民法的调整对象？（第2条）","zh":"调整平等主体的自然人、法人和非法人组织之间的人身关系和财产关系。","group":"一、总则编"},{"en":"民事行为能力如何按年龄划分？（第17-20条）","zh":"18 周岁以上为完全民事行为能力人；<br>16 周岁以上不满 18 周岁，以自己劳动收入为主要生活来源的，视为完全民事行为能力人；<br>8 周岁以上的未成年人为限制民事行为能力人；<br>不满 8 周岁的未成年人为无民事行为能力人。","group":"一、总则编"},{"en":"限制民事行为能力人实施的行为效力？（第145条）","zh":"实施的纯获利益的民事法律行为，或与其年龄、智力、精神健康状况相适应的行为有效；<br>其他行为经法定代理人同意、追认后有效；相对人可催告追认（30日内），善意相对人有撤销权。","group":"一、总则编"},{"en":"民事法律行为有效的三个要件？（第143条）","zh":"①行为人具有相应的民事行为能力；<br>②意思表示真实；<br>③不违反法律、行政法规的强制性规定，不违背公序良俗。","group":"一、总则编"},{"en":"哪些民事法律行为无效？","zh":"无民事行为能力人实施的；行为人与相对人以虚假意思表示实施的（通谋虚伪）；违反法律行政法规强制性规定的；违背公序良俗的；行为人与相对人恶意串通损害他人合法权益的。","group":"一、总则编"},{"en":"撤销权的行使期间（除斥期间）？（第152条）","zh":"一般自知道或应当知道撤销事由起 1 年内；重大误解的当事人自知道或应知起 90 日内；胁迫自胁迫行为终止起 1 年内；<br>自民事法律行为发生之日起 5 年内没有行使的，撤销权消灭。","group":"一、总则编"},{"en":"普通诉讼时效多长？起算与最长保护期？（第188条）","zh":"向人民法院请求保护民事权利的诉讼时效期间为 3 年，自权利人知道或应当知道权利受到损害及义务人之日起算；<br>自权利受到损害之日起超过 20 年的，法院不予保护，有特殊情况的可申请延长。","group":"一、总则编"},{"en":"诉讼时效中止与中断的区别？（第194、195条）","zh":"中止：时效期间最后 6 个月内因不可抗力等障碍不能行使请求权，中止原因消除后满 6 个月时效届满；<br>中断：因权利人主张权利、义务人同意履行、提起诉讼或仲裁等而中断，从中断时起重新计算。","group":"一、总则编"},{"en":"哪些请求权不适用诉讼时效？","zh":"请求停止侵害、排除妨碍、消除危险；不动产物权和登记的动产物权的权利人请求返还财产；请求支付抚养费、赡养费或者扶养费；依法不适用诉讼时效的其他请求权。","group":"一、总则编"},{"en":"表见代理的构成与后果？（第172条）","zh":"行为人没有代理权、超越代理权或代理权终止后仍实施代理行为，相对人有理由相信行为人有代理权的（善意且无过失），代理行为有效，被代理人应承担后果。","group":"一、总则编"},{"en":"宣告失踪与宣告死亡的时间条件？（第40、46条）","zh":"宣告失踪：自然人下落不明满 2 年；<br>宣告死亡：下落不明满 4 年，或因意外事件下落不明满 2 年；因意外事件下落不明、经有关机关证明不可能生存的，申请宣告死亡不受 2 年限制。","group":"一、总则编"},{"en":"期间如何计算？（第201、202条）","zh":"按照公历年、月、日、小时计算；<br>规定按照小时计算的，自规定时开始；按照年、月、日计算的，开始的当日不计入，自下一日开始计算。","group":"一、总则编"},{"en":"承担民事责任的方式主要有哪些？（第179条）","zh":"停止侵害；排除妨碍；消除危险；返还财产；恢复原状；修理、重作、更换；继续履行；赔偿损失；支付违约金；消除影响、恢复名誉；赔礼道歉。可单独或合并适用。","group":"一、总则编"},{"en":"因不可抗力不能履行义务如何免责？（第180条）","zh":"因不可抗力不能履行民事义务的，不承担民事责任（法律另有规定的除外）；<br>不可抗力指不能预见、不能避免且不能克服的客观情况。","group":"一、总则编"},{"en":"不动产物权与动产物权何时发生效力？（第209、224条）","zh":"不动产物权的设立、变更、转让、消灭，经依法登记发生效力（未经登记不发生效力，法律另有规定除外）；<br>动产物权的设立和转让，自交付时发生效力。","group":"二、物权编"},{"en":"善意取得的三个条件？（第311条）","zh":"无处分权人转让时，受让人：①受让时是善意的；②以合理的价格转让；③转让的财产依法应登记的已登记、不需登记的已交付。<br>符合的，受让人取得所有权，原所有权人有权向无处分权人请求赔偿。","group":"二、物权编"},{"en":"什么是居住权？如何设立与处分？（第366-369条）","zh":"居住权人有权按合同约定，对他人住宅享有占有、使用的用益物权，以满足生活居住需要；<br>应当向登记机构申请居住权登记，自登记时设立；原则上无偿设立；<br>不得转让、继承，设立居住权的住宅不得出租（当事人另有约定除外）；也可以遗嘱方式设立。","group":"二、物权编"},{"en":"抵押期间抵押人能否转让抵押财产？（第406条·新规）","zh":"可以转让。抵押期间抵押人转让抵押财产的，应当及时通知抵押权人；<br>抵押权不受影响（抵押权具有追及力）；抵押权人能证明转让可能损害抵押权的，可请求将转让价款提前清偿债务或提存。","group":"二、物权编"},{"en":"动产质权与留置权何时设立？（第429、447条）","zh":"动产质权自出质人交付质押财产时设立；<br>留置权是债权人合法占有债务人的动产，债务人不履行到期债务时，可留置该动产并优先受偿（法定担保物权）。","group":"二、物权编"},{"en":"同一财产抵押、质押并存时清偿顺序？（第415、456条）","zh":"同一财产既设立抵押权又设立质权的，按登记、交付的时间先后确定清偿顺序；<br>同一动产上已设立抵押权或质权，该动产又被留置的，留置权人优先受偿。","group":"二、物权编"},{"en":"业主对共有部分享有什么权利、承担什么义务？（第271-274条）","zh":"业主对建筑物内住宅、经营性用房等专有部分享有所有权，对共有部分享有共有和共同管理的权利，承担义务；<br>不得以放弃权利为由不履行义务；建筑区划内的道路、绿地（城镇公共及明示个人的除外）、公用设施、物业用房属于业主共有。","group":"二、物权编"},{"en":"维修资金、共有部分收益如何处理？","zh":"建筑物及其附属设施的维修资金属于业主共有，紧急情况下可依法申请使用；<br>建设单位、物业等利用业主共有部分产生的收入，扣除合理成本后属于业主共有。","group":"二、物权编"},{"en":"共有的两种形式与债务承担？（第307、308条）","zh":"按份共有人按份额享有所有权、分担费用与债务，可处分其份额（其他共有人同等条件有优先购买权）；<br>共同共有人共同享有、共同承担（如夫妻共有）；共有人对外承担连带责任，另有约定或法律另有规定除外。<br>约定不明、无家庭关系等的，视为按份共有。","group":"二、物权编"},{"en":"拾得遗失物应如何处理？（第314-318条）","zh":"应当返还权利人或送交公安等有关部门，不得据为己有；<br>拾得人可请求权利人支付保管等必要费用，但不得主张报酬（权利人悬赏寻找的，领取时应按承诺履行）；<br>自发布招领公告之日起 1 年内无人认领的，归国家所有。","group":"二、物权编"},{"en":"相邻关系处理原则？（第288条）","zh":"按照有利生产、方便生活、团结互助、公平合理的原则处理；给相邻方造成妨碍或损失的，应停止侵害、排除妨碍、赔偿损失。","group":"二、物权编"},{"en":"合同有哪些形式？电子数据算不算书面形式？（第469条）","zh":"可采用书面、口头或其他形式；<br>书面形式包括合同书、信件、电报、电传、传真，以及以电子数据交换、电子邮件等方式能够有形地表现所载内容并随时调取查用的数据电文。","group":"三、合同编"},{"en":"合同何时成立？（第490条）","zh":"当事人采用合同书形式订立合同的，自当事人均签名、盖章或按指印时合同成立；<br>在签名、盖章或按指印之前，一方已履行主要义务、对方接受时，该合同成立。","group":"三、合同编"},{"en":"格式条款提供方有何义务？哪些格式条款无效？（第496、497条）","zh":"应采取合理方式提示对方注意免除或减轻其责任等与对方有重大利害关系的条款，并按要求说明；未提示说明致对方没注意的，对方可主张该条款不成为合同内容；<br>不合理地免除或减轻己方责任、加重对方责任、限制或排除对方主要权利的格式条款无效。","group":"三、合同编"},{"en":"合同履行的基本原则？（第509条）","zh":"当事人应按约定全面履行自己的义务；<br>应遵循诚信原则，根据合同性质、目的和交易习惯履行通知、协助、保密等义务；<br>履行中应避免浪费资源、污染环境和破坏生态。","group":"三、合同编"},{"en":"什么是情势变更？法律后果？（第533条）","zh":"合同成立后，合同的基础条件发生了当事人在订立时无法预见、不属于商业风险的重大变化，继续履行明显不公平的，受不利影响的当事人可与对方重新协商；<br>合理期限内协商不成的，可请求法院或仲裁机构变更或解除合同。","group":"三、合同编"},{"en":"债权人代位权与撤销权？（第535、538、539条）","zh":"代位权：债务人怠于行使其债权或与该债权有关的从权利，影响债权人到期债权实现的，债权人可向法院请求以自己名义代位行使；<br>撤销权：债务人无偿处分财产或以明显不合理低价转让/高价受让且相对人知道，影响债权人债权实现的，债权人可请求法院撤销。","group":"三、合同编"},{"en":"合同法定解除的情形？（第563条）","zh":"因不可抗力致使不能实现合同目的；预期违约（明确表示或以行为表明不履行主要债务）；迟延履行主要债务经催告后合理期限内仍未履行；迟延履行或其他违约致使不能实现合同目的；法律规定的其他情形。<br>以持续履行债务为内容的不定期合同，当事人可随时解除但应合理期限前通知。","group":"三、合同编"},{"en":"违约责任的承担方式？（第577条）","zh":"一方不履行或履行不符合约定的，应承担继续履行、采取补救措施或赔偿损失等违约责任。","group":"三、合同编"},{"en":"违约赔偿的“可预见规则”？（第584条）","zh":"损失赔偿额相当于因违约造成的损失，包括合同履行后可获得的利益；<br>但不得超过违约一方订立合同时预见到或应当预见到的因违约可能造成的损失。","group":"三、合同编"},{"en":"违约金过高或过低怎么办？（第585条）","zh":"约定的违约金低于造成的损失的，法院或仲裁机构可根据请求予以增加；<br>过分高于造成的损失的，可根据请求予以适当减少。","group":"三、合同编"},{"en":"定金规则与上限？（第586、587条）","zh":"定金合同自实际交付定金时成立；数额由当事人约定，但不得超过主合同标的额的 20%，超过部分不产生定金效力；<br>给付方不履行的无权请求返还，收受方不履行的应双倍返还（定金罚则）。定金与违约金一般择一适用。","group":"三、合同编"},{"en":"民间借贷利率有何限制？（第680条）","zh":"禁止高利放贷，借款的利率不得违反国家有关规定；<br>借款合同对支付利息没有约定的视为没有利息，约定不明确又不能确定的按当地交易方式等确定，自然人之间借款视为没有利息。","group":"三、合同编"},{"en":"保证方式约定不明时如何认定？（第686条·重大变化）","zh":"保证分为一般保证和连带责任保证；<br>当事人在保证合同中对保证方式没有约定或约定不明确的，按照一般保证承担保证责任（旧《担保法》推定为连带，民法典已改为一般保证）。<br>一般保证人享有先诉抗辩权。","group":"三、合同编"},{"en":"保证期间多长？（第692条）","zh":"债权人与保证人可约定保证期间；<br>没有约定或约定不明确的，保证期间为主债务履行期限届满之日起 6 个月。","group":"三、合同编"},{"en":"租赁期限上限与形式要求？（第705、707条）","zh":"租赁期限不得超过 20 年，超过部分无效，期满可续订但自续订之日起仍不得超 20 年；<br>租赁期限 6 个月以上的应当采用书面形式，未采用书面形式且无法确定期限的，视为不定期租赁。","group":"三、合同编"},{"en":"承租人的优先购买权？（第726条）","zh":"出租人出卖租赁房屋的，应在出卖前的合理期限内通知承租人，承租人在同等条件下享有优先购买权；<br>出租人履行通知义务后，承租人在 15 日内未明确表示购买的，视为放弃（房屋按份共有人行使优先购买权或出租人卖给近亲属的除外）。买卖不破租赁。","group":"三、合同编"},{"en":"无因管理与不当得利？（第979、985条）","zh":"无因管理：没有法定或约定义务，为避免他人利益受损失而管理他人事务，可请求偿还因管理支出的必要费用、补偿受到的损失；<br>不当得利：没有合法根据取得不当利益造成他人损失的，应返还取得的利益。","group":"三、合同编"},{"en":"物业服务的两个禁止性规定？（第944条）","zh":"物业服务人已按约定和规定提供服务的，业主不得以未接受或无需接受相关物业服务为由拒付物业费；<br>物业服务人不得采取停止供电、供水、供热、供燃气等方式催交物业费。","group":"三、合同编"},{"en":"中介合同中“跳单”如何处理？（第965条）","zh":"委托人在接受中介人的服务后，利用中介人提供的交易机会或媒介服务，绕开中介人直接订立合同的，应当向中介人支付报酬。","group":"三、合同编"},{"en":"人格权包括哪些？（第990条）","zh":"生命权、身体权、健康权、姓名权、名称权、肖像权、名誉权、荣誉权、隐私权等权利；<br>自然人还享有基于人身自由、人格尊严产生的其他人格权益。人格权不得放弃、转让或继承。","group":"四、人格权编"},{"en":"性骚扰的认定与单位义务？（第1010条）","zh":"违背他人意愿，以言语、文字、图像、肢体行为等方式对他人实施性骚扰的，受害人有权依法请求行为人承担民事责任；<br>机关、企业、学校等单位应采取合理的预防、受理投诉、调查处置等措施，防止和制止性骚扰。","group":"四、人格权编"},{"en":"肖像权侵权的常见情形？（第1019、1020条）","zh":"不得丑化、污损，或利用信息技术手段伪造等方式侵害他人肖像权；未经肖像权人同意，不得制作、使用、公开其肖像（法律另有规定的合理使用除外，如个人学习欣赏、新闻报道、国家机关履职、公共环境展示等）。","group":"四、人格权编"},{"en":"什么是隐私权？禁止哪些侵害行为？（第1032、1033条）","zh":"隐私是自然人的私人生活安宁和不愿为他人知晓的私密空间、私密活动、私密信息；<br>不得以电话、短信、即时通讯、传单等侵扰私人生活安宁，不得进入、拍摄、窥视私密空间，不得拍摄窥视窃听公开私密活动，不得处理私密信息等。","group":"四、人格权编"},{"en":"处理个人信息应遵循什么原则与条件？（第1034、1035条）","zh":"应遵循合法、正当、必要原则，不得过度处理，并征得该自然人或其监护人同意（法律行政法规另有规定除外），公开处理信息，明示处理目的、方式和范围；<br>个人信息包括姓名、出生日期、身份证件号码、生物识别信息、住址、电话号码、电子邮箱、健康信息、行踪信息等。","group":"四、人格权编"},{"en":"名誉权与新闻报道、舆论监督的关系？（第1024-1026条）","zh":"民事主体享有名誉权，任何组织个人不得以侮辱、诽谤等方式侵害；<br>行为人为公共利益实施新闻报道、舆论监督，影响他人名誉的不承担民事责任，但捏造歪曲事实、未尽合理核实义务、使用侮辱性言辞的除外。","group":"四、人格权编"},{"en":"死者人格利益如何保护？（第994条）","zh":"死者的姓名、肖像、名誉、荣誉、隐私、遗体等受到侵害的，其配偶、子女、父母有权依法请求行为人承担民事责任；死者没有配偶、子女且父母已经死亡的，其他近亲属有权依法请求。","group":"四、人格权编"},{"en":"因当事人一方违约损害人格权，可否主张精神损害赔偿？（第996条）","zh":"可以。因当事人一方的违约行为损害对方人格权并造成严重精神损害，受损害方选择请求其承担违约责任的，不影响受损害方请求精神损害赔偿。","group":"四、人格权编"},{"en":"法定结婚年龄与禁止结婚情形？（第1047、1048条）","zh":"结婚年龄，男不得早于 22 周岁，女不得早于 20 周岁；<br>直系血亲或者三代以内的旁系血亲禁止结婚。","group":"五、婚姻家庭编"},{"en":"婚姻无效与可撤销的情形？（第1051-1053条）","zh":"无效三种：①重婚；②有禁止结婚的亲属关系；③未到法定婚龄。<br>可撤销：①因胁迫结婚（自胁迫终止起 1 年内请求）；②一方婚前患重大疾病未如实告知（自知道或应知起 1 年内请求）。<br>无效或被撤销的，无过错方有权请求损害赔偿。","group":"五、婚姻家庭编"},{"en":"哪些属于夫妻共同财产？（第1062条）","zh":"婚姻关系存续期间所得：①工资、奖金、劳务报酬；②生产、经营、投资的收益；③知识产权的收益；④继承或受赠的财产（遗嘱或赠与合同确定只归一方的除外）；⑤其他应共同所有的财产。夫妻有平等处理权。","group":"五、婚姻家庭编"},{"en":"哪些属于夫妻一方个人财产？（第1063条）","zh":"①一方的婚前财产；②一方因受到人身损害获得的赔偿或补偿；③遗嘱或赠与合同中确定只归一方的财产；④一方专用的生活用品；⑤其他应归一方的财产。","group":"五、婚姻家庭编"},{"en":"夫妻共同债务如何认定？（第1064条·共债共签）","zh":"①夫妻双方共同签名或一方事后追认等共同意思表示所负债务；②一方以个人名义为家庭日常生活需要所负债务，属共同债务；<br>一方以个人名义超出家庭日常生活需要所负债务，不属共同债务，但债权人能证明用于夫妻共同生活、共同生产经营或基于共同意思表示的除外。","group":"五、婚姻家庭编"},{"en":"夫妻可否约定财产归属？（第1065条）","zh":"可以书面约定婚姻关系存续期间所得财产及婚前财产归各自所有、共同所有或部分各自所有部分共同所有；约定对双方有法律约束力；约定各自所有的，相对人知道该约定的，以一方个人财产清偿。","group":"五、婚姻家庭编"},{"en":"协议离婚的程序与“离婚冷静期”？（第1076、1077条）","zh":"双方自愿离婚应签订书面离婚协议，亲自到婚姻登记机关申请；<br>自登记机关收到申请之日起 30 日内，任何一方可撤回（冷静期）；<br>前款期限届满后 30 日内，双方应亲自申请发给离婚证，未申请的视为撤回离婚登记申请。","group":"五、婚姻家庭编"},{"en":"诉讼离婚的标准与“应判离”情形？（第1079条）","zh":"法院应调解；感情确已破裂、调解无效的应准予离婚，如重婚或与他人同居、家暴虐待遗弃、有赌博吸毒等恶习屡教不改、因感情不和分居满 2 年等；<br>经法院判决不准离婚后，双方又分居满 1 年，一方再次提起离婚诉讼的，应当准予离婚。","group":"五、婚姻家庭编"},{"en":"离婚后子女抚养如何确定？（第1084条）","zh":"不满 2 周岁的子女，以由母亲直接抚养为原则；<br>已满 2 周岁的，父母协议不成的，按最有利于未成年子女的原则判决；<br>子女已满 8 周岁的，应当尊重其真实意愿。","group":"五、婚姻家庭编"},{"en":"离婚时无过错方请求损害赔偿的情形？（第1091条）","zh":"①重婚；②与他人同居；③实施家庭暴力；④虐待、遗弃家庭成员；⑤有其他重大过错。","group":"五、婚姻家庭编"},{"en":"离婚时夫妻共同财产如何分割？（第1087、1088条）","zh":"协议处理；协议不成的，由法院按照顾子女、女方和无过错方权益的原则判决；<br>夫妻一方因抚育子女、照料老年人、协助另一方工作等负担较多义务的，离婚时有权向另一方请求补偿。","group":"五、婚姻家庭编"},{"en":"“近亲属”“家庭成员”的范围？（第1045条）","zh":"亲属包括配偶、血亲和姻亲；<br>配偶、父母、子女、兄弟姐妹、祖父母、外祖父母、孙子女、外孙子女为近亲属；<br>配偶、父母、子女和其他共同生活的近亲属为家庭成员。","group":"五、婚姻家庭编"},{"en":"非婚生子女、抚养赡养义务？（第1067、1071条）","zh":"非婚生子女享有与婚生子女同等的权利；不直接抚养的生父或生母应负担抚养费；<br>父母不履行抚养义务的，未成年或不能独立生活的成年子女有权要抚养费；成年子女不履行赡养义务的，缺乏劳动能力或生活困难的父母有权要赡养费。","group":"五、婚姻家庭编"},{"en":"离婚时一方挥霍/隐藏共同财产的后果？（第1092条）","zh":"一方隐藏、转移、变卖、毁损、挥霍夫妻共同财产，或伪造夫妻共同债务企图侵占另一方财产的，对该方可以少分或不分；离婚后发现上述行为的，另一方可起诉请求再次分割。","group":"五、婚姻家庭编"},{"en":"继承从何时开始？遗产指什么？（第1121、1122条）","zh":"继承从被继承人死亡时开始；<br>遗产是自然人死亡时遗留的个人合法财产，依照法律规定或根据其性质不得继承的遗产不得继承。","group":"六、继承编"},{"en":"遗产处理的三种依据及先后顺序？（第1123条）","zh":"继承开始后：有遗赠扶养协议的，按协议办理；有遗嘱的，按遗嘱继承或遗赠办理；都没有的，按法定继承办理。<br>即：遗赠扶养协议 ＞ 遗嘱继承/遗赠 ＞ 法定继承。","group":"六、继承编"},{"en":"法定继承的两个顺序？（第1127条）","zh":"第一顺序：配偶、子女、父母；<br>第二顺序：兄弟姐妹、祖父母、外祖父母。<br>继承开始由第一顺序继承，第二顺序不继承；没有第一顺序的由第二顺序继承。子女/父母/兄弟姐妹均含婚生非婚生、养、有扶养关系的继等。","group":"六、继承编"},{"en":"代位继承的两种情形？（第1128条）","zh":"①被继承人的子女先于被继承人死亡的，由其子女的直系晚辈血亲代位继承；<br>②被继承人的兄弟姐妹先于被继承人死亡的，由其兄弟姐妹的子女代位继承（民法典新增）。<br>代位继承人一般只能继承被代位继承人有权继承的份额。","group":"六、继承编"},{"en":"丧偶儿媳、女婿能否作为第一顺序继承人？（第1129条）","zh":"丧偶儿媳对公婆、丧偶女婿对岳父母，尽了主要赡养义务的，作为第一顺序继承人。","group":"六、继承编"},{"en":"法定继承份额如何分配？（第1130条）","zh":"同一顺序继承人份额一般应当均等；<br>对生活有特殊困难又缺乏劳动能力的应照顾；尽了主要扶养义务或共同生活的可以多分；有扶养能力条件却不尽扶养义务的应当不分或少分；协商同意也可以不均等。","group":"六、继承编"},{"en":"遗嘱有哪六种法定形式？（第1134-1139条）","zh":"①自书遗嘱（亲笔书写、签名、注明年月日）；②代书遗嘱（两个以上见证人，一人代书，遗嘱人、代书人等签名）；③打印遗嘱（两个以上见证人，每页签名）；④录音录像遗嘱（两个以上见证人，记录姓名或肖像及年月日）；⑤口头遗嘱（危急情况、两个以上见证人，危急消除后能书面/录像立的无效）；⑥公证遗嘱（经公证机构办理）。","group":"六、继承编"},{"en":"哪些人不能作遗嘱见证人？（第1140条）","zh":"①无民事行为能力人、限制民事行为能力人及其他不具有见证能力的人；②继承人、受遗赠人；③与继承人、受遗赠人有利害关系的人。","group":"六、继承编"},{"en":"数份遗嘱内容抵触以哪份为准？（第1142条·重大变化）","zh":"遗嘱人可以撤回、变更自己所立的遗嘱；立有数份遗嘱内容相抵触的，以最后的遗嘱为准。<br>民法典取消了原《继承法》中“公证遗嘱效力优先”的规定。","group":"六、继承编"},{"en":"遗嘱无效的情形与“必留份”？（第1141、1143条）","zh":"必留份：遗嘱应当为缺乏劳动能力又没有生活来源的继承人保留必要的遗产份额；<br>无效：无/限制民事行为能力人所立遗嘱；受欺诈、胁迫所立遗嘱；伪造的遗嘱；被篡改部分的内容无效。","group":"六、继承编"},{"en":"继承权在什么情况下丧失？（第1125条）","zh":"①故意杀害被继承人；②为争夺遗产杀害其他继承人；③遗弃或虐待被继承人情节严重；④伪造、篡改、隐匿、销毁遗嘱情节严重；⑤以欺诈胁迫手段迫使或妨碍被继承人设立、变更、撤回遗嘱情节严重。<br>③-⑤项确有悔改且被继承人宽恕或仍列为继承人的，可不丧失。","group":"六、继承编"},{"en":"接受/放弃继承与受遗赠的表示期限？（第1124条）","zh":"继承人放弃继承应在遗产处理前以书面形式作出，没有表示的视为接受继承；<br>受遗赠人应在知道受遗赠后 60 日内作出接受或放弃的表示，到期没有表示的视为放弃受遗赠。","group":"六、继承编"},{"en":"清偿被继承人债务的限度？（第1161条·限定继承）","zh":"继承人以所得遗产实际价值为限清偿被继承人依法应缴纳的税款和债务；超过遗产实际价值部分，继承人自愿偿还的不在此限；继承人放弃继承的，可以不负清偿责任。","group":"六、继承编"},{"en":"过错责任、过错推定与无过错责任？（第1165、1166条）","zh":"过错责任：行为人因过错侵害他人民事权益造成损害的应担责（一般原则）；<br>过错推定：依法推定有过错，行为人不能证明自己没过错即担责；<br>无过错责任：不论有无过错，法律规定应担责的依其规定。","group":"七、侵权责任编"},{"en":"“自甘风险”规则？（第1176条）","zh":"自愿参加具有一定风险的文体活动，因其他参加者的行为受到损害的，受害人不得请求其他参加者担责；但其他参加者对损害发生有故意或重大过失的除外。活动组织者责任适用安保义务规定。","group":"七、侵权责任编"},{"en":"“自助行为”的条件与限度？（第1177条）","zh":"合法权益受侵害、情况紧迫且不能及时获得国家机关保护、不立即采取措施将受难以弥补损害的，受害人可在保护自己合法权益的必要范围内采取扣留侵权人财物等合理措施，但应立即请求有关国家机关处理；措施不当造成他人损害的应担责。","group":"七、侵权责任编"},{"en":"人身损害赔偿的范围？（第1179条）","zh":"应赔偿医疗费、护理费、交通费、营养费、住院伙食补助费等治疗和康复的合理费用，以及误工减少的收入；<br>造成残疾的还赔辅助器具费和残疾赔偿金；造成死亡的还赔丧葬费和死亡赔偿金。","group":"七、侵权责任编"},{"en":"精神损害赔偿的条件？（第1183条）","zh":"侵害自然人人身权益造成严重精神损害的，被侵权人有权请求精神损害赔偿；<br>因故意或重大过失侵害自然人具有人身意义的特定物造成严重精神损害的，也有权请求。","group":"七、侵权责任编"},{"en":"用人单位、个人劳务中的责任？（第1191、1192条）","zh":"用人单位的工作人员因执行工作任务造成他人损害的，由用人单位承担侵权责任，单位担责后可向有故意或重大过失的工作人员追偿；<br>个人之间形成劳务关系，提供劳务一方因劳务造成他人损害的，由接受劳务一方担责。","group":"七、侵权责任编"},{"en":"安全保障义务及责任？（第1198条）","zh":"宾馆、商场、银行、车站、机场、体育场馆、娱乐场所等经营场所、公共场所的经营者、管理者，或群众性活动的组织者，未尽到安全保障义务造成他人损害的应担责；<br>因第三人行为造成损害的由第三人担责，安保义务人未尽义务的承担相应补充责任，担责后可向第三人追偿。","group":"七、侵权责任编"},{"en":"未成年人在校园受到人身损害如何归责？（第1199-1201条）","zh":"无民事行为能力人（不满8岁）在幼儿园、学校等学习生活期间受损害：教育机构承担过错推定责任（能证明尽到职责的免责）；<br>限制民事行为能力人（8岁以上）受损害：教育机构承担过错责任（未尽教育管理职责才担责）；<br>因第三人致害由第三人担责，学校未尽管理职责的承担相应补充责任。","group":"七、侵权责任编"},{"en":"产品责任如何分配？（第1202、1203条）","zh":"因产品存在缺陷造成损害的，生产者承担无过错责任；被侵权人可向生产者或销售者请求赔偿（不真正连带责任）；<br>因销售者过错使产品存在缺陷的，生产者赔偿后有权向销售者追偿，反之亦然。","group":"七、侵权责任编"},{"en":"机动车交通事故责任的一般规则？（第1209-1213条）","zh":"因租赁、借用等情形机动车所有人/管理人与使用人不是同一人，属机动车一方责任的，由使用人赔偿，所有人/管理人有过错的承担相应责任；<br>以买卖等方式转让并交付但未登记，发生事故属机动车一方责任的，由受让人赔偿；损害赔偿先由交强险在限额内赔偿，不足部分由商业险赔偿，仍不足或未投保的由侵权人赔偿。","group":"七、侵权责任编"},{"en":"“好意同乘”能否减轻责任？（第1217条）","zh":"非营运机动车发生交通事故造成无偿搭乘人损害，属于该机动车一方责任的，应当减轻其赔偿责任，但机动车使用人有故意或者重大过失的除外。","group":"七、侵权责任编"},{"en":"医疗损害责任如何归责？推定过错的情形？（第1218、1222条）","zh":"患者在诊疗活动中受到损害，医疗机构或其医务人员有过错的，由医疗机构承担赔偿责任（过错责任）；<br>推定医疗机构有过错三种情形：①违反法律行政法规规章及其他诊疗规范；②隐匿或拒绝提供与纠纷有关的病历资料；③遗失、伪造、篡改或违法销毁病历资料。","group":"七、侵权责任编"},{"en":"环境污染责任的举证与数人责任？（第1229、1230条）","zh":"因污染环境、破坏生态造成损害的，侵权人承担无过错责任；<br>适用举证责任倒置：行为人应就法律规定的不承担责任或减轻责任情形及其行为与损害之间不存在因果关系承担举证责任。","group":"七、侵权责任编"},{"en":"饲养动物损害责任？（第1245、1247条）","zh":"饲养动物造成他人损害的，动物饲养人或管理人承担无过错责任；能证明损害是因被侵权人故意或重大过失造成的，可以不承担或减轻责任；<br>禁止饲养的烈性犬等危险动物造成损害的，动物饲养人或管理人没有免责减责事由（一律担责）。","group":"七、侵权责任编"},{"en":"高空抛物坠物如何追责？（第1254条）","zh":"从建筑物中抛掷物品或从建筑物上坠落的物品造成他人损害的，由侵权人依法承担责任；<br>经调查难以确定具体侵权人的，除能够证明自己不是侵权人的外，由可能加害的建筑物使用人给予补偿，补偿后有权向侵权人追偿；<br>物业服务人等应采取必要安全保障措施，未采取的承担未尽安保义务的相应责任；公安等机关应依法及时调查、查清责任人。","group":"七、侵权责任编"},{"en":"建筑物倒塌塌陷、脱落坠落的责任？（第1252、1253条）","zh":"建筑物、构筑物或其他设施倒塌、塌陷造成损害的，由建设单位与施工单位承担连带责任（能证明不存在质量缺陷的除外），赔偿后可向其他责任人追偿；<br>因脱落、坠落造成损害，所有人、管理人或使用人不能证明自己没有过错的，应承担侵权责任，赔偿后有其他责任人的可追偿。","group":"七、侵权责任编"}]</script>
+<script>
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const KNOWN_KEY = 'vm_known';
+const WRONG_KEY = 'vm_wrong';
+const store = {
+  get known() { try { return new Set(JSON.parse(localStorage.getItem(KNOWN_KEY) || '[]')); } catch { return new Set(); } },
+  set known(set) { localStorage.setItem(KNOWN_KEY, JSON.stringify([...set])); },
+  get wrong() { try { return new Set(JSON.parse(localStorage.getItem(WRONG_KEY) || '[]')); } catch { return new Set(); } },
+  set wrong(set) { localStorage.setItem(WRONG_KEY, JSON.stringify([...set])); }
+};
+
+let known = store.known;
+let wrong = store.wrong;
+let mode = 'study';        // 'study' 正常学习 | 'wrong' 错题本
+let queue = [];            // array of data indices
+let cur = 0;               // pointer into queue
+let flipped = false;
+let filtered = DATA.map((_, i) => i); // current group filter
+
+// ---------- group select ----------
+const groupSel = $('groupSel');
+const groups = [...new Set(DATA.map(d => d.group))];
+groupSel.innerHTML = '<option value="">全部（' + DATA.length + '）</option>' +
+  groups.map(g => {
+    const n = DATA.filter(d => d.group === g).length;
+    return `<option value="${g}">${g}（${n}）</option>`;
+  }).join('');
+groupSel.onchange = () => {
+  filtered = DATA.map((d, i) => ({ d, i })).filter(x => !groupSel.value || x.d.group === groupSel.value).map(x => x.i);
+  buildQueue();
+};
+
+// ---------- header stats / mode ----------
+function updateHeader() {
+  $('btnWrongBook').classList.toggle('active', mode === 'wrong');
+  $('btnWrongBook').innerHTML = mode === 'wrong'
+    ? '返回学习'
+    : '错题本<span class="badge">' + wrong.size + '</span>';
+  $('statsLine').innerHTML = mode === 'wrong'
+    ? '错题待消除 <b class="red">' + wrong.size + '</b>'
+    : '已掌握 <b>' + known.size + '</b> / <span>' + DATA.length + '</span>';
+}
+
+// ---------- queue ----------
+function buildQueue() {
+  let list = filtered.slice();
+  if (mode === 'wrong') list = list.filter(i => wrong.has(DATA[i].en));
+  queue = list;
+  cur = 0;
+  $('done').hidden = true;
+  $('study').style.display = '';
+  $('actions').style.visibility = '';
+  updateHeader();
+  render();
+}
+function restartGroup() { buildQueue(); }
+function reviewUnknown() {
+  queue = filtered.filter(i => !known.has(DATA[i].en));
+  cur = 0;
+  $('done').hidden = true;
+  $('study').style.display = '';
+  $('actions').style.visibility = '';
+  render();
+}
+
+// ---------- render ----------
+function render() {
+  if (queue.length === 0 || cur >= queue.length) { renderDone(); return; }
+  const d = DATA[queue[cur]];
+  $('wordFront').textContent = d.en;
+  $('tagFront').textContent = d.group;
+  $('knownDot').hidden = mode === 'wrong' || !known.has(d.en);
+  $('wrongDot').hidden = !wrong.has(d.en);
+  $('posFront').textContent = `${cur + 1} / ${queue.length}`;
+  $('wordBack').textContent = d.zh;
+  $('tagBack').textContent = d.group;
+  $('enBack').textContent = d.en;
+  flipped = false;
+  $('card').classList.remove('flipped');
+  $('btnFlip').hidden = false;
+  $('btnFlip').disabled = false;
+  $('btnUnknown').hidden = true;
+  $('btnKnown').hidden = true;
+  $('btnKnown').textContent = mode === 'wrong' ? '答对了 →' : '答对 →';
+  $('btnUnknown').textContent = mode === 'wrong' ? '还没记住 ←' : '答错 ←';
+  $('progressFill').style.width = (cur / queue.length * 100) + '%';
+  $('progressNum').textContent = `${cur} / ${queue.length}`;
+  updateHeader();
+}
+
+function renderDone() {
+  $('study').style.display = 'none';
+  $('done').hidden = false;
+  $('actions').style.visibility = 'hidden';
+  if (mode === 'wrong') {
+    const wrongInFilter = filtered.filter(i => wrong.has(DATA[i].en)).length;
+    $('doneTitle').textContent = wrongInFilter === 0 ? '错题全部消除 🎉' : '本轮错题过完 🎉';
+    $('doneText').textContent = wrongInFilter === 0
+      ? '当前范围的错题都已重新答对。' + (wrong.size === 0 ? '错题本已清空，继续保持！' : '其他分组还有错题，可切换分组继续。')
+      : `还有 ${wrongInFilter} 张错题未消除，再练一遍直到全部答对。`;
+    $('btnAgainUnknown').hidden = true;
+    $('btnRestart').textContent = wrongInFilter === 0 ? '返回学习' : '再练一遍错题';
+  } else {
+    const unknownInFilter = filtered.filter(i => !known.has(DATA[i].en)).length;
+    $('doneTitle').textContent = '本组完成 🎉';
+    $('doneText').textContent = unknownInFilter === 0
+      ? '太棒了！当前范围的卡片全部掌握。'
+      : `本组完成，当前范围还有 ${unknownInFilter} 张未掌握。`;
+    $('btnAgainUnknown').hidden = unknownInFilter === 0;
+    $('btnRestart').textContent = '重新开始本组';
+  }
+  $('progressFill').style.width = '100%';
+  $('progressNum').textContent = `${queue.length} / ${queue.length}`;
+  updateHeader();
+}
+
+// ---------- interactions ----------
+function flip() {
+  if ($('done').hidden === false) return;
+  flipped = !flipped;
+  $('card').classList.toggle('flipped', flipped);
+  $('btnFlip').hidden = flipped;
+  $('btnUnknown').hidden = !flipped;
+  $('btnKnown').hidden = !flipped;
+}
+function afterAnswer() {
+  flipped = false;
+  updateHeader();
+  render();
+  $('actions').style.visibility = '';
+}
+$('card').onclick = flip;
+$('btnFlip').onclick = flip;
+// 正常模式：认识=加入已掌握；错题本：答对=从错题本消除
+$('btnKnown').onclick = () => {
+  const d = DATA[queue[cur]];
+  if (mode === 'wrong') {
+    wrong.delete(d.en);
+    store.wrong = wrong;
+    queue.splice(cur, 1);          // 不前进，下一张移到当前位置
+  } else {
+    known.add(d.en);
+    store.known = known;
+    cur++;
+  }
+  afterAnswer();
+};
+// 任何模式下不认识都收录错题本，并排到队尾再出现
+$('btnUnknown').onclick = () => {
+  const d = DATA[queue[cur]];
+  wrong.add(d.en);
+  store.wrong = wrong;
+  queue.push(queue[cur]);
+  if (mode === 'wrong') queue.splice(cur, 1);
+  else cur++;
+  afterAnswer();
+};
+$('btnShuffle').onclick = () => {
+  for (let i = queue.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [queue[i], queue[j]] = [queue[j], queue[i]]; }
+  cur = 0; render();
+};
+$('btnReset').onclick = () => {
+  if (!confirm('确定清空所有已掌握记录？（错题本不受影响，需在错题本内答对消除）')) return;
+  known = new Set(); store.known = known;
+  buildQueue();
+};
+$('btnWrongBook').onclick = () => {
+  mode = mode === 'study' ? 'wrong' : 'study';
+  buildQueue();
+};
+$('btnAgainUnknown').onclick = () => { $('actions').style.visibility = ''; reviewUnknown(); };
+$('btnRestart').onclick = () => {
+  $('actions').style.visibility = '';
+  if (mode === 'wrong') buildQueue(); else restartGroup();
+};
+
+document.onkeydown = e => {
+  if (e.code === 'Space') { e.preventDefault(); flip(); }
+  else if (e.code === 'ArrowRight' && !$('btnKnown').hidden) $('btnKnown').click();
+  else if (e.code === 'ArrowLeft' && !$('btnUnknown').hidden) $('btnUnknown').click();
+};
+
+buildQueue();
+</script>
+</body>
+</html>
