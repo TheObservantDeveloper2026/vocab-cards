@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#4f6ef7">
+<title>宪法背诵卡 | Vocabulary Cards</title>
+<style>
+  :root {
+    --primary: #4f6ef7;
+    --primary-dark: #3b55d9;
+    --green: #22a06b;
+    --red: #e5484d;
+    --bg: #f4f6fb;
+    --card-bg: #ffffff;
+    --text: #1c2333;
+    --text-sub: #6b7280;
+    --radius: 18px;
+    --shadow: 0 10px 30px rgba(28, 35, 51, .10);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(160deg, #eef1fb 0%, #f7f8fc 55%, #eef4f2 100%);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+  header {
+    padding: 14px 16px 8px;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  h1 { font-size: 17px; font-weight: 700; letter-spacing: .3px; }
+  h1 small { color: var(--text-sub); font-weight: 500; font-size: 12px; margin-left: 8px; }
+  .toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  select, .btn-ghost {
+    appearance: none;
+    border: 1px solid #dfe3ee;
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    cursor: pointer;
+  }
+  select { min-width: 130px; }
+  .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+  .btn-ghost.active { border-color: var(--red); color: var(--red); background: #fef0f0; }
+  .badge {
+    display: inline-block;
+    min-width: 18px;
+    padding: 0 5px;
+    margin-left: 5px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+  }
+  .stats { margin-left: auto; font-size: 13px; color: var(--text-sub); white-space: nowrap; }
+  .stats b { color: var(--green); }
+  .stats b.red { color: var(--red); }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px 8px;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .progress-wrap { width: 100%; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .progress-bar { flex: 1; height: 6px; background: #e4e8f4; border-radius: 3px; overflow: hidden; }
+  .progress-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--primary), #7c9bff); border-radius: 3px; transition: width .25s; }
+  .progress-num { font-size: 12px; color: var(--text-sub); white-space: nowrap; }
+
+  .scene { perspective: 1400px; width: 100%; max-width: 560px; }
+  .card {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    transform-style: preserve-3d;
+    transition: transform .45s cubic-bezier(.2,.7,.3,1);
+    cursor: pointer;
+  }
+  .card.flipped { transform: rotateY(180deg); }
+  .face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .face.back { transform: rotateY(180deg); background: linear-gradient(150deg, #ffffff, #f6f8ff); }
+  .word {
+    font-size: clamp(30px, 7vw, 52px);
+    font-weight: 700;
+    word-break: break-word;
+    line-height: 1.2;
+  }
+  .word.zh { font-size: clamp(26px, 6vw, 42px); color: var(--primary-dark); font-weight: 600; }
+  .hint { margin-top: 18px; font-size: 13px; color: var(--text-sub); }
+  .tag {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 11px;
+    color: var(--text-sub);
+    background: #eef1fb;
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+  .known-dot {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 11px;
+    border-radius: 999px;
+    padding: 3px 10px;
+    background: #e8f7f0;
+    color: var(--green);
+  }
+  .wrong-dot {
+    position: absolute;
+    top: 40px;
+    right: 16px;
+    font-size: 11px;
+    border-radius: 999px;
+    padding: 3px 10px;
+    background: #fdebec;
+    color: var(--red);
+  }
+  .pos { position: absolute; bottom: 12px; right: 16px; font-size: 11px; color: #b6bccb; }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 560px;
+  }
+  .actions button {
+    flex: 1;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    transition: transform .08s, filter .15s;
+  }
+  .actions button:active { transform: scale(.97); }
+  #btnUnknown { background: var(--red); }
+  #btnKnown { background: var(--green); }
+  #btnFlip { background: var(--primary); width: 100%; max-width: 560px; flex: none; }
+  .actions button[disabled] { opacity: .45; cursor: default; }
+
+  .done-panel { text-align: center; max-width: 480px; }
+  .done-panel h2 { font-size: 26px; margin-bottom: 10px; }
+  .done-panel p { color: var(--text-sub); font-size: 14px; line-height: 1.8; margin-bottom: 22px; }
+  .done-panel button {
+    display: block; width: 100%; margin-bottom: 10px;
+    border: none; border-radius: 14px; padding: 13px 0;
+    font-size: 15px; font-weight: 600; cursor: pointer; color: #fff;
+  }
+  #btnAgainUnknown { background: var(--primary); }
+  #btnRestart { background: #8a93a8; }
+
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #b0b6c4;
+    padding: 10px 0 calc(12px + env(safe-area-inset-bottom));
+  }
+  kbd {
+    background:#fff;border:1px solid #dfe3ee;border-bottom-width:2px;border-radius:5px;
+    padding:1px 5px;font-size:11px;color:#5b6272;
+  }
+  @media (max-width: 480px) {
+    .card { min-height: 250px; }
+    .stats { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>宪法背诵卡 <small>点击卡片 · 看问题想条文</small></h1>
+  <div class="toolbar">
+    <select id="groupSel"></select>
+    <button class="btn-ghost" id="btnShuffle">洗牌</button>
+    <button class="btn-ghost" id="btnWrongBook">错题本<span class="badge" id="wrongBadge">0</span></button>
+    <button class="btn-ghost" id="btnReset">清空进度</button>
+    <span class="stats" id="statsLine"></span>
+  </div>
+</header>
+
+<main>
+  <div class="progress-wrap">
+    <div class="progress-bar"><i id="progressFill"></i></div>
+    <span class="progress-num" id="progressNum">0 / 0</span>
+  </div>
+
+  <div class="scene" id="study">
+    <div class="card" id="card">
+      <div class="face front">
+        <span class="tag" id="tagFront"></span>
+        <span class="known-dot" id="knownDot" hidden>已掌握</span>
+        <span class="wrong-dot" id="wrongDot" hidden>错题</span>
+        <div class="word" id="wordFront"></div>
+        <div class="hint">先在脑中回忆宪法条文，点击卡片查看</div>
+        <span class="pos" id="posFront"></span>
+      </div>
+      <div class="face back">
+        <span class="tag" id="tagBack"></span>
+        <div class="word zh" id="wordBack"></div>
+        <div class="hint" id="enBack"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="done-panel" id="done" hidden>
+    <h2 id="doneTitle">本组完成 🎉</h2>
+    <p id="doneText"></p>
+    <button id="btnAgainUnknown">只复习未掌握的卡片</button>
+    <button id="btnRestart">重新开始本组</button>
+  </div>
+
+  <div class="actions" id="actions">
+    <button id="btnFlip">翻转卡片（空格）</button>
+    <button id="btnUnknown" hidden>答错 ←</button>
+    <button id="btnKnown" hidden>答对 →</button>
+  </div>
+</main>
+
+<footer>答错自动收录错题本 · 在错题本答对后消除 · 数据保存在本地浏览器</footer>
+
+<script id="data" type="application/json">[{"en":"我国现行宪法的通过、修正与结构？","zh":"现行宪法 1982-12-4 第五届全国人大第五次会议通过并公布施行（现行“八二宪法”）；<br>历经 5 次修正：1988、1993、1999、2004、2018 年；<br>结构：序言 ＋ 第一章总纲、第二章公民的基本权利和义务、第三章国家机构（8 节）、第四章国旗国歌国徽首都，共 143 条。","group":"0·速记总览"},{"en":"国家宪法日是哪一天？为什么？","zh":"12 月 4 日。<br>2014 年全国人大常委会决定设立国家宪法日；因现行宪法于 1982 年 12 月 4 日通过。","group":"0·速记总览"},{"en":"五次宪法修正案各改了什么（高频要点）？","zh":"1988：私营经济是补充、土地使用权可依法转让；<br>1993：“社会主义市场经济”入宪、“国营”改“国有”、县级人大任期 3 年改 5 年；<br>1999：邓小平理论入宪、“依法治国”、非公有制经济是“重要组成部分”、“反革命”改“危害国家安全”；<br>2004：“三个代表”、国家尊重和保障人权、公民合法私有财产不受侵犯（征收补偿）、乡级人大任期 3 改 5、“戒严”改“紧急状态”；<br>2018：习近平新时代中国特色社会主义思想入宪、监察委员会、宪法宣誓、党的领导写入第 1 条、主席任期删除两届限制。","group":"0·速记总览"},{"en":"2018 年宪法修正案的核心内容？","zh":"①指导思想增加习近平新时代中国特色社会主义思想，规定贯彻新发展理念、五个文明协调发展；<br>②第 1 条第 2 款增加“中国共产党领导是中国特色社会主义最本质的特征”；<br>③国家机构增设“监察委员会”一节（第 123-127 条）；<br>④第 27 条增加国家工作人员就职宪法宣誓制度；<br>⑤第 79 条删除国家主席副主席“连续任职不得超过两届”；<br>⑥赋予设区的市地方立法权；民族关系增加“和谐”。","group":"0·速记总览"},{"en":"宪法修改的提议与通过程序？（第64条）","zh":"提议：由全国人民代表大会常务委员会，或者五分之一以上的全国人民代表大会代表提议；<br>通过：由全国人民代表大会以全体代表的三分之二以上的多数通过；<br>对比：普通法律和其他议案由全国人大以全体代表的过半数通过。","group":"0·速记总览"},{"en":"宪法的最高法律效力体现在哪？（序言、第5条）","zh":"宪法是国家的根本法，具有最高法律效力；一切法律、行政法规和地方性法规都不得同宪法相抵触；<br>一切国家机关和武装力量、各政党和各社会团体、各企业事业组织都必须以宪法为根本活动准则；<br>全国各族人民、一切国家机关和武装力量、各政党各团体都负有维护宪法尊严、保证宪法实施的职责。","group":"0·速记总览"},{"en":"必背数字有哪些？","zh":"选举权年龄：年满 18 周岁；国家主席副主席：年满 45 周岁；<br>全国人大及地方各级人大任期：均为 5 年；<br>修宪提议：常委会或 1/5 以上代表；修宪通过：全体代表 2/3 以上；临时召集全国人大：1/5 以上代表提议；推迟选举：常委会全体组成人员 2/3 以上；<br>连续任职不超过两届：全国人大常委会委员长副委员长、国务院总理副总理国务委员、最高法院长、最高检检察长、国家监察委主任。","group":"0·速记总览"},{"en":"我国中央国家机构有哪些？","zh":"全国人民代表大会及其常务委员会（最高国家权力机关）；中华人民共和国主席（国家元首）；国务院（最高国家行政机关、中央人民政府）；中央军事委员会（最高军事领导机关）；国家监察委员会（最高监察机关）；最高人民法院（最高审判机关）；最高人民检察院（最高检察机关）。","group":"0·速记总览"},{"en":"我国的国体是什么？（第1条）","zh":"中华人民共和国是工人阶级领导的、以工农联盟为基础的人民民主专政的社会主义国家。<br>社会主义制度是中华人民共和国的根本制度。中国共产党领导是中国特色社会主义最本质的特征（2018 年入宪）。禁止任何组织或者个人破坏社会主义制度。","group":"一、序言与总纲"},{"en":"我国的政体（根本政治制度）是什么？（第2、3条）","zh":"人民代表大会制度。<br>中华人民共和国的一切权力属于人民；人民行使国家权力的机关是全国人民代表大会和地方各级人民代表大会；<br>国家机构实行民主集中制原则：人大由民主选举产生、对人民负责受人民监督；行政、监察、审判、检察机关都由人大产生、对它负责、受它监督。","group":"一、序言与总纲"},{"en":"我国的政党制度和统一战线？（序言）","zh":"中国共产党领导的多党合作和政治协商制度将长期存在和发展；<br>由中国共产党领导、有各民主党派和各人民团体参加的广泛的爱国统一战线，包括全体社会主义劳动者、社会主义事业的建设者、拥护社会主义的爱国者、拥护祖国统一和致力于中华民族伟大复兴的爱国者。","group":"一、序言与总纲"},{"en":"我国的国家结构形式与民族关系？（序言、第4条）","zh":"单一制国家；各民族一律平等，维护和发展平等团结互助和谐的社会主义民族关系；<br>各少数民族聚居的地方实行区域自治，设立自治机关，行使自治权。各民族自治地方都是中华人民共和国不可分离的部分。","group":"一、序言与总纲"},{"en":"依法治国与法治统一如何规定？（第5条）","zh":"中华人民共和国实行依法治国，建设社会主义法治国家；<br>一切法律、行政法规、地方性法规都不得同宪法相抵触；一切国家机关、武装力量、政党、团体、组织都必须遵守宪法和法律，违反者须追究；<br>任何组织或者个人都不得有超越宪法和法律的特权。","group":"一、序言与总纲"},{"en":"我国的基本经济制度与分配制度？（第6条）","zh":"国家在社会主义初级阶段，坚持公有制为主体、多种所有制经济共同发展的基本经济制度；<br>坚持按劳分配为主体、多种分配方式并存的分配制度。","group":"一、序言与总纲"},{"en":"国有经济、集体经济、非公有制经济的地位？（第7、8、11条）","zh":"国有经济，即社会主义全民所有制经济，是国民经济中的主导力量，国家保障国有经济的巩固和发展；<br>国家保护城乡集体经济组织合法权益，鼓励、指导和帮助集体经济发展；<br>在法律规定范围内的个体经济、私营经济等非公有制经济，是社会主义市场经济的重要组成部分，国家保护其合法权利利益，鼓励、支持、引导其发展并依法监督管理。","group":"一、序言与总纲"},{"en":"土地制度如何规定？（第10条）","zh":"城市的土地属于国家所有；农村和城市郊区的土地，除由法律规定属于国家所有的以外，属于集体所有；宅基地、自留地、自留山也属于集体所有；<br>任何组织或个人不得侵占、买卖或以其他形式非法转让土地，土地使用权可以依照法律规定转让；<br>国家为了公共利益需要，可依法对土地实行征收或征用并给予补偿。","group":"一、序言与总纲"},{"en":"自然资源的所有权归属？（第9条）","zh":"矿藏、水流、森林、山岭、草原、荒地、滩涂等自然资源，都属于国家所有，即全民所有；由法律规定属于集体所有的森林、山岭、草原、荒地、滩涂除外；<br>国家保障自然资源的合理利用，禁止任何组织或个人用任何手段侵占或破坏自然资源。","group":"一、序言与总纲"},{"en":"公民私有财产权如何保护？（第13条·2004修正）","zh":"公民的合法的私有财产不受侵犯；国家依照法律规定保护公民的私有财产权和继承权；<br>国家为了公共利益的需要，可以依照法律规定对公民的私有财产实行征收或者征用并给予补偿。","group":"一、序言与总纲"},{"en":"国家如何对待市场经济与社会保障？（第14-16条）","zh":"国家实行社会主义市场经济，加强经济立法、完善宏观调控，禁止任何组织或个人扰乱社会经济秩序；<br>国有企业在法律规定范围内有权自主经营；国家建立健全同经济发展水平相适应的社会保障制度（第 14 条第 4 款，2004 年入宪）。","group":"一、序言与总纲"},{"en":"特别行政区制度的宪法依据？（第31条）","zh":"国家在必要时得设立特别行政区；在特别行政区内实行的制度按照具体情况由全国人民代表大会以法律规定（“一国两制”的宪法依据，如香港、澳门基本法）。","group":"一、序言与总纲"},{"en":"国家对教育、科学、文化和精神文明的规定？（第19-24条）","zh":"国家发展社会主义的教育事业，普及初等义务教育，发展中等、高等和职业教育；<br>发展自然科学和社会科学事业、医疗卫生、体育、文学艺术等文化事业；<br>加强社会主义精神文明建设，倡导社会主义核心价值观，提倡爱祖国、爱人民、爱劳动、爱科学、爱社会主义的公德。","group":"一、序言与总纲"},{"en":"计划生育、外国人待遇的宪法规定？（第25、32条）","zh":"国家推行计划生育，使人口增长同经济和社会发展计划相适应；<br>国家保护在中国境内的外国人的合法权利和利益，在中国境内的外国人必须遵守中国法律；国家对于因政治原因要求避难的外国人，可以给予受庇护的权利。","group":"一、序言与总纲"},{"en":"基层群众性自治组织有哪些？（第111条）","zh":"城市和农村按居民居住地区设立的居民委员会或者村民委员会是基层群众性自治组织；<br>居委会、村委会的主任、副主任和委员由居民选举，设人民调解、治安保卫、公共卫生等委员会，办理本居住地区公共事务和公益事业。","group":"一、序言与总纲"},{"en":"公民资格与法律面前平等？（第33条）","zh":"凡具有中华人民共和国国籍的人都是中华人民共和国公民；<br>公民在法律面前一律平等；国家尊重和保障人权（2004 年入宪）；<br>任何公民享有宪法和法律规定的权利，同时必须履行宪法和法律规定的义务。","group":"二、公民权利与义务"},{"en":"选举权和被选举权的条件？（第34条）","zh":"中华人民共和国年满 18 周岁的公民，不分民族、种族、性别、职业、家庭出身、宗教信仰、教育程度、财产状况、居住期限，都有选举权和被选举权；但是依照法律被剥夺政治权利的人除外。","group":"二、公民权利与义务"},{"en":"公民的六项政治自由？（第35条）","zh":"言论、出版、集会、结社、游行、示威的自由。","group":"二、公民权利与义务"},{"en":"宗教信仰自由的内容与界限？（第36条）","zh":"公民有宗教信仰自由，任何国家机关、社会团体和个人不得强制公民信仰或不信仰宗教，不得歧视；<br>国家保护正常的宗教活动，任何人不得利用宗教进行破坏社会秩序、损害公民身体健康、妨碍国家教育制度的活动；<br>宗教团体和宗教事务不受外国势力的支配。","group":"二、公民权利与义务"},{"en":"人身自由不受侵犯如何保障？（第37条）","zh":"公民的人身自由不受侵犯；<br>任何公民，非经人民检察院批准或者决定或者人民法院决定，并由公安机关执行，不受逮捕；<br>禁止非法拘禁和以其他方法非法剥夺或限制人身自由，禁止非法搜查公民身体。","group":"二、公民权利与义务"},{"en":"人格尊严、住宅、通信自由如何保护？（第38-40条）","zh":"人格尊严不受侵犯，禁止用任何方法对公民进行侮辱、诽谤和诬告陷害；<br>住宅不受侵犯，禁止非法搜查或非法侵入公民住宅；<br>通信自由和通信秘密受法律保护，除因国家安全或追查刑事犯罪需要，由公安机关或检察机关依法定程序检查外，任何组织个人不得以任何理由侵犯。","group":"二、公民权利与义务"},{"en":"公民对国家机关的监督权？（第41条）","zh":"公民对任何国家机关和国家工作人员有提出批评和建议的权利；对其违法失职行为有提出申诉、控告或检举的权利，但不得捏造歪曲事实诬告陷害；<br>有关国家机关必须查清事实、负责处理，不得压制和打击报复；<br>因国家机关和国家工作人员侵犯公民权利而受损失的人，有依法取得赔偿的权利。","group":"二、公民权利与义务"},{"en":"哪些既是权利又是义务？（第42、46条）","zh":"劳动和受教育，既是公民的权利，又是公民的义务。","group":"二、公民权利与义务"},{"en":"劳动者的休息权与退休、物质帮助？（第43-45条）","zh":"劳动者有休息的权利，国家规定职工工作时间和休假制度；<br>国家依照法律规定实行企业事业组织职工和国家机关工作人员的退休制度；<br>公民在年老、疾病或者丧失劳动能力的情况下，有从国家和社会获得物质帮助的权利。","group":"二、公民权利与义务"},{"en":"公民有哪些文化、妇女婚姻家庭方面的权利？（第47-50条）","zh":"有进行科学研究、文学艺术创作和其他文化活动的自由；<br>妇女在政治、经济、文化、社会和家庭生活各方面享有同男子平等的权利，实行男女同工同酬；<br>婚姻、家庭、母亲和儿童受国家保护，禁止破坏婚姻自由，禁止虐待老人、妇女和儿童；保护华侨、归侨、侨眷的合法权益。","group":"二、公民权利与义务"},{"en":"公民行使权利的界限？（第51条）","zh":"公民在行使自由和权利的时候，不得损害国家的、社会的、集体的利益和其他公民的合法的自由和权利（禁止权利滥用）。","group":"二、公民权利与义务"},{"en":"公民的基本义务有哪些？（第52-56条）","zh":"①维护国家统一和全国各民族团结；②遵守宪法和法律，保守国家秘密，爱护公共财产，遵守劳动纪律、公共秩序，尊重社会公德；③维护祖国的安全、荣誉和利益；④保卫祖国、抵抗侵略，依照法律服兵役和参加民兵组织；⑤依照法律纳税。","group":"二、公民权利与义务"},{"en":"受教育与计划生育义务的具体规定？（第46、49条）","zh":"公民有受教育的权利和义务，国家培养青少年儿童在品德、智力、体质等方面全面发展；<br>夫妻双方有实行计划生育的义务；父母有抚养教育未成年子女的义务，成年子女有赡养扶助父母的义务。","group":"二、公民权利与义务"},{"en":"全国人民代表大会的性质、组成与任期？（第57、59、60条）","zh":"全国人大是最高国家权力机关，其常设机关是全国人大常委会；<br>由省、自治区、直辖市、特别行政区和军队选出的代表组成，各少数民族应有适当名额代表；<br>每届任期 5 年，任期届满 2 个月前须完成下届代表选举。","group":"三、国家机构（人大·国家元首）"},{"en":"国家立法权由谁行使？（第58条）","zh":"全国人民代表大会和全国人民代表大会常务委员会行使国家立法权。","group":"三、国家机构（人大·国家元首）"},{"en":"全国人大会议如何召集？临时会议什么条件？（第61条）","zh":"全国人大会议每年举行一次，由全国人大常委会召集；<br>常委会认为必要，或者有五分之一以上的全国人大代表提议，可以临时召集；会议选举主席团主持。","group":"三、国家机构（人大·国家元首）"},{"en":"全国人大的主要职权？（第62条）","zh":"①修改宪法、监督宪法实施；②制定和修改刑事、民事、国家机构和其他的基本法律；③选举国家主席副主席；④根据主席提名决定国务院总理，根据总理提名决定副总理、国务委员等；⑤选举中央军委主席、国家监察委主任、最高法院长、最高检检察长；⑥审查批准国民经济和社会发展计划和计划执行情况报告、国家预算；⑦改变或撤销常委会不适当决定；⑧批准省、自治区、直辖市建置，决定特别行政区设立及其制度，决定战争和和平问题。","group":"三、国家机构（人大·国家元首）"},{"en":"全国人大常委会的性质与主要职权？（第67条）","zh":"是全国人大的常设机关，在全国人大闭会期间行使国家权力；<br>主要职权：解释宪法、监督宪法实施；解释法律；制定修改除基本法律以外的其他法律；在闭会期间对基本法律进行部分补充修改（不得抵触基本原则）；审查批准计划预算部分调整；监督国务院、中央军委、国家监委、最高法、最高检；撤销同宪法法律抵触的行政法规、地方性法规；决定特赦、动员、战争状态、紧急状态；任免部分国家机关人员等。","group":"三、国家机构（人大·国家元首）"},{"en":"全国人大代表的特殊保障（言论免责与人身保护）？（第74、75条）","zh":"人身特别保护：非经全国人大会议主席团许可（闭会期间非经常委会许可），不受逮捕或刑事审判；<br>言论表决免责：代表在全国人大各种会议上的发言和表决，不受法律追究。","group":"三、国家机构（人大·国家元首）"},{"en":"国家主席、副主席的任职条件与任期？（第79条）","zh":"由全国人民代表大会选举；<br>有选举权和被选举权、年满 45 周岁的中华人民共和国公民可以被选为主席、副主席；<br>每届任期同全国人大每届任期相同（2018 年修正案删除“连续任职不得超过两届”的规定）。","group":"三、国家机构（人大·国家元首）"},{"en":"国家主席有哪些职权？（第80、81条）","zh":"根据全国人大及其常委会的决定：公布法律，任免国务院总理、副总理、国务委员、各部部长等，授予国家勋章和荣誉称号，发布特赦令，宣布进入紧急状态，宣布战争状态，发布动员令；<br>代表中华人民共和国进行国事活动，接受外国使节，根据常委会决定派遣和召回驻外全权代表，批准和废除同外国缔结的条约和重要协定。","group":"三、国家机构（人大·国家元首）"},{"en":"国家主席缺位时如何继任？（第84条）","zh":"主席缺位时由副主席继任；副主席缺位时由全国人大补选；<br>主席、副主席都缺位时由全国人大补选，补选以前由全国人大常委会委员长暂时代理主席职位。","group":"三、国家机构（人大·国家元首）"},{"en":"国务院的性质、组成与负责制？（第85、86条）","zh":"国务院即中央人民政府，是最高国家权力机关的执行机关，是最高国家行政机关；<br>由总理、副总理若干人、国务委员若干人、各部部长、各委员会主任、审计长、秘书长组成；<br>国务院实行总理负责制，各部、各委员会实行部长、主任负责制。","group":"四、国家机构（政府·军委·地方·自治）"},{"en":"国务院的任期与两届限制？（第87条）","zh":"国务院每届任期同全国人大每届任期相同（5 年）；<br>总理、副总理、国务委员连续任职不得超过两届。","group":"四、国家机构（政府·军委·地方·自治）"},{"en":"国务院会议形式与主要职权？（第88、89条）","zh":"总理、副总理、国务委员、秘书长组成国务院常务会议；总理召集主持常务会议和全体会议；<br>主要职权：规定行政措施、制定行政法规、发布决定命令；向全国人大或常委会提出议案；统一领导各部和全国地方各级行政机关；编制执行国民经济计划和国家预算；管理经济、城乡建设、生态文明、教科文体卫、民政公安司法行政、对外事务、国防建设、民族事务；批准省级区域划分等。","group":"四、国家机构（政府·军委·地方·自治）"},{"en":"审计机关的地位与独立性？（第91条）","zh":"国务院设立审计机关，对国务院各部门和地方各级政府财政收支、国家财政金融机构和企业事业组织财务收支进行审计监督；<br>审计机关在国务院总理领导下，依法独立行使审计监督权，不受其他行政机关、社会团体和个人干涉。","group":"四、国家机构（政府·军委·地方·自治）"},{"en":"中央军事委员会的性质、组成与负责制？（第93、94条）","zh":"中央军委领导全国武装力量；由主席、副主席若干人、委员若干人组成；<br>实行主席负责制；每届任期同全国人大相同；<br>中央军事委员会主席对全国人民代表大会和全国人大常委会负责。","group":"四、国家机构（政府·军委·地方·自治）"},{"en":"地方各级人大与政府的设置、任期与选举？（第95-98条）","zh":"省、直辖市、县、市、市辖区、乡、民族乡、镇设立人民代表大会和人民政府；<br>地方各级人大是地方国家权力机关，县级以上设常委会；<br>省、直辖市、设区的市人大代表由下一级人大间接选举，县、乡两级代表由选民直接选举；<br>地方各级人大每届任期 5 年。","group":"四、国家机构（政府·军委·地方·自治）"},{"en":"地方性法规的制定权限？（第100条）","zh":"省、直辖市的人大及其常委会，在不同宪法、法律、行政法规相抵触的前提下，可制定地方性法规，报全国人大常委会备案；<br>设区的市的人大及其常委会，在不同宪法、法律、行政法规和本省、自治区地方性法规相抵触前提下，可依法制定地方性法规，报省级人大常委会批准后施行（2018 年入宪）。","group":"四、国家机构（政府·军委·地方·自治）"},{"en":"地方政府的性质、负责制与负责对象？（第105、110条）","zh":"地方各级人民政府是地方各级国家权力机关的执行机关，是地方各级国家行政机关；<br>实行省长、市长、县长、区长、乡长、镇长负责制；<br>地方各级政府对本级人大负责并报告工作，同时对上一级国家行政机关负责，全国地方各级政府都是国务院统一领导下的国家行政机关，都服从国务院。","group":"四、国家机构（政府·军委·地方·自治）"},{"en":"民族自治地方的自治机关与自治权？（第112-116条）","zh":"民族自治地方分为自治区、自治州、自治县；自治机关是自治区、自治州、自治县的人民代表大会和人民政府；<br>自治机关行使同级地方国家机关职权，同时依法行使自治权：人大有权制定自治条例和单行条例（报全国人大常委会批准后生效），自主管理地方财政、自主安排经济建设、自主管理教科文卫体事业；经国务院批准可组织本地方维护社会治安的公安部队。","group":"四、国家机构（政府·军委·地方·自治）"},{"en":"自治机关领导人员的民族要求？（第113、114条）","zh":"自治区、自治州、自治县的人大常委会中应当有实行区域自治的民族的公民担任主任或者副主任；<br>自治区主席、自治州州长、自治县县长由实行区域自治的民族的公民担任。","group":"四、国家机构（政府·军委·地方·自治）"},{"en":"监察委员会的性质与设置？（第123、124条·2018新增）","zh":"中华人民共和国各级监察委员会是国家的监察机关；<br>国家设立国家监察委员会和地方各级监察委员会；国家监察委员会是最高监察机关。","group":"五、监察·司法与第四章"},{"en":"监察委的组成、任期与两届限制？（第124条）","zh":"监察委员会由主任、副主任若干人、委员若干人组成；<br>主任每届任期同本级人大每届任期相同；<br>国家监察委员会主任连续任职不得超过两届。","group":"五、监察·司法与第四章"},{"en":"监察委如何独立行使职权、对谁负责？（第125、126条）","zh":"监察委员会依照法律规定独立行使监察权，不受行政机关、社会团体和个人的干涉；<br>国家监察委员会对全国人大和全国人大常委会负责；地方各级监察委员会对产生它的国家权力机关和上一级监察委员会负责。","group":"五、监察·司法与第四章"},{"en":"监察机关与其他机关如何配合制约？（第127条）","zh":"监察委员会办理职务违法和职务犯罪案件，应当与审判机关、检察机关、执法部门互相配合，互相制约。","group":"五、监察·司法与第四章"},{"en":"人民法院的性质与独立性？（第128、131条）","zh":"中华人民共和国人民法院是国家的审判机关；<br>最高人民法院是最高审判机关，监督地方各级和专门法院的审判工作；<br>人民法院依照法律规定独立行使审判权，不受行政机关、社会团体和个人的干涉。","group":"五、监察·司法与第四章"},{"en":"人民检察院的性质与独立性？（第134、136条）","zh":"中华人民共和国人民检察院是国家的法律监督机关；最高人民检察院是最高检察机关，领导地方各级和专门检察院工作；<br>人民检察院依照法律规定独立行使检察权，不受行政机关、社会团体和个人的干涉。","group":"五、监察·司法与第四章"},{"en":"“两院”对人大负责、最高负责人两届限制？（第133、138条）","zh":"最高人民法院、最高人民检察院对全国人大和全国人大常委会负责；地方各级法院、检察院对产生它的国家权力机关负责；<br>最高人民法院院长、最高人民检察院检察长每届任期同全国人大相同，连续任职不得超过两届。","group":"五、监察·司法与第四章"},{"en":"公检法三机关在刑事案件中的关系？（第140条）","zh":"人民法院、人民检察院和公安机关办理刑事案件，应当分工负责，互相配合，互相制约，以保证准确有效地执行法律。","group":"五、监察·司法与第四章"},{"en":"国旗、国歌、国徽、首都？（第141-143条）","zh":"国旗是五星红旗；国歌是《义勇军进行曲》；<br>国徽中间是五星照耀下的天安门，周围是谷穗和齿轮；<br>首都是北京。","group":"五、监察·司法与第四章"},{"en":"宪法宣誓制度？（第27条第3款·2018新增）","zh":"国家工作人员就职时应当依照法律规定公开进行宪法宣誓。","group":"五、监察·司法与第四章"},{"en":"我国宪法规定的特别行政区、紧急状态与特赦由谁决定？","zh":"特别行政区的设立及其制度由全国人大决定（第 31、62 条）；<br>全国或个别省、自治区、直辖市进入紧急状态由全国人大常委会决定，省级范围内部分地区进入紧急状态由国务院决定（第 67、89 条）；<br>特赦由全国人大常委会决定，国家主席发布特赦令（第 67、80 条）。","group":"五、监察·司法与第四章"}]</script>
+<script>
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const KNOWN_KEY = 'xc_known';
+const WRONG_KEY = 'xc_wrong';
+const store = {
+  get known() { try { return new Set(JSON.parse(localStorage.getItem(KNOWN_KEY) || '[]')); } catch { return new Set(); } },
+  set known(set) { localStorage.setItem(KNOWN_KEY, JSON.stringify([...set])); },
+  get wrong() { try { return new Set(JSON.parse(localStorage.getItem(WRONG_KEY) || '[]')); } catch { return new Set(); } },
+  set wrong(set) { localStorage.setItem(WRONG_KEY, JSON.stringify([...set])); }
+};
+
+let known = store.known;
+let wrong = store.wrong;
+let mode = 'study';        // 'study' 正常学习 | 'wrong' 错题本
+let queue = [];            // array of data indices
+let cur = 0;               // pointer into queue
+let flipped = false;
+let filtered = DATA.map((_, i) => i); // current group filter
+
+// ---------- group select ----------
+const groupSel = $('groupSel');
+const groups = [...new Set(DATA.map(d => d.group))];
+groupSel.innerHTML = '<option value="">全部（' + DATA.length + '）</option>' +
+  groups.map(g => {
+    const n = DATA.filter(d => d.group === g).length;
+    return `<option value="${g}">${g}（${n}）</option>`;
+  }).join('');
+groupSel.onchange = () => {
+  filtered = DATA.map((d, i) => ({ d, i })).filter(x => !groupSel.value || x.d.group === groupSel.value).map(x => x.i);
+  buildQueue();
+};
+
+// ---------- header stats / mode ----------
+function updateHeader() {
+  $('btnWrongBook').classList.toggle('active', mode === 'wrong');
+  $('btnWrongBook').innerHTML = mode === 'wrong'
+    ? '返回学习'
+    : '错题本<span class="badge">' + wrong.size + '</span>';
+  $('statsLine').innerHTML = mode === 'wrong'
+    ? '错题待消除 <b class="red">' + wrong.size + '</b>'
+    : '已掌握 <b>' + known.size + '</b> / <span>' + DATA.length + '</span>';
+}
+
+// ---------- queue ----------
+function buildQueue() {
+  let list = filtered.slice();
+  if (mode === 'wrong') list = list.filter(i => wrong.has(DATA[i].en));
+  queue = list;
+  cur = 0;
+  $('done').hidden = true;
+  $('study').style.display = '';
+  $('actions').style.visibility = '';
+  updateHeader();
+  render();
+}
+function restartGroup() { buildQueue(); }
+function reviewUnknown() {
+  queue = filtered.filter(i => !known.has(DATA[i].en));
+  cur = 0;
+  $('done').hidden = true;
+  $('study').style.display = '';
+  $('actions').style.visibility = '';
+  render();
+}
+
+// ---------- render ----------
+function render() {
+  if (queue.length === 0 || cur >= queue.length) { renderDone(); return; }
+  const d = DATA[queue[cur]];
+  $('wordFront').textContent = d.en;
+  $('tagFront').textContent = d.group;
+  $('knownDot').hidden = mode === 'wrong' || !known.has(d.en);
+  $('wrongDot').hidden = !wrong.has(d.en);
+  $('posFront').textContent = `${cur + 1} / ${queue.length}`;
+  $('wordBack').textContent = d.zh;
+  $('tagBack').textContent = d.group;
+  $('enBack').textContent = d.en;
+  flipped = false;
+  $('card').classList.remove('flipped');
+  $('btnFlip').hidden = false;
+  $('btnFlip').disabled = false;
+  $('btnUnknown').hidden = true;
+  $('btnKnown').hidden = true;
+  $('btnKnown').textContent = mode === 'wrong' ? '答对了 →' : '答对 →';
+  $('btnUnknown').textContent = mode === 'wrong' ? '还没记住 ←' : '答错 ←';
+  $('progressFill').style.width = (cur / queue.length * 100) + '%';
+  $('progressNum').textContent = `${cur} / ${queue.length}`;
+  updateHeader();
+}
+
+function renderDone() {
+  $('study').style.display = 'none';
+  $('done').hidden = false;
+  $('actions').style.visibility = 'hidden';
+  if (mode === 'wrong') {
+    const wrongInFilter = filtered.filter(i => wrong.has(DATA[i].en)).length;
+    $('doneTitle').textContent = wrongInFilter === 0 ? '错题全部消除 🎉' : '本轮错题过完 🎉';
+    $('doneText').textContent = wrongInFilter === 0
+      ? '当前范围的错题都已重新答对。' + (wrong.size === 0 ? '错题本已清空，继续保持！' : '其他分组还有错题，可切换分组继续。')
+      : `还有 ${wrongInFilter} 张错题未消除，再练一遍直到全部答对。`;
+    $('btnAgainUnknown').hidden = true;
+    $('btnRestart').textContent = wrongInFilter === 0 ? '返回学习' : '再练一遍错题';
+  } else {
+    const unknownInFilter = filtered.filter(i => !known.has(DATA[i].en)).length;
+    $('doneTitle').textContent = '本组完成 🎉';
+    $('doneText').textContent = unknownInFilter === 0
+      ? '太棒了！当前范围的卡片全部掌握。'
+      : `本组完成，当前范围还有 ${unknownInFilter} 张未掌握。`;
+    $('btnAgainUnknown').hidden = unknownInFilter === 0;
+    $('btnRestart').textContent = '重新开始本组';
+  }
+  $('progressFill').style.width = '100%';
+  $('progressNum').textContent = `${queue.length} / ${queue.length}`;
+  updateHeader();
+}
+
+// ---------- interactions ----------
+function flip() {
+  if ($('done').hidden === false) return;
+  flipped = !flipped;
+  $('card').classList.toggle('flipped', flipped);
+  $('btnFlip').hidden = flipped;
+  $('btnUnknown').hidden = !flipped;
+  $('btnKnown').hidden = !flipped;
+}
+function afterAnswer() {
+  flipped = false;
+  updateHeader();
+  render();
+  $('actions').style.visibility = '';
+}
+$('card').onclick = flip;
+$('btnFlip').onclick = flip;
+// 正常模式：认识=加入已掌握；错题本：答对=从错题本消除
+$('btnKnown').onclick = () => {
+  const d = DATA[queue[cur]];
+  if (mode === 'wrong') {
+    wrong.delete(d.en);
+    store.wrong = wrong;
+    queue.splice(cur, 1);          // 不前进，下一张移到当前位置
+  } else {
+    known.add(d.en);
+    store.known = known;
+    cur++;
+  }
+  afterAnswer();
+};
+// 任何模式下不认识都收录错题本，并排到队尾再出现
+$('btnUnknown').onclick = () => {
+  const d = DATA[queue[cur]];
+  wrong.add(d.en);
+  store.wrong = wrong;
+  queue.push(queue[cur]);
+  if (mode === 'wrong') queue.splice(cur, 1);
+  else cur++;
+  afterAnswer();
+};
+$('btnShuffle').onclick = () => {
+  for (let i = queue.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [queue[i], queue[j]] = [queue[j], queue[i]]; }
+  cur = 0; render();
+};
+$('btnReset').onclick = () => {
+  if (!confirm('确定清空所有已掌握记录？（错题本不受影响，需在错题本内答对消除）')) return;
+  known = new Set(); store.known = known;
+  buildQueue();
+};
+$('btnWrongBook').onclick = () => {
+  mode = mode === 'study' ? 'wrong' : 'study';
+  buildQueue();
+};
+$('btnAgainUnknown').onclick = () => { $('actions').style.visibility = ''; reviewUnknown(); };
+$('btnRestart').onclick = () => {
+  $('actions').style.visibility = '';
+  if (mode === 'wrong') buildQueue(); else restartGroup();
+};
+
+document.onkeydown = e => {
+  if (e.code === 'Space') { e.preventDefault(); flip(); }
+  else if (e.code === 'ArrowRight' && !$('btnKnown').hidden) $('btnKnown').click();
+  else if (e.code === 'ArrowLeft' && !$('btnUnknown').hidden) $('btnUnknown').click();
+};
+
+buildQueue();
+</script>
+</body>
+</html>
