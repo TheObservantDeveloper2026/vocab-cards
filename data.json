@@ -1,0 +1,7047 @@
+[
+ {
+  "en": "consider",
+  "zh": "考虑",
+  "group": "Group 01"
+ },
+ {
+  "en": "involve",
+  "zh": "包含，涉及",
+  "group": "Group 01"
+ },
+ {
+  "en": "tend",
+  "zh": "倾向于",
+  "group": "Group 01"
+ },
+ {
+  "en": "include",
+  "zh": "包括",
+  "group": "Group 01"
+ },
+ {
+  "en": "information",
+  "zh": "信息",
+  "group": "Group 01"
+ },
+ {
+  "en": "issue",
+  "zh": "问题，发行",
+  "group": "Group 01"
+ },
+ {
+  "en": "offer",
+  "zh": "提供",
+  "group": "Group 01"
+ },
+ {
+  "en": "require",
+  "zh": "需要",
+  "group": "Group 01"
+ },
+ {
+  "en": "result",
+  "zh": "结果",
+  "group": "Group 01"
+ },
+ {
+  "en": "view",
+  "zh": "观点",
+  "group": "Group 01"
+ },
+ {
+  "en": "level",
+  "zh": "水平，级别",
+  "group": "Group 01"
+ },
+ {
+  "en": "condition",
+  "zh": "条件，状况",
+  "group": "Group 01"
+ },
+ {
+  "en": "earn",
+  "zh": "赚取",
+  "group": "Group 01"
+ },
+ {
+  "en": "likely",
+  "zh": "可能的",
+  "group": "Group 01"
+ },
+ {
+  "en": "process",
+  "zh": "过程，处理",
+  "group": "Group 01"
+ },
+ {
+  "en": "raise",
+  "zh": "提高，筹集",
+  "group": "Group 01"
+ },
+ {
+  "en": "rate",
+  "zh": "比率，速度",
+  "group": "Group 01"
+ },
+ {
+  "en": "access",
+  "zh": "访问，进入",
+  "group": "Group 01"
+ },
+ {
+  "en": "account",
+  "zh": "账户，解释",
+  "group": "Group 01"
+ },
+ {
+  "en": "claim",
+  "zh": "声称，索赔",
+  "group": "Group 01"
+ },
+ {
+  "en": "control",
+  "zh": "控制",
+  "group": "Group 01"
+ },
+ {
+  "en": "decline",
+  "zh": "下降，拒绝",
+  "group": "Group 01"
+ },
+ {
+  "en": "focus",
+  "zh": "集中，焦点",
+  "group": "Group 01"
+ },
+ {
+  "en": "lack",
+  "zh": "缺乏",
+  "group": "Group 02"
+ },
+ {
+  "en": "promote",
+  "zh": "促进",
+  "group": "Group 02"
+ },
+ {
+  "en": "situation",
+  "zh": "情况",
+  "group": "Group 02"
+ },
+ {
+  "en": "ability",
+  "zh": "能力",
+  "group": "Group 02"
+ },
+ {
+  "en": "affect",
+  "zh": "影响",
+  "group": "Group 02"
+ },
+ {
+  "en": "avoid",
+  "zh": "避免",
+  "group": "Group 02"
+ },
+ {
+  "en": "communication",
+  "zh": "交流",
+  "group": "Group 02"
+ },
+ {
+  "en": "credit",
+  "zh": "信用，学分",
+  "group": "Group 02"
+ },
+ {
+  "en": "demand",
+  "zh": "需求",
+  "group": "Group 02"
+ },
+ {
+  "en": "influence",
+  "zh": "影响",
+  "group": "Group 02"
+ },
+ {
+  "en": "light",
+  "zh": "光，轻的",
+  "group": "Group 02"
+ },
+ {
+  "en": "limit",
+  "zh": "限制",
+  "group": "Group 02"
+ },
+ {
+  "en": "maintain",
+  "zh": "维持",
+  "group": "Group 02"
+ },
+ {
+  "en": "nature",
+  "zh": "自然",
+  "group": "Group 02"
+ },
+ {
+  "en": "opportunity",
+  "zh": "机会",
+  "group": "Group 02"
+ },
+ {
+  "en": "range",
+  "zh": "范围",
+  "group": "Group 02"
+ },
+ {
+  "en": "aware",
+  "zh": "意识到的",
+  "group": "Group 02"
+ },
+ {
+  "en": "community",
+  "zh": "社区",
+  "group": "Group 02"
+ },
+ {
+  "en": "complete",
+  "zh": "完成的，完成",
+  "group": "Group 02"
+ },
+ {
+  "en": "concern",
+  "zh": "关心，担忧",
+  "group": "Group 02"
+ },
+ {
+  "en": "contain",
+  "zh": "包含",
+  "group": "Group 02"
+ },
+ {
+  "en": "contribute",
+  "zh": "贡献，导致",
+  "group": "Group 02"
+ },
+ {
+  "en": "ensure",
+  "zh": "确保",
+  "group": "Group 02"
+ },
+ {
+  "en": "environment",
+  "zh": "环境",
+  "group": "Group 02"
+ },
+ {
+  "en": "fail",
+  "zh": "失败",
+  "group": "Group 02"
+ },
+ {
+  "en": "feature",
+  "zh": "特征",
+  "group": "Group 03"
+ },
+ {
+  "en": "function",
+  "zh": "功能",
+  "group": "Group 03"
+ },
+ {
+  "en": "ignore",
+  "zh": "忽视",
+  "group": "Group 03"
+ },
+ {
+  "en": "impact",
+  "zh": "影响",
+  "group": "Group 03"
+ },
+ {
+  "en": "inform",
+  "zh": "通知",
+  "group": "Group 03"
+ },
+ {
+  "en": "major",
+  "zh": "主要的，专业",
+  "group": "Group 03"
+ },
+ {
+  "en": "nothing",
+  "zh": "没有什么",
+  "group": "Group 03"
+ },
+ {
+  "en": "particularly",
+  "zh": "尤其",
+  "group": "Group 03"
+ },
+ {
+  "en": "refer",
+  "zh": "参考，提到",
+  "group": "Group 03"
+ },
+ {
+  "en": "replace",
+  "zh": "替换",
+  "group": "Group 03"
+ },
+ {
+  "en": "seek",
+  "zh": "寻求",
+  "group": "Group 03"
+ },
+ {
+  "en": "speed",
+  "zh": "速度",
+  "group": "Group 03"
+ },
+ {
+  "en": "suggest",
+  "zh": "建议，表明",
+  "group": "Group 03"
+ },
+ {
+  "en": "term",
+  "zh": "术语，学期",
+  "group": "Group 03"
+ },
+ {
+  "en": "associate",
+  "zh": "联想，交往",
+  "group": "Group 03"
+ },
+ {
+  "en": "association",
+  "zh": "协会，联想",
+  "group": "Group 03"
+ },
+ {
+  "en": "case",
+  "zh": "情况，案例",
+  "group": "Group 03"
+ },
+ {
+  "en": "communicate",
+  "zh": "交流",
+  "group": "Group 03"
+ },
+ {
+  "en": "damage",
+  "zh": "损害",
+  "group": "Group 03"
+ },
+ {
+  "en": "expense",
+  "zh": "费用",
+  "group": "Group 03"
+ },
+ {
+  "en": "injure",
+  "zh": "伤害",
+  "group": "Group 03"
+ },
+ {
+  "en": "movement",
+  "zh": "运动，移动",
+  "group": "Group 03"
+ },
+ {
+  "en": "occasion",
+  "zh": "场合",
+  "group": "Group 03"
+ },
+ {
+  "en": "particular",
+  "zh": "特定的",
+  "group": "Group 03"
+ },
+ {
+  "en": "pick",
+  "zh": "挑选",
+  "group": "Group 03"
+ },
+ {
+  "en": "practice",
+  "zh": "练习，实践",
+  "group": "Group 03"
+ },
+ {
+  "en": "preference",
+  "zh": "偏好",
+  "group": "Group 03"
+ },
+ {
+  "en": "risk",
+  "zh": "风险",
+  "group": "Group 04"
+ },
+ {
+  "en": "specific",
+  "zh": "具体的",
+  "group": "Group 04"
+ },
+ {
+  "en": "stick",
+  "zh": "坚持，棍子",
+  "group": "Group 04"
+ },
+ {
+  "en": "store",
+  "zh": "商店，储存",
+  "group": "Group 04"
+ },
+ {
+  "en": "adapt",
+  "zh": "适应",
+  "group": "Group 04"
+ },
+ {
+  "en": "amount",
+  "zh": "数量",
+  "group": "Group 04"
+ },
+ {
+  "en": "appeal",
+  "zh": "吸引，呼吁",
+  "group": "Group 04"
+ },
+ {
+  "en": "apply",
+  "zh": "申请，应用",
+  "group": "Group 04"
+ },
+ {
+  "en": "approach",
+  "zh": "方法，接近",
+  "group": "Group 04"
+ },
+ {
+  "en": "assume",
+  "zh": "假设",
+  "group": "Group 04"
+ },
+ {
+  "en": "available",
+  "zh": "可获得的",
+  "group": "Group 04"
+ },
+ {
+  "en": "benefit",
+  "zh": "利益，好处",
+  "group": "Group 04"
+ },
+ {
+  "en": "compound",
+  "zh": "化合物，复合物",
+  "group": "Group 04"
+ },
+ {
+  "en": "consult",
+  "zh": "咨询",
+  "group": "Group 04"
+ },
+ {
+  "en": "convey",
+  "zh": "传达",
+  "group": "Group 04"
+ },
+ {
+  "en": "cultivate",
+  "zh": "培养",
+  "group": "Group 04"
+ },
+ {
+  "en": "distance",
+  "zh": "距离",
+  "group": "Group 04"
+ },
+ {
+  "en": "edit",
+  "zh": "编辑",
+  "group": "Group 04"
+ },
+ {
+  "en": "effective",
+  "zh": "有效的",
+  "group": "Group 04"
+ },
+ {
+  "en": "employ",
+  "zh": "雇用，使用",
+  "group": "Group 04"
+ },
+ {
+  "en": "estimate",
+  "zh": "估计",
+  "group": "Group 04"
+ },
+ {
+  "en": "exchange",
+  "zh": "交换",
+  "group": "Group 04"
+ },
+ {
+  "en": "exhaust",
+  "zh": "耗尽，废气",
+  "group": "Group 04"
+ },
+ {
+  "en": "factor",
+  "zh": "因素",
+  "group": "Group 04"
+ },
+ {
+  "en": "gain",
+  "zh": "获得",
+  "group": "Group 04"
+ },
+ {
+  "en": "indicate",
+  "zh": "指示，表明",
+  "group": "Group 04"
+ },
+ {
+  "en": "media",
+  "zh": "媒体",
+  "group": "Group 04"
+ },
+ {
+  "en": "refuse",
+  "zh": "拒绝",
+  "group": "Group 04"
+ },
+ {
+  "en": "relate",
+  "zh": "关联，讲述",
+  "group": "Group 05"
+ },
+ {
+  "en": "respect",
+  "zh": "尊重，方面",
+  "group": "Group 05"
+ },
+ {
+  "en": "responsible",
+  "zh": "负责任的",
+  "group": "Group 05"
+ },
+ {
+  "en": "review",
+  "zh": "复习，回顾",
+  "group": "Group 05"
+ },
+ {
+  "en": "significant",
+  "zh": "重要的",
+  "group": "Group 05"
+ },
+ {
+  "en": "spot",
+  "zh": "地点，发现",
+  "group": "Group 05"
+ },
+ {
+  "en": "suffer",
+  "zh": "遭受",
+  "group": "Group 05"
+ },
+ {
+  "en": "treat",
+  "zh": "对待，治疗",
+  "group": "Group 05"
+ },
+ {
+  "en": "various",
+  "zh": "各种各样的",
+  "group": "Group 05"
+ },
+ {
+  "en": "adopt",
+  "zh": "采用，收养",
+  "group": "Group 05"
+ },
+ {
+  "en": "annual",
+  "zh": "每年的",
+  "group": "Group 05"
+ },
+ {
+  "en": "attach",
+  "zh": "附上",
+  "group": "Group 05"
+ },
+ {
+  "en": "attack",
+  "zh": "攻击",
+  "group": "Group 05"
+ },
+ {
+  "en": "attract",
+  "zh": "吸引",
+  "group": "Group 05"
+ },
+ {
+  "en": "award",
+  "zh": "奖励",
+  "group": "Group 05"
+ },
+ {
+  "en": "background",
+  "zh": "背景",
+  "group": "Group 05"
+ },
+ {
+  "en": "campus",
+  "zh": "校园",
+  "group": "Group 05"
+ },
+ {
+  "en": "circumstance",
+  "zh": "情况",
+  "group": "Group 05"
+ },
+ {
+  "en": "commit",
+  "zh": "犯（错），承诺",
+  "group": "Group 05"
+ },
+ {
+  "en": "conflict",
+  "zh": "冲突",
+  "group": "Group 05"
+ },
+ {
+  "en": "confuse",
+  "zh": "使困惑",
+  "group": "Group 05"
+ },
+ {
+  "en": "considerable",
+  "zh": "相当大的",
+  "group": "Group 05"
+ },
+ {
+  "en": "creative",
+  "zh": "有创造力的",
+  "group": "Group 05"
+ },
+ {
+  "en": "crime",
+  "zh": "犯罪",
+  "group": "Group 05"
+ },
+ {
+  "en": "crisis",
+  "zh": "危机",
+  "group": "Group 05"
+ },
+ {
+  "en": "display",
+  "zh": "展示",
+  "group": "Group 05"
+ },
+ {
+  "en": "efficient",
+  "zh": "高效的",
+  "group": "Group 05"
+ },
+ {
+  "en": "entire",
+  "zh": "整个的",
+  "group": "Group 05"
+ },
+ {
+  "en": "expand",
+  "zh": "扩大",
+  "group": "Group 05"
+ },
+ {
+  "en": "expose",
+  "zh": "暴露",
+  "group": "Group 05"
+ },
+ {
+  "en": "gap",
+  "zh": "差距",
+  "group": "Group 05"
+ },
+ {
+  "en": "grant",
+  "zh": "授予，承认",
+  "group": "Group 05"
+ },
+ {
+  "en": "growth",
+  "zh": "增长",
+  "group": "Group 05"
+ },
+ {
+  "en": "harm",
+  "zh": "伤害",
+  "group": "Group 05"
+ },
+ {
+  "en": "incident",
+  "zh": "事件",
+  "group": "Group 06"
+ },
+ {
+  "en": "individual",
+  "zh": "个人，个别的",
+  "group": "Group 06"
+ },
+ {
+  "en": "loss",
+  "zh": "损失",
+  "group": "Group 06"
+ },
+ {
+  "en": "manner",
+  "zh": "方式，举止",
+  "group": "Group 06"
+ },
+ {
+  "en": "model",
+  "zh": "模型，模特",
+  "group": "Group 06"
+ },
+ {
+  "en": "necessarily",
+  "zh": "必然地",
+  "group": "Group 06"
+ },
+ {
+  "en": "object",
+  "zh": "物体，反对",
+  "group": "Group 06"
+ },
+ {
+  "en": "observe",
+  "zh": "观察，遵守",
+  "group": "Group 06"
+ },
+ {
+  "en": "obvious",
+  "zh": "明显的",
+  "group": "Group 06"
+ },
+ {
+  "en": "opinion",
+  "zh": "意见",
+  "group": "Group 06"
+ },
+ {
+  "en": "property",
+  "zh": "财产，属性",
+  "group": "Group 06"
+ },
+ {
+  "en": "puzzle",
+  "zh": "谜，使困惑",
+  "group": "Group 06"
+ },
+ {
+  "en": "regard",
+  "zh": "关于，看待",
+  "group": "Group 06"
+ },
+ {
+  "en": "relieve",
+  "zh": "减轻",
+  "group": "Group 06"
+ },
+ {
+  "en": "reserve",
+  "zh": "保留，预订",
+  "group": "Group 06"
+ },
+ {
+  "en": "reveal",
+  "zh": "揭示",
+  "group": "Group 06"
+ },
+ {
+  "en": "secure",
+  "zh": "安全的，获得",
+  "group": "Group 06"
+ },
+ {
+  "en": "side",
+  "zh": "边",
+  "group": "Group 06"
+ },
+ {
+  "en": "similar",
+  "zh": "相似的",
+  "group": "Group 06"
+ },
+ {
+  "en": "single",
+  "zh": "单一的",
+  "group": "Group 06"
+ },
+ {
+  "en": "strike",
+  "zh": "罢工，打击",
+  "group": "Group 06"
+ },
+ {
+  "en": "supply",
+  "zh": "供应",
+  "group": "Group 06"
+ },
+ {
+  "en": "abstract",
+  "zh": "抽象的，摘要",
+  "group": "Group 06"
+ },
+ {
+  "en": "activity",
+  "zh": "活动",
+  "group": "Group 06"
+ },
+ {
+  "en": "adjust",
+  "zh": "调整",
+  "group": "Group 06"
+ },
+ {
+  "en": "advocate",
+  "zh": "提倡",
+  "group": "Group 06"
+ },
+ {
+  "en": "afford",
+  "zh": "负担得起",
+  "group": "Group 06"
+ },
+ {
+  "en": "alone",
+  "zh": "独自的",
+  "group": "Group 06"
+ },
+ {
+  "en": "appearance",
+  "zh": "外貌，出现",
+  "group": "Group 06"
+ },
+ {
+  "en": "approve",
+  "zh": "批准",
+  "group": "Group 06"
+ },
+ {
+  "en": "attribute",
+  "zh": "归因于，属性",
+  "group": "Group 07"
+ },
+ {
+  "en": "average",
+  "zh": "平均的，平均数",
+  "group": "Group 07"
+ },
+ {
+  "en": "blame",
+  "zh": "责备",
+  "group": "Group 07"
+ },
+ {
+  "en": "casual",
+  "zh": "随意的",
+  "group": "Group 07"
+ },
+ {
+  "en": "complex",
+  "zh": "复杂的",
+  "group": "Group 07"
+ },
+ {
+  "en": "concept",
+  "zh": "概念",
+  "group": "Group 07"
+ },
+ {
+  "en": "confirm",
+  "zh": "确认",
+  "group": "Group 07"
+ },
+ {
+  "en": "consequence",
+  "zh": "后果",
+  "group": "Group 07"
+ },
+ {
+  "en": "consume",
+  "zh": "消耗",
+  "group": "Group 07"
+ },
+ {
+  "en": "contrast",
+  "zh": "对比",
+  "group": "Group 07"
+ },
+ {
+  "en": "decorate",
+  "zh": "装饰",
+  "group": "Group 07"
+ },
+ {
+  "en": "define",
+  "zh": "定义",
+  "group": "Group 07"
+ },
+ {
+  "en": "delay",
+  "zh": "延迟",
+  "group": "Group 07"
+ },
+ {
+  "en": "deposit",
+  "zh": "存款，押金",
+  "group": "Group 07"
+ },
+ {
+  "en": "derive",
+  "zh": "源自",
+  "group": "Group 07"
+ },
+ {
+  "en": "differ",
+  "zh": "不同",
+  "group": "Group 07"
+ },
+ {
+  "en": "eliminate",
+  "zh": "消除",
+  "group": "Group 07"
+ },
+ {
+  "en": "emotion",
+  "zh": "情绪",
+  "group": "Group 07"
+ },
+ {
+  "en": "emphasis",
+  "zh": "强调",
+  "group": "Group 07"
+ },
+ {
+  "en": "equivalent",
+  "zh": "等同的",
+  "group": "Group 07"
+ },
+ {
+  "en": "exaggerate",
+  "zh": "夸大",
+  "group": "Group 07"
+ },
+ {
+  "en": "expectation",
+  "zh": "期望",
+  "group": "Group 07"
+ },
+ {
+  "en": "express",
+  "zh": "表达",
+  "group": "Group 07"
+ },
+ {
+  "en": "failure",
+  "zh": "失败",
+  "group": "Group 07"
+ },
+ {
+  "en": "fashion",
+  "zh": "时尚",
+  "group": "Group 07"
+ },
+ {
+  "en": "impress",
+  "zh": "给...深刻印象",
+  "group": "Group 07"
+ },
+ {
+  "en": "inquire",
+  "zh": "询问",
+  "group": "Group 07"
+ },
+ {
+  "en": "involved",
+  "zh": "涉及的",
+  "group": "Group 07"
+ },
+ {
+  "en": "lower",
+  "zh": "降低，较低的",
+  "group": "Group 07"
+ },
+ {
+  "en": "mild",
+  "zh": "温和的",
+  "group": "Group 07"
+ },
+ {
+  "en": "mood",
+  "zh": "心情",
+  "group": "Group 07"
+ },
+ {
+  "en": "necessary",
+  "zh": "必要的",
+  "group": "Group 07"
+ },
+ {
+  "en": "neglect",
+  "zh": "忽视",
+  "group": "Group 08"
+ },
+ {
+  "en": "nervous",
+  "zh": "紧张的",
+  "group": "Group 08"
+ },
+ {
+  "en": "pace",
+  "zh": "步伐",
+  "group": "Group 08"
+ },
+ {
+  "en": "participate",
+  "zh": "参与",
+  "group": "Group 08"
+ },
+ {
+  "en": "purchase",
+  "zh": "购买",
+  "group": "Group 08"
+ },
+ {
+  "en": "purpose",
+  "zh": "目的",
+  "group": "Group 08"
+ },
+ {
+  "en": "regardless",
+  "zh": "不管",
+  "group": "Group 08"
+ },
+ {
+  "en": "remove",
+  "zh": "移除",
+  "group": "Group 08"
+ },
+ {
+  "en": "scene",
+  "zh": "场景",
+  "group": "Group 08"
+ },
+ {
+  "en": "shift",
+  "zh": "转变，轮班",
+  "group": "Group 08"
+ },
+ {
+  "en": "solution",
+  "zh": "解决方案",
+  "group": "Group 08"
+ },
+ {
+  "en": "source",
+  "zh": "来源",
+  "group": "Group 08"
+ },
+ {
+  "en": "step",
+  "zh": "步骤",
+  "group": "Group 08"
+ },
+ {
+  "en": "stuff",
+  "zh": "东西，填满",
+  "group": "Group 08"
+ },
+ {
+  "en": "subject",
+  "zh": "主题，科目",
+  "group": "Group 08"
+ },
+ {
+  "en": "submit",
+  "zh": "提交，屈服",
+  "group": "Group 08"
+ },
+ {
+  "en": "symbol",
+  "zh": "象征",
+  "group": "Group 08"
+ },
+ {
+  "en": "temper",
+  "zh": "脾气",
+  "group": "Group 08"
+ },
+ {
+  "en": "throw",
+  "zh": "扔",
+  "group": "Group 08"
+ },
+ {
+  "en": "transform",
+  "zh": "转变",
+  "group": "Group 08"
+ },
+ {
+  "en": "urgent",
+  "zh": "紧急的",
+  "group": "Group 08"
+ },
+ {
+  "en": "abandon",
+  "zh": "放弃",
+  "group": "Group 08"
+ },
+ {
+  "en": "abundant",
+  "zh": "丰富的",
+  "group": "Group 08"
+ },
+ {
+  "en": "acceptable",
+  "zh": "可接受的",
+  "group": "Group 08"
+ },
+ {
+  "en": "acquire",
+  "zh": "获得",
+  "group": "Group 08"
+ },
+ {
+  "en": "alter",
+  "zh": "改变",
+  "group": "Group 08"
+ },
+ {
+  "en": "amuse",
+  "zh": "逗乐",
+  "group": "Group 08"
+ },
+ {
+  "en": "appliance",
+  "zh": "电器",
+  "group": "Group 08"
+ },
+ {
+  "en": "appointment",
+  "zh": "约会，任命",
+  "group": "Group 08"
+ },
+ {
+  "en": "arouse",
+  "zh": "唤起",
+  "group": "Group 08"
+ },
+ {
+  "en": "assist",
+  "zh": "协助",
+  "group": "Group 09"
+ },
+ {
+  "en": "bargain",
+  "zh": "讨价还价，便宜货",
+  "group": "Group 09"
+ },
+ {
+  "en": "barrier",
+  "zh": "障碍",
+  "group": "Group 09"
+ },
+ {
+  "en": "behalf",
+  "zh": "代表",
+  "group": "Group 09"
+ },
+ {
+  "en": "campaign",
+  "zh": "运动，战役",
+  "group": "Group 09"
+ },
+ {
+  "en": "capable",
+  "zh": "有能力的",
+  "group": "Group 09"
+ },
+ {
+  "en": "charge",
+  "zh": "收费，指控",
+  "group": "Group 09"
+ },
+ {
+  "en": "combat",
+  "zh": "战斗",
+  "group": "Group 09"
+ },
+ {
+  "en": "composition",
+  "zh": "作文，成分",
+  "group": "Group 09"
+ },
+ {
+  "en": "conceal",
+  "zh": "隐藏",
+  "group": "Group 09"
+ },
+ {
+  "en": "concentrate",
+  "zh": "集中",
+  "group": "Group 09"
+ },
+ {
+  "en": "confident",
+  "zh": "自信的",
+  "group": "Group 09"
+ },
+ {
+  "en": "congratulate",
+  "zh": "祝贺",
+  "group": "Group 09"
+ },
+ {
+  "en": "constant",
+  "zh": "不变的，常数",
+  "group": "Group 09"
+ },
+ {
+  "en": "continual",
+  "zh": "不断的",
+  "group": "Group 09"
+ },
+ {
+  "en": "continuous",
+  "zh": "连续的",
+  "group": "Group 09"
+ },
+ {
+  "en": "cope",
+  "zh": "应对",
+  "group": "Group 09"
+ },
+ {
+  "en": "criticize/-ise",
+  "zh": "批评",
+  "group": "Group 09"
+ },
+ {
+  "en": "cultural",
+  "zh": "文化的",
+  "group": "Group 09"
+ },
+ {
+  "en": "deliver",
+  "zh": "递送，发表",
+  "group": "Group 09"
+ },
+ {
+  "en": "deny",
+  "zh": "否认",
+  "group": "Group 09"
+ },
+ {
+  "en": "direction",
+  "zh": "方向",
+  "group": "Group 09"
+ },
+ {
+  "en": "discipline",
+  "zh": "纪律，学科",
+  "group": "Group 09"
+ },
+ {
+  "en": "dispute",
+  "zh": "争论",
+  "group": "Group 09"
+ },
+ {
+  "en": "dissolve",
+  "zh": "溶解",
+  "group": "Group 09"
+ },
+ {
+  "en": "doubt",
+  "zh": "怀疑",
+  "group": "Group 09"
+ },
+ {
+  "en": "economics",
+  "zh": "经济学",
+  "group": "Group 09"
+ },
+ {
+  "en": "economist",
+  "zh": "经济学家",
+  "group": "Group 09"
+ },
+ {
+  "en": "entitle",
+  "zh": "使有权",
+  "group": "Group 09"
+ },
+ {
+  "en": "essential",
+  "zh": "必要的",
+  "group": "Group 09"
+ },
+ {
+  "en": "exact",
+  "zh": "精确的",
+  "group": "Group 10"
+ },
+ {
+  "en": "explore",
+  "zh": "探索",
+  "group": "Group 10"
+ },
+ {
+  "en": "exposure",
+  "zh": "暴露",
+  "group": "Group 10"
+ },
+ {
+  "en": "faint",
+  "zh": "微弱的，晕倒",
+  "group": "Group 10"
+ },
+ {
+  "en": "favo(u)r",
+  "zh": "偏爱，赞成",
+  "group": "Group 10"
+ },
+ {
+  "en": "frighten",
+  "zh": "使害怕",
+  "group": "Group 10"
+ },
+ {
+  "en": "genuine",
+  "zh": "真正的",
+  "group": "Group 10"
+ },
+ {
+  "en": "guide",
+  "zh": "指导",
+  "group": "Group 10"
+ },
+ {
+  "en": "hint",
+  "zh": "暗示",
+  "group": "Group 10"
+ },
+ {
+  "en": "illegal",
+  "zh": "非法的",
+  "group": "Group 10"
+ },
+ {
+  "en": "imitate",
+  "zh": "模仿",
+  "group": "Group 10"
+ },
+ {
+  "en": "impression",
+  "zh": "印象",
+  "group": "Group 10"
+ },
+ {
+  "en": "initial",
+  "zh": "最初的",
+  "group": "Group 10"
+ },
+ {
+  "en": "insert",
+  "zh": "插入",
+  "group": "Group 10"
+ },
+ {
+  "en": "insult",
+  "zh": "侮辱",
+  "group": "Group 10"
+ },
+ {
+  "en": "liberal",
+  "zh": "自由的",
+  "group": "Group 10"
+ },
+ {
+  "en": "means",
+  "zh": "手段",
+  "group": "Group 10"
+ },
+ {
+  "en": "minimum",
+  "zh": "最小值",
+  "group": "Group 10"
+ },
+ {
+  "en": "normal",
+  "zh": "正常的",
+  "group": "Group 10"
+ },
+ {
+  "en": "popularity",
+  "zh": "受欢迎",
+  "group": "Group 10"
+ },
+ {
+  "en": "possibility",
+  "zh": "可能性",
+  "group": "Group 10"
+ },
+ {
+  "en": "practical",
+  "zh": "实际的",
+  "group": "Group 10"
+ },
+ {
+  "en": "procedure",
+  "zh": "程序",
+  "group": "Group 10"
+ },
+ {
+  "en": "progress",
+  "zh": "进步",
+  "group": "Group 10"
+ },
+ {
+  "en": "prospect",
+  "zh": "前景",
+  "group": "Group 10"
+ },
+ {
+  "en": "reality",
+  "zh": "现实",
+  "group": "Group 10"
+ },
+ {
+  "en": "reasonable",
+  "zh": "合理的",
+  "group": "Group 10"
+ },
+ {
+  "en": "regulate",
+  "zh": "调节",
+  "group": "Group 10"
+ },
+ {
+  "en": "release",
+  "zh": "释放",
+  "group": "Group 10"
+ },
+ {
+  "en": "relevant",
+  "zh": "相关的",
+  "group": "Group 10"
+ },
+ {
+  "en": "represent",
+  "zh": "代表",
+  "group": "Group 10"
+ },
+ {
+  "en": "request",
+  "zh": "请求",
+  "group": "Group 10"
+ },
+ {
+  "en": "resist",
+  "zh": "抵抗",
+  "group": "Group 10"
+ },
+ {
+  "en": "retain",
+  "zh": "保留",
+  "group": "Group 10"
+ },
+ {
+  "en": "rights",
+  "zh": "权利",
+  "group": "Group 10"
+ },
+ {
+  "en": "rigid",
+  "zh": "僵硬的",
+  "group": "Group 10"
+ },
+ {
+  "en": "secretary",
+  "zh": "秘书",
+  "group": "Group 10"
+ },
+ {
+  "en": "series",
+  "zh": "系列",
+  "group": "Group 10"
+ },
+ {
+  "en": "slight",
+  "zh": "轻微的",
+  "group": "Group 11"
+ },
+ {
+  "en": "specialize/-ise",
+  "zh": "专门从事",
+  "group": "Group 11"
+ },
+ {
+  "en": "stimulate",
+  "zh": "刺激",
+  "group": "Group 11"
+ },
+ {
+  "en": "sufficient",
+  "zh": "充足的",
+  "group": "Group 11"
+ },
+ {
+  "en": "sustain",
+  "zh": "维持",
+  "group": "Group 11"
+ },
+ {
+  "en": "tedious",
+  "zh": "乏味的",
+  "group": "Group 11"
+ },
+ {
+  "en": "tough",
+  "zh": "艰难的，坚韧的",
+  "group": "Group 11"
+ },
+ {
+  "en": "transfer",
+  "zh": "转移",
+  "group": "Group 11"
+ },
+ {
+  "en": "undergo",
+  "zh": "经历",
+  "group": "Group 11"
+ },
+ {
+  "en": "viewer",
+  "zh": "观众",
+  "group": "Group 11"
+ },
+ {
+  "en": "vision",
+  "zh": "视野，视力",
+  "group": "Group 11"
+ },
+ {
+  "en": "worth",
+  "zh": "值得，价值",
+  "group": "Group 11"
+ },
+ {
+  "en": "yield",
+  "zh": "屈服，产量",
+  "group": "Group 11"
+ },
+ {
+  "en": "absorb",
+  "zh": "吸收",
+  "group": "Group 11"
+ },
+ {
+  "en": "absorbed",
+  "zh": "全神贯注的",
+  "group": "Group 11"
+ },
+ {
+  "en": "accomplish",
+  "zh": "完成",
+  "group": "Group 11"
+ },
+ {
+  "en": "accumulate",
+  "zh": "积累",
+  "group": "Group 11"
+ },
+ {
+  "en": "acquaintance",
+  "zh": "熟人",
+  "group": "Group 11"
+ },
+ {
+  "en": "adequate",
+  "zh": "足够的",
+  "group": "Group 11"
+ },
+ {
+  "en": "administrative",
+  "zh": "行政的",
+  "group": "Group 11"
+ },
+ {
+  "en": "alert",
+  "zh": "警觉的",
+  "group": "Group 11"
+ },
+ {
+  "en": "ambition",
+  "zh": "雄心",
+  "group": "Group 11"
+ },
+ {
+  "en": "anxiety",
+  "zh": "焦虑",
+  "group": "Group 11"
+ },
+ {
+  "en": "application",
+  "zh": "申请，应用",
+  "group": "Group 11"
+ },
+ {
+  "en": "arise",
+  "zh": "出现",
+  "group": "Group 11"
+ },
+ {
+  "en": "arrange",
+  "zh": "安排",
+  "group": "Group 11"
+ },
+ {
+  "en": "assumption",
+  "zh": "假设",
+  "group": "Group 11"
+ },
+ {
+  "en": "attraction",
+  "zh": "吸引",
+  "group": "Group 11"
+ },
+ {
+  "en": "attractive",
+  "zh": "有吸引力的",
+  "group": "Group 11"
+ },
+ {
+  "en": "authority",
+  "zh": "权威",
+  "group": "Group 11"
+ },
+ {
+  "en": "beneficial",
+  "zh": "有益的",
+  "group": "Group 11"
+ },
+ {
+  "en": "boast",
+  "zh": "吹嘘",
+  "group": "Group 11"
+ },
+ {
+  "en": "burst",
+  "zh": "爆发",
+  "group": "Group 11"
+ },
+ {
+  "en": "chase",
+  "zh": "追逐",
+  "group": "Group 11"
+ },
+ {
+  "en": "chill",
+  "zh": "寒冷，放松",
+  "group": "Group 12"
+ },
+ {
+  "en": "clumsy",
+  "zh": "笨拙的",
+  "group": "Group 12"
+ },
+ {
+  "en": "coastal",
+  "zh": "沿海的",
+  "group": "Group 12"
+ },
+ {
+  "en": "competent",
+  "zh": "有能力的",
+  "group": "Group 12"
+ },
+ {
+  "en": "competitor",
+  "zh": "竞争者",
+  "group": "Group 12"
+ },
+ {
+  "en": "complicated",
+  "zh": "复杂的",
+  "group": "Group 12"
+ },
+ {
+  "en": "compose",
+  "zh": "组成，创作",
+  "group": "Group 12"
+ },
+ {
+  "en": "comprehensive",
+  "zh": "全面的",
+  "group": "Group 12"
+ },
+ {
+  "en": "confront",
+  "zh": "面对",
+  "group": "Group 12"
+ },
+ {
+  "en": "connect",
+  "zh": "连接",
+  "group": "Group 12"
+ },
+ {
+  "en": "conscious",
+  "zh": "有意识的",
+  "group": "Group 12"
+ },
+ {
+  "en": "consistent",
+  "zh": "一致的",
+  "group": "Group 12"
+ },
+ {
+  "en": "content",
+  "zh": "内容，满足的",
+  "group": "Group 12"
+ },
+ {
+  "en": "contrary",
+  "zh": "相反的",
+  "group": "Group 12"
+ },
+ {
+  "en": "controversy",
+  "zh": "争议",
+  "group": "Group 12"
+ },
+ {
+  "en": "convenient",
+  "zh": "方便的",
+  "group": "Group 12"
+ },
+ {
+  "en": "cooperation",
+  "zh": "合作",
+  "group": "Group 12"
+ },
+ {
+  "en": "coordinate",
+  "zh": "协调",
+  "group": "Group 12"
+ },
+ {
+  "en": "count",
+  "zh": "数，重要",
+  "group": "Group 12"
+ },
+ {
+  "en": "crash",
+  "zh": "碰撞，崩溃",
+  "group": "Group 12"
+ },
+ {
+  "en": "critical",
+  "zh": "关键的，批评的",
+  "group": "Group 12"
+ },
+ {
+  "en": "debate",
+  "zh": "辩论",
+  "group": "Group 12"
+ },
+ {
+  "en": "deceive",
+  "zh": "欺骗",
+  "group": "Group 12"
+ },
+ {
+  "en": "demanding",
+  "zh": "要求高的",
+  "group": "Group 12"
+ },
+ {
+  "en": "demonstrate",
+  "zh": "演示，证明",
+  "group": "Group 12"
+ },
+ {
+  "en": "descend",
+  "zh": "下降",
+  "group": "Group 12"
+ },
+ {
+  "en": "distribute",
+  "zh": "分配",
+  "group": "Group 12"
+ },
+ {
+  "en": "embrace",
+  "zh": "拥抱",
+  "group": "Group 12"
+ },
+ {
+  "en": "enclose",
+  "zh": "附上",
+  "group": "Group 12"
+ },
+ {
+  "en": "endure",
+  "zh": "忍受",
+  "group": "Group 12"
+ },
+ {
+  "en": "enforce",
+  "zh": "执行",
+  "group": "Group 12"
+ },
+ {
+  "en": "enormous",
+  "zh": "巨大的",
+  "group": "Group 12"
+ },
+ {
+  "en": "equip",
+  "zh": "装备",
+  "group": "Group 12"
+ },
+ {
+  "en": "exception",
+  "zh": "例外",
+  "group": "Group 13"
+ },
+ {
+  "en": "excessive",
+  "zh": "过度的",
+  "group": "Group 13"
+ },
+ {
+  "en": "exert",
+  "zh": "施加",
+  "group": "Group 13"
+ },
+ {
+  "en": "exhibition",
+  "zh": "展览",
+  "group": "Group 13"
+ },
+ {
+  "en": "expansion",
+  "zh": "扩张",
+  "group": "Group 13"
+ },
+ {
+  "en": "exploit",
+  "zh": "利用，开发",
+  "group": "Group 13"
+ },
+ {
+  "en": "extension",
+  "zh": "延伸",
+  "group": "Group 13"
+ },
+ {
+  "en": "extent",
+  "zh": "程度",
+  "group": "Group 13"
+ },
+ {
+  "en": "familiar",
+  "zh": "熟悉的",
+  "group": "Group 13"
+ },
+ {
+  "en": "fare",
+  "zh": "车费",
+  "group": "Group 13"
+ },
+ {
+  "en": "favo(u)rable",
+  "zh": "有利的，赞成的",
+  "group": "Group 13"
+ },
+ {
+  "en": "former",
+  "zh": "前者的",
+  "group": "Group 13"
+ },
+ {
+  "en": "functional",
+  "zh": "功能的",
+  "group": "Group 13"
+ },
+ {
+  "en": "generate",
+  "zh": "产生",
+  "group": "Group 13"
+ },
+ {
+  "en": "generous",
+  "zh": "慷慨的",
+  "group": "Group 13"
+ },
+ {
+  "en": "globe",
+  "zh": "地球仪，全球",
+  "group": "Group 13"
+ },
+ {
+  "en": "grip",
+  "zh": "紧握",
+  "group": "Group 13"
+ },
+ {
+  "en": "harsh",
+  "zh": "严酷的",
+  "group": "Group 13"
+ },
+ {
+  "en": "hurt",
+  "zh": "受伤",
+  "group": "Group 13"
+ },
+ {
+  "en": "illustrate",
+  "zh": "说明",
+  "group": "Group 13"
+ },
+ {
+  "en": "indispensable",
+  "zh": "不可或缺的",
+  "group": "Group 13"
+ },
+ {
+  "en": "inevitable",
+  "zh": "不可避免的",
+  "group": "Group 13"
+ },
+ {
+  "en": "innocent",
+  "zh": "无辜的",
+  "group": "Group 13"
+ },
+ {
+  "en": "inspire",
+  "zh": "启发",
+  "group": "Group 13"
+ },
+ {
+  "en": "instant",
+  "zh": "立刻的",
+  "group": "Group 13"
+ },
+ {
+  "en": "instruct",
+  "zh": "指导",
+  "group": "Group 13"
+ },
+ {
+  "en": "insure",
+  "zh": "给...保险",
+  "group": "Group 13"
+ },
+ {
+  "en": "integrate",
+  "zh": "整合",
+  "group": "Group 13"
+ },
+ {
+  "en": "interval",
+  "zh": "间隔",
+  "group": "Group 13"
+ },
+ {
+  "en": "lest",
+  "zh": "以免",
+  "group": "Group 13"
+ },
+ {
+  "en": "liable",
+  "zh": "有责任的，易于...的",
+  "group": "Group 13"
+ },
+ {
+  "en": "lively",
+  "zh": "活泼的",
+  "group": "Group 13"
+ },
+ {
+  "en": "method",
+  "zh": "方法",
+  "group": "Group 13"
+ },
+ {
+  "en": "mistake",
+  "zh": "错误",
+  "group": "Group 14"
+ },
+ {
+  "en": "modest",
+  "zh": "谦虚的",
+  "group": "Group 14"
+ },
+ {
+  "en": "negotiate",
+  "zh": "谈判",
+  "group": "Group 14"
+ },
+ {
+  "en": "negotiation",
+  "zh": "谈判",
+  "group": "Group 14"
+ },
+ {
+  "en": "numerous",
+  "zh": "众多的",
+  "group": "Group 14"
+ },
+ {
+  "en": "offend",
+  "zh": "冒犯",
+  "group": "Group 14"
+ },
+ {
+  "en": "operate",
+  "zh": "操作，手术",
+  "group": "Group 14"
+ },
+ {
+  "en": "oppose",
+  "zh": "反对",
+  "group": "Group 14"
+ },
+ {
+  "en": "option",
+  "zh": "选择",
+  "group": "Group 14"
+ },
+ {
+  "en": "origin",
+  "zh": "起源",
+  "group": "Group 14"
+ },
+ {
+  "en": "outstanding",
+  "zh": "杰出的",
+  "group": "Group 14"
+ },
+ {
+  "en": "overall",
+  "zh": "整体的",
+  "group": "Group 14"
+ },
+ {
+  "en": "parallel",
+  "zh": "平行的",
+  "group": "Group 14"
+ },
+ {
+  "en": "perceive",
+  "zh": "察觉",
+  "group": "Group 14"
+ },
+ {
+  "en": "pitch",
+  "zh": "音高，投掷",
+  "group": "Group 14"
+ },
+ {
+  "en": "powerful",
+  "zh": "强大的",
+  "group": "Group 14"
+ },
+ {
+  "en": "preferable",
+  "zh": "更可取的",
+  "group": "Group 14"
+ },
+ {
+  "en": "prevail",
+  "zh": "盛行",
+  "group": "Group 14"
+ },
+ {
+  "en": "prior",
+  "zh": "先前的",
+  "group": "Group 14"
+ },
+ {
+  "en": "prohibit",
+  "zh": "禁止",
+  "group": "Group 14"
+ },
+ {
+  "en": "rank",
+  "zh": "排名",
+  "group": "Group 14"
+ },
+ {
+  "en": "reaction",
+  "zh": "反应",
+  "group": "Group 14"
+ },
+ {
+  "en": "regular",
+  "zh": "定期的",
+  "group": "Group 14"
+ },
+ {
+  "en": "relief",
+  "zh": "宽慰，救济",
+  "group": "Group 14"
+ },
+ {
+  "en": "remedy",
+  "zh": "补救",
+  "group": "Group 14"
+ },
+ {
+  "en": "rescue",
+  "zh": "救援",
+  "group": "Group 14"
+ },
+ {
+  "en": "response",
+  "zh": "回应",
+  "group": "Group 14"
+ },
+ {
+  "en": "reverse",
+  "zh": "反转",
+  "group": "Group 14"
+ },
+ {
+  "en": "revise",
+  "zh": "修订",
+  "group": "Group 14"
+ },
+ {
+  "en": "ribbon",
+  "zh": "丝带",
+  "group": "Group 14"
+ },
+ {
+  "en": "schooling",
+  "zh": "学校教育",
+  "group": "Group 14"
+ },
+ {
+  "en": "scope",
+  "zh": "范围",
+  "group": "Group 14"
+ },
+ {
+  "en": "sensitive",
+  "zh": "敏感的",
+  "group": "Group 14"
+ },
+ {
+  "en": "shrink",
+  "zh": "收缩",
+  "group": "Group 15"
+ },
+ {
+  "en": "sight",
+  "zh": "视力，景象",
+  "group": "Group 15"
+ },
+ {
+  "en": "smooth",
+  "zh": "光滑的",
+  "group": "Group 15"
+ },
+ {
+  "en": "solid",
+  "zh": "固体的",
+  "group": "Group 15"
+ },
+ {
+  "en": "splendid",
+  "zh": "壮观的",
+  "group": "Group 15"
+ },
+ {
+  "en": "spoil",
+  "zh": "破坏，宠坏",
+  "group": "Group 15"
+ },
+ {
+  "en": "squeeze",
+  "zh": "挤压",
+  "group": "Group 15"
+ },
+ {
+  "en": "stainless",
+  "zh": "不锈的",
+  "group": "Group 15"
+ },
+ {
+  "en": "statistic",
+  "zh": "统计数据",
+  "group": "Group 15"
+ },
+ {
+  "en": "status",
+  "zh": "地位",
+  "group": "Group 15"
+ },
+ {
+  "en": "suffering",
+  "zh": "痛苦",
+  "group": "Group 15"
+ },
+ {
+  "en": "suit",
+  "zh": "适合，西装",
+  "group": "Group 15"
+ },
+ {
+  "en": "suppose",
+  "zh": "假设",
+  "group": "Group 15"
+ },
+ {
+  "en": "survivor",
+  "zh": "幸存者",
+  "group": "Group 15"
+ },
+ {
+  "en": "tie",
+  "zh": "领带，捆绑",
+  "group": "Group 15"
+ },
+ {
+  "en": "trace",
+  "zh": "追踪，痕迹",
+  "group": "Group 15"
+ },
+ {
+  "en": "track",
+  "zh": "轨道，追踪",
+  "group": "Group 15"
+ },
+ {
+  "en": "transmit",
+  "zh": "传输",
+  "group": "Group 15"
+ },
+ {
+  "en": "uniform",
+  "zh": "制服，一致的",
+  "group": "Group 15"
+ },
+ {
+  "en": "urge",
+  "zh": "催促",
+  "group": "Group 15"
+ },
+ {
+  "en": "vary",
+  "zh": "变化",
+  "group": "Group 15"
+ },
+ {
+  "en": "withdraw",
+  "zh": "撤回",
+  "group": "Group 15"
+ },
+ {
+  "en": "workforce",
+  "zh": "劳动力",
+  "group": "Group 15"
+ },
+ {
+  "en": "workplace",
+  "zh": "工作场所",
+  "group": "Group 15"
+ },
+ {
+  "en": "absolute",
+  "zh": "绝对的",
+  "group": "Group 15"
+ },
+ {
+  "en": "accompany",
+  "zh": "陪伴",
+  "group": "Group 15"
+ },
+ {
+  "en": "accordance",
+  "zh": "一致",
+  "group": "Group 15"
+ },
+ {
+  "en": "accurate",
+  "zh": "准确的",
+  "group": "Group 15"
+ },
+ {
+  "en": "accuse",
+  "zh": "指责",
+  "group": "Group 15"
+ },
+ {
+  "en": "advanced",
+  "zh": "高级的，先进的",
+  "group": "Group 15"
+ },
+ {
+  "en": "advisable",
+  "zh": "明智的",
+  "group": "Group 15"
+ },
+ {
+  "en": "allowance",
+  "zh": "津贴",
+  "group": "Group 15"
+ },
+ {
+  "en": "alternative",
+  "zh": "替代的",
+  "group": "Group 15"
+ },
+ {
+  "en": "ambassador",
+  "zh": "大使",
+  "group": "Group 15"
+ },
+ {
+  "en": "anxious",
+  "zh": "焦虑的",
+  "group": "Group 15"
+ },
+ {
+  "en": "applicable",
+  "zh": "适用的",
+  "group": "Group 15"
+ },
+ {
+  "en": "arrest",
+  "zh": "逮捕",
+  "group": "Group 16"
+ },
+ {
+  "en": "artificial",
+  "zh": "人造的",
+  "group": "Group 16"
+ },
+ {
+  "en": "assemble",
+  "zh": "集合",
+  "group": "Group 16"
+ },
+ {
+  "en": "assign",
+  "zh": "分配",
+  "group": "Group 16"
+ },
+ {
+  "en": "assure",
+  "zh": "保证",
+  "group": "Group 16"
+ },
+ {
+  "en": "automobile",
+  "zh": "汽车",
+  "group": "Group 16"
+ },
+ {
+  "en": "bankrupt",
+  "zh": "破产的",
+  "group": "Group 16"
+ },
+ {
+  "en": "bare",
+  "zh": "赤裸的",
+  "group": "Group 16"
+ },
+ {
+  "en": "barrel",
+  "zh": "桶",
+  "group": "Group 16"
+ },
+ {
+  "en": "battery",
+  "zh": "电池",
+  "group": "Group 16"
+ },
+ {
+  "en": "best-seller",
+  "zh": "畅销书",
+  "group": "Group 16"
+ },
+ {
+  "en": "bid",
+  "zh": "投标，出价",
+  "group": "Group 16"
+ },
+ {
+  "en": "blank",
+  "zh": "空白",
+  "group": "Group 16"
+ },
+ {
+  "en": "bloodshed",
+  "zh": "流血",
+  "group": "Group 16"
+ },
+ {
+  "en": "bother",
+  "zh": "打扰",
+  "group": "Group 16"
+ },
+ {
+  "en": "bound",
+  "zh": "范围，必定",
+  "group": "Group 16"
+ },
+ {
+  "en": "brand",
+  "zh": "品牌",
+  "group": "Group 16"
+ },
+ {
+  "en": "breed",
+  "zh": "繁殖",
+  "group": "Group 16"
+ },
+ {
+  "en": "broaden",
+  "zh": "拓宽",
+  "group": "Group 16"
+ },
+ {
+  "en": "capacity",
+  "zh": "容量，能力",
+  "group": "Group 16"
+ },
+ {
+  "en": "champagne",
+  "zh": "香槟",
+  "group": "Group 16"
+ },
+ {
+  "en": "characteristic",
+  "zh": "特征",
+  "group": "Group 16"
+ },
+ {
+  "en": "charm",
+  "zh": "魅力",
+  "group": "Group 16"
+ },
+ {
+  "en": "childlike",
+  "zh": "孩子般的",
+  "group": "Group 16"
+ },
+ {
+  "en": "circular",
+  "zh": "圆形的",
+  "group": "Group 16"
+ },
+ {
+  "en": "clash",
+  "zh": "冲突",
+  "group": "Group 16"
+ },
+ {
+  "en": "client",
+  "zh": "客户",
+  "group": "Group 16"
+ },
+ {
+  "en": "Coca-Cola",
+  "zh": "可口可乐",
+  "group": "Group 16"
+ },
+ {
+  "en": "code",
+  "zh": "代码，密码",
+  "group": "Group 16"
+ },
+ {
+  "en": "comparison",
+  "zh": "比较",
+  "group": "Group 16"
+ },
+ {
+  "en": "component",
+  "zh": "成分",
+  "group": "Group 16"
+ },
+ {
+  "en": "concede",
+  "zh": "承认，让步",
+  "group": "Group 16"
+ },
+ {
+  "en": "concerning",
+  "zh": "关于",
+  "group": "Group 16"
+ },
+ {
+  "en": "confine",
+  "zh": "限制",
+  "group": "Group 16"
+ },
+ {
+  "en": "considerate",
+  "zh": "体贴的",
+  "group": "Group 16"
+ },
+ {
+  "en": "cooperate",
+  "zh": "合作",
+  "group": "Group 17"
+ },
+ {
+  "en": "corresponding",
+  "zh": "相应的",
+  "group": "Group 17"
+ },
+ {
+  "en": "crude",
+  "zh": "粗糙的，原油的",
+  "group": "Group 17"
+ },
+ {
+  "en": "crush",
+  "zh": "压碎",
+  "group": "Group 17"
+ },
+ {
+  "en": "deception",
+  "zh": "欺骗",
+  "group": "Group 17"
+ },
+ {
+  "en": "deed",
+  "zh": "行为",
+  "group": "Group 17"
+ },
+ {
+  "en": "deliberate",
+  "zh": "故意的",
+  "group": "Group 17"
+ },
+ {
+  "en": "delightful",
+  "zh": "令人愉快的",
+  "group": "Group 17"
+ },
+ {
+  "en": "dim",
+  "zh": "昏暗的",
+  "group": "Group 17"
+ },
+ {
+  "en": "diplomatic",
+  "zh": "外交的",
+  "group": "Group 17"
+ },
+ {
+  "en": "discount",
+  "zh": "折扣",
+  "group": "Group 17"
+ },
+ {
+  "en": "dispose",
+  "zh": "处置",
+  "group": "Group 17"
+ },
+ {
+  "en": "distinctive",
+  "zh": "独特的",
+  "group": "Group 17"
+ },
+ {
+  "en": "driving-licence",
+  "zh": "驾照",
+  "group": "Group 17"
+ },
+ {
+  "en": "driver's licence",
+  "zh": "驾照",
+  "group": "Group 17"
+ },
+ {
+  "en": "dropout",
+  "zh": "辍学者",
+  "group": "Group 17"
+ },
+ {
+  "en": "emit",
+  "zh": "发出",
+  "group": "Group 17"
+ },
+ {
+  "en": "engagement",
+  "zh": "订婚，约定",
+  "group": "Group 17"
+ },
+ {
+  "en": "excellence",
+  "zh": "卓越",
+  "group": "Group 17"
+ },
+ {
+  "en": "except",
+  "zh": "除...之外",
+  "group": "Group 17"
+ },
+ {
+  "en": "excess",
+  "zh": "过度",
+  "group": "Group 17"
+ },
+ {
+  "en": "exclaim",
+  "zh": "惊叹",
+  "group": "Group 17"
+ },
+ {
+  "en": "exclusive",
+  "zh": "独家的",
+  "group": "Group 17"
+ },
+ {
+  "en": "explanation",
+  "zh": "解释",
+  "group": "Group 17"
+ },
+ {
+  "en": "extensive",
+  "zh": "广泛的",
+  "group": "Group 17"
+ },
+ {
+  "en": "facial",
+  "zh": "面部的",
+  "group": "Group 17"
+ },
+ {
+  "en": "faithful",
+  "zh": "忠诚的",
+  "group": "Group 17"
+ },
+ {
+  "en": "fame",
+  "zh": "名声",
+  "group": "Group 17"
+ },
+ {
+  "en": "flexibility",
+  "zh": "灵活性",
+  "group": "Group 17"
+ },
+ {
+  "en": "fresh",
+  "zh": "新鲜的",
+  "group": "Group 17"
+ },
+ {
+  "en": "fruitful",
+  "zh": "富有成效的",
+  "group": "Group 17"
+ },
+ {
+  "en": "frustrate",
+  "zh": "使沮丧",
+  "group": "Group 17"
+ },
+ {
+  "en": "fulfil(l)",
+  "zh": "履行，满足",
+  "group": "Group 17"
+ },
+ {
+  "en": "furnish",
+  "zh": "供应，布置",
+  "group": "Group 17"
+ },
+ {
+  "en": "gender",
+  "zh": "性别",
+  "group": "Group 17"
+ },
+ {
+  "en": "grasp",
+  "zh": "抓住，理解",
+  "group": "Group 17"
+ },
+ {
+  "en": "guilty",
+  "zh": "有罪的",
+  "group": "Group 17"
+ },
+ {
+  "en": "horizon",
+  "zh": "地平线",
+  "group": "Group 17"
+ },
+ {
+  "en": "iceberg",
+  "zh": "冰山",
+  "group": "Group 17"
+ },
+ {
+  "en": "identical",
+  "zh": "完全相同的",
+  "group": "Group 17"
+ },
+ {
+  "en": "idle",
+  "zh": "空闲的",
+  "group": "Group 17"
+ },
+ {
+  "en": "immigrant",
+  "zh": "移民",
+  "group": "Group 17"
+ },
+ {
+  "en": "implement",
+  "zh": "实施，工具",
+  "group": "Group 18"
+ },
+ {
+  "en": "imply",
+  "zh": "暗示",
+  "group": "Group 18"
+ },
+ {
+  "en": "incline",
+  "zh": "倾向",
+  "group": "Group 18"
+ },
+ {
+  "en": "influential",
+  "zh": "有影响力的",
+  "group": "Group 18"
+ },
+ {
+  "en": "inherit",
+  "zh": "继承",
+  "group": "Group 18"
+ },
+ {
+  "en": "initiative",
+  "zh": "主动性，倡议",
+  "group": "Group 18"
+ },
+ {
+  "en": "inquiry",
+  "zh": "询问",
+  "group": "Group 18"
+ },
+ {
+  "en": "intensive",
+  "zh": "密集的",
+  "group": "Group 18"
+ },
+ {
+  "en": "Latin",
+  "zh": "拉丁语",
+  "group": "Group 18"
+ },
+ {
+  "en": "leak",
+  "zh": "泄漏",
+  "group": "Group 18"
+ },
+ {
+  "en": "length",
+  "zh": "长度",
+  "group": "Group 18"
+ },
+ {
+  "en": "load",
+  "zh": "负载",
+  "group": "Group 18"
+ },
+ {
+  "en": "logo",
+  "zh": "标志",
+  "group": "Group 18"
+ },
+ {
+  "en": "lonely",
+  "zh": "孤独的",
+  "group": "Group 18"
+ },
+ {
+  "en": "loosen",
+  "zh": "放松",
+  "group": "Group 18"
+ },
+ {
+  "en": "middle-class",
+  "zh": "中产阶级",
+  "group": "Group 18"
+ },
+ {
+  "en": "mobile",
+  "zh": "移动的",
+  "group": "Group 18"
+ },
+ {
+  "en": "naked",
+  "zh": "裸体的",
+  "group": "Group 18"
+ },
+ {
+  "en": "observation",
+  "zh": "观察",
+  "group": "Group 18"
+ },
+ {
+  "en": "obstacle",
+  "zh": "障碍",
+  "group": "Group 18"
+ },
+ {
+  "en": "occupy",
+  "zh": "占据",
+  "group": "Group 18"
+ },
+ {
+  "en": "opposition",
+  "zh": "反对",
+  "group": "Group 18"
+ },
+ {
+  "en": "optimistic",
+  "zh": "乐观的",
+  "group": "Group 18"
+ },
+ {
+  "en": "optional",
+  "zh": "可选的",
+  "group": "Group 18"
+ },
+ {
+  "en": "owing",
+  "zh": "由于",
+  "group": "Group 18"
+ },
+ {
+  "en": "part-time",
+  "zh": "兼职的",
+  "group": "Group 18"
+ },
+ {
+  "en": "penalty",
+  "zh": "惩罚",
+  "group": "Group 18"
+ },
+ {
+  "en": "perspective",
+  "zh": "视角",
+  "group": "Group 18"
+ },
+ {
+  "en": "postpone",
+  "zh": "推迟",
+  "group": "Group 18"
+ },
+ {
+  "en": "precaution",
+  "zh": "预防措施",
+  "group": "Group 18"
+ },
+ {
+  "en": "probable",
+  "zh": "可能的",
+  "group": "Group 18"
+ },
+ {
+  "en": "proceed",
+  "zh": "继续进行",
+  "group": "Group 18"
+ },
+ {
+  "en": "proportion",
+  "zh": "比例",
+  "group": "Group 18"
+ },
+ {
+  "en": "proposal",
+  "zh": "提议",
+  "group": "Group 18"
+ },
+ {
+  "en": "propose",
+  "zh": "提议",
+  "group": "Group 18"
+ },
+ {
+  "en": "provided",
+  "zh": "假如",
+  "group": "Group 18"
+ },
+ {
+  "en": "pure",
+  "zh": "纯净的",
+  "group": "Group 18"
+ },
+ {
+  "en": "quantity",
+  "zh": "数量",
+  "group": "Group 18"
+ },
+ {
+  "en": "ready",
+  "zh": "准备好的",
+  "group": "Group 18"
+ },
+ {
+  "en": "registration",
+  "zh": "登记",
+  "group": "Group 19"
+ },
+ {
+  "en": "reinforce",
+  "zh": "加强",
+  "group": "Group 19"
+ },
+ {
+  "en": "relation",
+  "zh": "关系",
+  "group": "Group 19"
+ },
+ {
+  "en": "render",
+  "zh": "提供，使成为",
+  "group": "Group 19"
+ },
+ {
+  "en": "resemble",
+  "zh": "相似",
+  "group": "Group 19"
+ },
+ {
+  "en": "restrain",
+  "zh": "抑制",
+  "group": "Group 19"
+ },
+ {
+  "en": "risky",
+  "zh": "有风险的",
+  "group": "Group 19"
+ },
+ {
+  "en": "rush",
+  "zh": "匆忙",
+  "group": "Group 19"
+ },
+ {
+  "en": "scan",
+  "zh": "扫描",
+  "group": "Group 19"
+ },
+ {
+  "en": "separate",
+  "zh": "分开",
+  "group": "Group 19"
+ },
+ {
+  "en": "skim",
+  "zh": "略读，撇去",
+  "group": "Group 19"
+ },
+ {
+  "en": "soft drink",
+  "zh": "软饮料",
+  "group": "Group 19"
+ },
+ {
+  "en": "spare",
+  "zh": "空闲的，备用",
+  "group": "Group 19"
+ },
+ {
+  "en": "spite",
+  "zh": "恶意",
+  "group": "Group 19"
+ },
+ {
+  "en": "split",
+  "zh": "分裂",
+  "group": "Group 19"
+ },
+ {
+  "en": "spur",
+  "zh": "刺激，马刺",
+  "group": "Group 19"
+ },
+ {
+  "en": "stable",
+  "zh": "稳定的",
+  "group": "Group 19"
+ },
+ {
+  "en": "substitute",
+  "zh": "替代品",
+  "group": "Group 19"
+ },
+ {
+  "en": "supreme",
+  "zh": "至高的",
+  "group": "Group 19"
+ },
+ {
+  "en": "swallow",
+  "zh": "吞咽",
+  "group": "Group 19"
+ },
+ {
+  "en": "swear",
+  "zh": "发誓，咒骂",
+  "group": "Group 19"
+ },
+ {
+  "en": "tame",
+  "zh": "驯服的",
+  "group": "Group 19"
+ },
+ {
+  "en": "tear",
+  "zh": "眼泪，撕裂",
+  "group": "Group 19"
+ },
+ {
+  "en": "tender",
+  "zh": "温柔的",
+  "group": "Group 19"
+ },
+ {
+  "en": "tense",
+  "zh": "紧张的",
+  "group": "Group 19"
+ },
+ {
+  "en": "tight",
+  "zh": "紧的",
+  "group": "Group 19"
+ },
+ {
+  "en": "tolerate",
+  "zh": "容忍",
+  "group": "Group 19"
+ },
+ {
+  "en": "transport",
+  "zh": "运输",
+  "group": "Group 19"
+ },
+ {
+  "en": "trap",
+  "zh": "陷阱",
+  "group": "Group 19"
+ },
+ {
+  "en": "trick",
+  "zh": "把戏",
+  "group": "Group 19"
+ },
+ {
+  "en": "vacant",
+  "zh": "空的",
+  "group": "Group 19"
+ },
+ {
+  "en": "vain",
+  "zh": "徒劳的",
+  "group": "Group 19"
+ },
+ {
+  "en": "violent",
+  "zh": "暴力的",
+  "group": "Group 19"
+ },
+ {
+  "en": "weaken",
+  "zh": "削弱",
+  "group": "Group 19"
+ },
+ {
+  "en": "worthy",
+  "zh": "值得的",
+  "group": "Group 19"
+ },
+ {
+  "en": "above all",
+  "zh": "首先",
+  "group": "Group 20"
+ },
+ {
+  "en": "after all",
+  "zh": "毕竟",
+  "group": "Group 20"
+ },
+ {
+  "en": "all but",
+  "zh": "几乎",
+  "group": "Group 20"
+ },
+ {
+  "en": "as for/to",
+  "zh": "至于",
+  "group": "Group 20"
+ },
+ {
+  "en": "as it were",
+  "zh": "可以说",
+  "group": "Group 20"
+ },
+ {
+  "en": "break off",
+  "zh": "中断",
+  "group": "Group 20"
+ },
+ {
+  "en": "break out",
+  "zh": "爆发",
+  "group": "Group 20"
+ },
+ {
+  "en": "break down",
+  "zh": "故障，崩溃",
+  "group": "Group 20"
+ },
+ {
+  "en": "break through",
+  "zh": "突破",
+  "group": "Group 20"
+ },
+ {
+  "en": "bring off",
+  "zh": "成功完成",
+  "group": "Group 20"
+ },
+ {
+  "en": "bring down",
+  "zh": "降低",
+  "group": "Group 20"
+ },
+ {
+  "en": "bring forth",
+  "zh": "产生",
+  "group": "Group 20"
+ },
+ {
+  "en": "but for",
+  "zh": "要不是",
+  "group": "Group 20"
+ },
+ {
+  "en": "anything but",
+  "zh": "绝不是",
+  "group": "Group 20"
+ },
+ {
+  "en": "call for",
+  "zh": "要求，需要",
+  "group": "Group 20"
+ },
+ {
+  "en": "call off",
+  "zh": "取消",
+  "group": "Group 20"
+ },
+ {
+  "en": "call on/upon (sb. to do)",
+  "zh": "拜访，号召",
+  "group": "Group 20"
+ },
+ {
+  "en": "call up",
+  "zh": "打电话，使想起",
+  "group": "Group 20"
+ },
+ {
+  "en": "carry on",
+  "zh": "继续",
+  "group": "Group 20"
+ },
+ {
+  "en": "carry out",
+  "zh": "执行",
+  "group": "Group 20"
+ },
+ {
+  "en": "carry forward",
+  "zh": "发扬",
+  "group": "Group 20"
+ },
+ {
+  "en": "carry off",
+  "zh": "成功完成",
+  "group": "Group 20"
+ },
+ {
+  "en": "come up with",
+  "zh": "想出",
+  "group": "Group 20"
+ },
+ {
+  "en": "come about",
+  "zh": "发生",
+  "group": "Group 20"
+ },
+ {
+  "en": "come off",
+  "zh": "成功/脱落",
+  "group": "Group 20"
+ },
+ {
+  "en": "come up against",
+  "zh": "遭遇",
+  "group": "Group 20"
+ },
+ {
+  "en": "come across",
+  "zh": "偶然遇到",
+  "group": "Group 20"
+ },
+ {
+  "en": "come through",
+  "zh": "安然度过",
+  "group": "Group 20"
+ },
+ {
+  "en": "cut off",
+  "zh": "切断",
+  "group": "Group 20"
+ },
+ {
+  "en": "cut up",
+  "zh": "切碎",
+  "group": "Group 20"
+ },
+ {
+  "en": "cut down",
+  "zh": "削减",
+  "group": "Group 20"
+ },
+ {
+  "en": "cut short",
+  "zh": "缩短",
+  "group": "Group 20"
+ },
+ {
+  "en": "draw up",
+  "zh": "起草/停住",
+  "group": "Group 20"
+ },
+ {
+  "en": "take effect",
+  "zh": "生效",
+  "group": "Group 20"
+ },
+ {
+  "en": "bring/carry/put into effect",
+  "zh": "实施",
+  "group": "Group 20"
+ },
+ {
+  "en": "in the face",
+  "zh": "面对",
+  "group": "Group 20"
+ },
+ {
+  "en": "fall back on",
+  "zh": "依靠",
+  "group": "Group 20"
+ },
+ {
+  "en": "fall for",
+  "zh": "爱上/受骗",
+  "group": "Group 20"
+ },
+ {
+  "en": "fall in with",
+  "zh": "同意/结交",
+  "group": "Group 20"
+ },
+ {
+  "en": "fall through",
+  "zh": "失败/落空",
+  "group": "Group 20"
+ },
+ {
+  "en": "as far as",
+  "zh": "至于/远到",
+  "group": "Group 20"
+ },
+ {
+  "en": "by far",
+  "zh": "到目前为止",
+  "group": "Group 20"
+ },
+ {
+  "en": "get off",
+  "zh": "下车/逃脱",
+  "group": "Group 20"
+ },
+ {
+  "en": "get across",
+  "zh": "使被理解",
+  "group": "Group 20"
+ },
+ {
+  "en": "get around/round to",
+  "zh": "抽出时间做",
+  "group": "Group 20"
+ },
+ {
+  "en": "get along",
+  "zh": "相处/进展",
+  "group": "Group 20"
+ },
+ {
+  "en": "get down",
+  "zh": "下来/写下",
+  "group": "Group 20"
+ },
+ {
+  "en": "get on",
+  "zh": "上车/进展",
+  "group": "Group 20"
+ },
+ {
+  "en": "get over",
+  "zh": "克服",
+  "group": "Group 20"
+ },
+ {
+  "en": "get to",
+  "zh": "到达",
+  "group": "Group 20"
+ },
+ {
+  "en": "go in for",
+  "zh": "从事/爱好",
+  "group": "Group 20"
+ },
+ {
+  "en": "go into",
+  "zh": "进入/调查",
+  "group": "Group 20"
+ },
+ {
+  "en": "go off",
+  "zh": "爆炸/离开",
+  "group": "Group 20"
+ },
+ {
+  "en": "go after",
+  "zh": "追求",
+  "group": "Group 20"
+ },
+ {
+  "en": "go by",
+  "zh": "经过/遵循",
+  "group": "Group 20"
+ },
+ {
+  "en": "go over",
+  "zh": "复习/检查",
+  "group": "Group 20"
+ },
+ {
+  "en": "go on",
+  "zh": "继续",
+  "group": "Group 20"
+ },
+ {
+  "en": "go along",
+  "zh": "进行/同意",
+  "group": "Group 20"
+ },
+ {
+  "en": "go through",
+  "zh": "经历/仔细检查",
+  "group": "Group 20"
+ },
+ {
+  "en": "pull through",
+  "zh": "度过难关",
+  "group": "Group 20"
+ },
+ {
+  "en": "pull up",
+  "zh": "停下",
+  "group": "Group 20"
+ },
+ {
+  "en": "put up with",
+  "zh": "忍受",
+  "group": "Group 20"
+ },
+ {
+  "en": "put forward",
+  "zh": "提出",
+  "group": "Group 20"
+ },
+ {
+  "en": "put away",
+  "zh": "收好",
+  "group": "Group 20"
+ },
+ {
+  "en": "put off",
+  "zh": "推迟",
+  "group": "Group 20"
+ },
+ {
+  "en": "put up",
+  "zh": "建造/举起",
+  "group": "Group 20"
+ },
+ {
+  "en": "put through",
+  "zh": "接通电话",
+  "group": "Group 20"
+ },
+ {
+  "en": "put down",
+  "zh": "放下/记下",
+  "group": "Group 20"
+ },
+ {
+  "en": "put out",
+  "zh": "扑灭/伸出",
+  "group": "Group 20"
+ },
+ {
+  "en": "hand over",
+  "zh": "移交",
+  "group": "Group 21"
+ },
+ {
+  "en": "by hand",
+  "zh": "手工",
+  "group": "Group 21"
+ },
+ {
+  "en": "hand down",
+  "zh": "传下来",
+  "group": "Group 21"
+ },
+ {
+  "en": "hang on to",
+  "zh": "坚持/紧紧抓住",
+  "group": "Group 21"
+ },
+ {
+  "en": "hang up",
+  "zh": "挂断电话",
+  "group": "Group 21"
+ },
+ {
+  "en": "hang about/around",
+  "zh": "闲逛",
+  "group": "Group 21"
+ },
+ {
+  "en": "at heart",
+  "zh": "在内心",
+  "group": "Group 21"
+ },
+ {
+  "en": "lose heart",
+  "zh": "灰心",
+  "group": "Group 21"
+ },
+ {
+  "en": "hold up",
+  "zh": "举起/支撑",
+  "group": "Group 21"
+ },
+ {
+  "en": "hold back",
+  "zh": "阻止/隐瞒",
+  "group": "Group 21"
+ },
+ {
+  "en": "hold on to/onto",
+  "zh": "坚持/抓住",
+  "group": "Group 21"
+ },
+ {
+  "en": "hold off",
+  "zh": "推迟/抵挡",
+  "group": "Group 21"
+ },
+ {
+  "en": "hold to",
+  "zh": "坚持",
+  "group": "Group 21"
+ },
+ {
+  "en": "keep to",
+  "zh": "遵守",
+  "group": "Group 21"
+ },
+ {
+  "en": "keep up with",
+  "zh": "跟上",
+  "group": "Group 21"
+ },
+ {
+  "en": "keep off",
+  "zh": "远离",
+  "group": "Group 21"
+ },
+ {
+  "en": "live up to",
+  "zh": "不辜负",
+  "group": "Group 21"
+ },
+ {
+  "en": "live through",
+  "zh": "度过",
+  "group": "Group 21"
+ },
+ {
+  "en": "live with",
+  "zh": "忍受/与...同住",
+  "group": "Group 21"
+ },
+ {
+  "en": "look into",
+  "zh": "调查",
+  "group": "Group 21"
+ },
+ {
+  "en": "look on",
+  "zh": "旁观",
+  "group": "Group 21"
+ },
+ {
+  "en": "look in",
+  "zh": "顺便拜访",
+  "group": "Group 21"
+ },
+ {
+  "en": "look over",
+  "zh": "检查",
+  "group": "Group 21"
+ },
+ {
+  "en": "look through",
+  "zh": "浏览/看穿",
+  "group": "Group 21"
+ },
+ {
+  "en": "make out",
+  "zh": "辨认出/理解",
+  "group": "Group 21"
+ },
+ {
+  "en": "make up for",
+  "zh": "弥补",
+  "group": "Group 21"
+ },
+ {
+  "en": "make up",
+  "zh": "组成/编造/化妆",
+  "group": "Group 21"
+ },
+ {
+  "en": "make for",
+  "zh": "走向/有助于",
+  "group": "Group 21"
+ },
+ {
+  "en": "make it",
+  "zh": "成功",
+  "group": "Group 21"
+ },
+ {
+  "en": "take one's mind off sth.",
+  "zh": "转移注意力",
+  "group": "Group 21"
+ },
+ {
+  "en": "make up one's mind",
+  "zh": "下定决心",
+  "group": "Group 21"
+ },
+ {
+  "en": "change one's mind",
+  "zh": "改变主意",
+  "group": "Group 21"
+ },
+ {
+  "en": "the moment (that)",
+  "zh": "一...就",
+  "group": "Group 21"
+ },
+ {
+  "en": "at the moment",
+  "zh": "此刻",
+  "group": "Group 21"
+ },
+ {
+  "en": "for the moment",
+  "zh": "暂时",
+  "group": "Group 21"
+ },
+ {
+  "en": "in a moment",
+  "zh": "立刻",
+  "group": "Group 21"
+ },
+ {
+  "en": "more than",
+  "zh": "超过",
+  "group": "Group 21"
+ },
+ {
+  "en": "move on",
+  "zh": "继续前进",
+  "group": "Group 21"
+ },
+ {
+  "en": "move in on",
+  "zh": "向...逼近",
+  "group": "Group 21"
+ },
+ {
+  "en": "take part (in)",
+  "zh": "参加",
+  "group": "Group 21"
+ },
+ {
+  "en": "play a part (in)",
+  "zh": "起作用",
+  "group": "Group 21"
+ },
+ {
+  "en": "for one's part",
+  "zh": "就某人而言",
+  "group": "Group 21"
+ },
+ {
+  "en": "in place of",
+  "zh": "代替",
+  "group": "Group 21"
+ },
+ {
+  "en": "out of place",
+  "zh": "不合适",
+  "group": "Group 21"
+ },
+ {
+  "en": "take place",
+  "zh": "发生",
+  "group": "Group 21"
+ },
+ {
+  "en": "take the place of",
+  "zh": "代替",
+  "group": "Group 21"
+ },
+ {
+  "en": "on the point of",
+  "zh": "正要...的时候",
+  "group": "Group 21"
+ },
+ {
+  "en": "beside the point",
+  "zh": "离题/不相关",
+  "group": "Group 21"
+ },
+ {
+  "en": "run over",
+  "zh": "碾过/复习",
+  "group": "Group 22"
+ },
+ {
+  "en": "run down",
+  "zh": "撞倒/耗尽",
+  "group": "Group 22"
+ },
+ {
+  "en": "run into",
+  "zh": "撞上/偶遇",
+  "group": "Group 22"
+ },
+ {
+  "en": "run through",
+  "zh": "贯穿/浏览",
+  "group": "Group 22"
+ },
+ {
+  "en": "see to (doing)",
+  "zh": "负责/处理",
+  "group": "Group 22"
+ },
+ {
+  "en": "see about (doing)",
+  "zh": "考虑/安排",
+  "group": "Group 22"
+ },
+ {
+  "en": "seeing (that)",
+  "zh": "鉴于/既然",
+  "group": "Group 22"
+ },
+ {
+  "en": "set about",
+  "zh": "着手做",
+  "group": "Group 22"
+ },
+ {
+  "en": "set down",
+  "zh": "记下",
+  "group": "Group 22"
+ },
+ {
+  "en": "set forth",
+  "zh": "阐述/出发",
+  "group": "Group 22"
+ },
+ {
+  "en": "set out",
+  "zh": "出发/着手",
+  "group": "Group 22"
+ },
+ {
+  "en": "set up",
+  "zh": "建立",
+  "group": "Group 22"
+ },
+ {
+  "en": "stand for",
+  "zh": "代表/容忍",
+  "group": "Group 22"
+ },
+ {
+  "en": "stand up to",
+  "zh": "勇敢面对/经得起",
+  "group": "Group 22"
+ },
+ {
+  "en": "stand by",
+  "zh": "支持/袖手旁观",
+  "group": "Group 22"
+ },
+ {
+  "en": "stand out",
+  "zh": "突出",
+  "group": "Group 22"
+ },
+ {
+  "en": "take over",
+  "zh": "接管",
+  "group": "Group 22"
+ },
+ {
+  "en": "take on",
+  "zh": "承担/呈现",
+  "group": "Group 22"
+ },
+ {
+  "en": "take up",
+  "zh": "占据/开始从事",
+  "group": "Group 22"
+ },
+ {
+  "en": "take in",
+  "zh": "吸收/理解/欺骗",
+  "group": "Group 22"
+ },
+ {
+  "en": "take after",
+  "zh": "长得像",
+  "group": "Group 22"
+ },
+ {
+  "en": "take off",
+  "zh": "起飞/脱下",
+  "group": "Group 22"
+ },
+ {
+  "en": "take...for",
+  "zh": "把...当做",
+  "group": "Group 22"
+ },
+ {
+  "en": "take to",
+  "zh": "喜欢/开始从事",
+  "group": "Group 22"
+ },
+ {
+  "en": "take away",
+  "zh": "拿走",
+  "group": "Group 22"
+ },
+ {
+  "en": "turn out",
+  "zh": "结果是/关掉",
+  "group": "Group 22"
+ },
+ {
+  "en": "turn down",
+  "zh": "拒绝/调低",
+  "group": "Group 22"
+ },
+ {
+  "en": "turn up",
+  "zh": "出现/调高",
+  "group": "Group 22"
+ },
+ {
+  "en": "turn to",
+  "zh": "求助于/转向",
+  "group": "Group 22"
+ },
+ {
+  "en": "in turn",
+  "zh": "依次/反过来",
+  "group": "Group 22"
+ },
+ {
+  "en": "turn in",
+  "zh": "上交",
+  "group": "Group 22"
+ },
+ {
+  "en": "turn over",
+  "zh": "翻身/移交",
+  "group": "Group 22"
+ },
+ {
+  "en": "in no way",
+  "zh": "绝不",
+  "group": "Group 22"
+ },
+ {
+  "en": "all the way",
+  "zh": "一直/完全",
+  "group": "Group 22"
+ },
+ {
+  "en": "by the way",
+  "zh": "顺便说一下",
+  "group": "Group 22"
+ },
+ {
+  "en": "by way of",
+  "zh": "通过/经由",
+  "group": "Group 22"
+ },
+ {
+  "en": "give way",
+  "zh": "让路/屈服",
+  "group": "Group 22"
+ },
+ {
+  "en": "work out",
+  "zh": "解决/算出/锻炼",
+  "group": "Group 22"
+ },
+ {
+  "en": "out of work",
+  "zh": "失业",
+  "group": "Group 22"
+ },
+ {
+  "en": "abuse",
+  "zh": "滥用，虐待",
+  "group": "Group 23"
+ },
+ {
+  "en": "accommodation",
+  "zh": "住宿",
+  "group": "Group 23"
+ },
+ {
+  "en": "accord",
+  "zh": "一致，给予",
+  "group": "Group 23"
+ },
+ {
+  "en": "accustomed",
+  "zh": "习惯的",
+  "group": "Group 23"
+ },
+ {
+  "en": "actually",
+  "zh": "实际上",
+  "group": "Group 23"
+ },
+ {
+  "en": "add",
+  "zh": "添加",
+  "group": "Group 23"
+ },
+ {
+  "en": "affair",
+  "zh": "事务",
+  "group": "Group 23"
+ },
+ {
+  "en": "affection",
+  "zh": "喜爱",
+  "group": "Group 23"
+ },
+ {
+  "en": "alike",
+  "zh": "相似的",
+  "group": "Group 23"
+ },
+ {
+  "en": "alliance",
+  "zh": "联盟",
+  "group": "Group 23"
+ },
+ {
+  "en": "apart",
+  "zh": "分开",
+  "group": "Group 23"
+ },
+ {
+  "en": "apparent",
+  "zh": "明显的",
+  "group": "Group 23"
+ },
+ {
+  "en": "appealing",
+  "zh": "吸引人的",
+  "group": "Group 23"
+ },
+ {
+  "en": "appetite",
+  "zh": "食欲",
+  "group": "Group 23"
+ },
+ {
+  "en": "applied",
+  "zh": "应用的",
+  "group": "Group 23"
+ },
+ {
+  "en": "appoint",
+  "zh": "任命",
+  "group": "Group 23"
+ },
+ {
+  "en": "appreciate",
+  "zh": "感激，欣赏",
+  "group": "Group 23"
+ },
+ {
+  "en": "approximate",
+  "zh": "大约的",
+  "group": "Group 23"
+ },
+ {
+  "en": "ashamed",
+  "zh": "羞愧的",
+  "group": "Group 23"
+ },
+ {
+  "en": "assembly",
+  "zh": "集会",
+  "group": "Group 23"
+ },
+ {
+  "en": "attain",
+  "zh": "达到",
+  "group": "Group 23"
+ },
+ {
+  "en": "await",
+  "zh": "等待",
+  "group": "Group 23"
+ },
+ {
+  "en": "awkward",
+  "zh": "尴尬的",
+  "group": "Group 23"
+ },
+ {
+  "en": "banner",
+  "zh": "横幅",
+  "group": "Group 23"
+ },
+ {
+  "en": "barely",
+  "zh": "几乎不",
+  "group": "Group 23"
+ },
+ {
+  "en": "bearing",
+  "zh": "举止，关系",
+  "group": "Group 23"
+ },
+ {
+  "en": "beat",
+  "zh": "打败，敲打",
+  "group": "Group 23"
+ },
+ {
+  "en": "beggar",
+  "zh": "乞丐",
+  "group": "Group 24"
+ },
+ {
+  "en": "belongings",
+  "zh": "财物",
+  "group": "Group 24"
+ },
+ {
+  "en": "beneath",
+  "zh": "在...下方",
+  "group": "Group 24"
+ },
+ {
+  "en": "bet",
+  "zh": "打赌",
+  "group": "Group 24"
+ },
+ {
+  "en": "bite",
+  "zh": "咬",
+  "group": "Group 24"
+ },
+ {
+  "en": "blast",
+  "zh": "爆炸",
+  "group": "Group 24"
+ },
+ {
+  "en": "bloom",
+  "zh": "开花",
+  "group": "Group 24"
+ },
+ {
+  "en": "bore",
+  "zh": "使厌烦",
+  "group": "Group 24"
+ },
+ {
+  "en": "bottom",
+  "zh": "底部",
+  "group": "Group 24"
+ },
+ {
+  "en": "bridge",
+  "zh": "桥",
+  "group": "Group 24"
+ },
+ {
+  "en": "broadcast",
+  "zh": "广播",
+  "group": "Group 24"
+ },
+ {
+  "en": "browse",
+  "zh": "浏览",
+  "group": "Group 24"
+ },
+ {
+  "en": "build",
+  "zh": "建造",
+  "group": "Group 24"
+ },
+ {
+  "en": "bulk",
+  "zh": "大部分",
+  "group": "Group 24"
+ },
+ {
+  "en": "bump",
+  "zh": "碰撞",
+  "group": "Group 24"
+ },
+ {
+  "en": "bunch",
+  "zh": "束，串",
+  "group": "Group 24"
+ },
+ {
+  "en": "calculate",
+  "zh": "计算",
+  "group": "Group 24"
+ },
+ {
+  "en": "cancel",
+  "zh": "取消",
+  "group": "Group 24"
+ },
+ {
+  "en": "capital",
+  "zh": "首都，资本",
+  "group": "Group 24"
+ },
+ {
+  "en": "career",
+  "zh": "职业",
+  "group": "Group 24"
+ },
+ {
+  "en": "careless",
+  "zh": "粗心的",
+  "group": "Group 24"
+ },
+ {
+  "en": "cause",
+  "zh": "原因，引起",
+  "group": "Group 24"
+ },
+ {
+  "en": "cautious",
+  "zh": "谨慎的",
+  "group": "Group 24"
+ },
+ {
+  "en": "cease",
+  "zh": "停止",
+  "group": "Group 24"
+ },
+ {
+  "en": "ceiling",
+  "zh": "天花板",
+  "group": "Group 24"
+ },
+ {
+  "en": "center/-tre",
+  "zh": "中心",
+  "group": "Group 24"
+ },
+ {
+  "en": "change",
+  "zh": "改变",
+  "group": "Group 24"
+ },
+ {
+  "en": "chaos",
+  "zh": "混乱",
+  "group": "Group 24"
+ },
+ {
+  "en": "chaotic",
+  "zh": "混乱的",
+  "group": "Group 24"
+ },
+ {
+  "en": "charter",
+  "zh": "宪章，包租",
+  "group": "Group 24"
+ },
+ {
+  "en": "circle",
+  "zh": "圆圈",
+  "group": "Group 24"
+ },
+ {
+  "en": "cite",
+  "zh": "引用",
+  "group": "Group 25"
+ },
+ {
+  "en": "civil",
+  "zh": "公民的",
+  "group": "Group 25"
+ },
+ {
+  "en": "classic",
+  "zh": "经典的",
+  "group": "Group 25"
+ },
+ {
+  "en": "classify",
+  "zh": "分类",
+  "group": "Group 25"
+ },
+ {
+  "en": "clause",
+  "zh": "条款",
+  "group": "Group 25"
+ },
+ {
+  "en": "cliff",
+  "zh": "悬崖",
+  "group": "Group 25"
+ },
+ {
+  "en": "climate",
+  "zh": "气候",
+  "group": "Group 25"
+ },
+ {
+  "en": "clue",
+  "zh": "线索",
+  "group": "Group 25"
+ },
+ {
+  "en": "coach",
+  "zh": "教练，长途汽车",
+  "group": "Group 25"
+ },
+ {
+  "en": "comfortable",
+  "zh": "舒适的",
+  "group": "Group 25"
+ },
+ {
+  "en": "comment",
+  "zh": "评论",
+  "group": "Group 25"
+ },
+ {
+  "en": "commerce",
+  "zh": "商业",
+  "group": "Group 25"
+ },
+ {
+  "en": "commission",
+  "zh": "委员会，佣金",
+  "group": "Group 25"
+ },
+ {
+  "en": "comparable",
+  "zh": "可比较的",
+  "group": "Group 25"
+ },
+ {
+  "en": "comparative",
+  "zh": "比较的",
+  "group": "Group 25"
+ },
+ {
+  "en": "complain",
+  "zh": "抱怨",
+  "group": "Group 25"
+ },
+ {
+  "en": "compress",
+  "zh": "压缩",
+  "group": "Group 25"
+ },
+ {
+  "en": "comprise",
+  "zh": "包含",
+  "group": "Group 25"
+ },
+ {
+  "en": "compromise",
+  "zh": "妥协",
+  "group": "Group 25"
+ },
+ {
+  "en": "conclude",
+  "zh": "得出结论",
+  "group": "Group 25"
+ },
+ {
+  "en": "concrete",
+  "zh": "混凝土，具体的",
+  "group": "Group 25"
+ },
+ {
+  "en": "conduct",
+  "zh": "行为，进行",
+  "group": "Group 25"
+ },
+ {
+  "en": "confess",
+  "zh": "承认",
+  "group": "Group 25"
+ },
+ {
+  "en": "confidence",
+  "zh": "信心",
+  "group": "Group 25"
+ },
+ {
+  "en": "congress",
+  "zh": "国会",
+  "group": "Group 25"
+ },
+ {
+  "en": "conquer",
+  "zh": "征服",
+  "group": "Group 25"
+ },
+ {
+  "en": "consent",
+  "zh": "同意",
+  "group": "Group 25"
+ },
+ {
+  "en": "consequently",
+  "zh": "因此",
+  "group": "Group 26"
+ },
+ {
+  "en": "conservative",
+  "zh": "保守的",
+  "group": "Group 26"
+ },
+ {
+  "en": "constitute",
+  "zh": "构成",
+  "group": "Group 26"
+ },
+ {
+  "en": "construct",
+  "zh": "建造",
+  "group": "Group 26"
+ },
+ {
+  "en": "contact",
+  "zh": "联系",
+  "group": "Group 26"
+ },
+ {
+  "en": "context",
+  "zh": "上下文，背景",
+  "group": "Group 26"
+ },
+ {
+  "en": "contradiction",
+  "zh": "矛盾",
+  "group": "Group 26"
+ },
+ {
+  "en": "convert",
+  "zh": "转换",
+  "group": "Group 26"
+ },
+ {
+  "en": "convict",
+  "zh": "定罪",
+  "group": "Group 26"
+ },
+ {
+  "en": "correct",
+  "zh": "正确的，纠正",
+  "group": "Group 26"
+ },
+ {
+  "en": "counter",
+  "zh": "柜台，反对",
+  "group": "Group 26"
+ },
+ {
+  "en": "countryside",
+  "zh": "乡村",
+  "group": "Group 26"
+ },
+ {
+  "en": "county",
+  "zh": "县",
+  "group": "Group 26"
+ },
+ {
+  "en": "court",
+  "zh": "法庭，球场",
+  "group": "Group 26"
+ },
+ {
+  "en": "craft",
+  "zh": "工艺",
+  "group": "Group 26"
+ },
+ {
+  "en": "creep",
+  "zh": "爬行",
+  "group": "Group 26"
+ },
+ {
+  "en": "crew",
+  "zh": "船员",
+  "group": "Group 26"
+ },
+ {
+  "en": "crucial",
+  "zh": "至关重要的",
+  "group": "Group 26"
+ },
+ {
+  "en": "culture",
+  "zh": "文化",
+  "group": "Group 26"
+ },
+ {
+  "en": "curiosity",
+  "zh": "好奇心",
+  "group": "Group 26"
+ },
+ {
+  "en": "current",
+  "zh": "当前的，水流",
+  "group": "Group 26"
+ },
+ {
+  "en": "curriculum",
+  "zh": "课程",
+  "group": "Group 26"
+ },
+ {
+  "en": "curse",
+  "zh": "诅咒",
+  "group": "Group 26"
+ },
+ {
+  "en": "curve",
+  "zh": "曲线",
+  "group": "Group 26"
+ },
+ {
+  "en": "dark",
+  "zh": "黑暗的",
+  "group": "Group 26"
+ },
+ {
+  "en": "dash",
+  "zh": "猛冲，破折号",
+  "group": "Group 26"
+ },
+ {
+  "en": "decent",
+  "zh": "体面的",
+  "group": "Group 26"
+ },
+ {
+  "en": "declare",
+  "zh": "宣布",
+  "group": "Group 26"
+ },
+ {
+  "en": "decrease",
+  "zh": "减少",
+  "group": "Group 26"
+ },
+ {
+  "en": "defect",
+  "zh": "缺陷",
+  "group": "Group 26"
+ },
+ {
+  "en": "definite",
+  "zh": "明确的",
+  "group": "Group 26"
+ },
+ {
+  "en": "delegate",
+  "zh": "代表",
+  "group": "Group 26"
+ },
+ {
+  "en": "delicate",
+  "zh": "精致的，微妙的",
+  "group": "Group 26"
+ },
+ {
+  "en": "democratic",
+  "zh": "民主的",
+  "group": "Group 27"
+ },
+ {
+  "en": "density",
+  "zh": "密度",
+  "group": "Group 27"
+ },
+ {
+  "en": "depart",
+  "zh": "离开",
+  "group": "Group 27"
+ },
+ {
+  "en": "dependent",
+  "zh": "依赖的",
+  "group": "Group 27"
+ },
+ {
+  "en": "depress",
+  "zh": "使沮丧",
+  "group": "Group 27"
+ },
+ {
+  "en": "deputy",
+  "zh": "副手",
+  "group": "Group 27"
+ },
+ {
+  "en": "deserve",
+  "zh": "值得",
+  "group": "Group 27"
+ },
+ {
+  "en": "desperate",
+  "zh": "绝望的",
+  "group": "Group 27"
+ },
+ {
+  "en": "despite",
+  "zh": "尽管",
+  "group": "Group 27"
+ },
+ {
+  "en": "detail",
+  "zh": "细节",
+  "group": "Group 27"
+ },
+ {
+  "en": "determination",
+  "zh": "决心",
+  "group": "Group 27"
+ },
+ {
+  "en": "determine",
+  "zh": "决定",
+  "group": "Group 27"
+ },
+ {
+  "en": "device",
+  "zh": "装置",
+  "group": "Group 27"
+ },
+ {
+  "en": "devise",
+  "zh": "设计",
+  "group": "Group 27"
+ },
+ {
+  "en": "dial",
+  "zh": "拨号",
+  "group": "Group 27"
+ },
+ {
+  "en": "dictate",
+  "zh": "口述，命令",
+  "group": "Group 27"
+ },
+ {
+  "en": "diet",
+  "zh": "饮食",
+  "group": "Group 27"
+ },
+ {
+  "en": "difficulty",
+  "zh": "困难",
+  "group": "Group 27"
+ },
+ {
+  "en": "digest",
+  "zh": "消化，摘要",
+  "group": "Group 27"
+ },
+ {
+  "en": "disappoint",
+  "zh": "使失望",
+  "group": "Group 27"
+ },
+ {
+  "en": "disapprove",
+  "zh": "不赞成",
+  "group": "Group 27"
+ },
+ {
+  "en": "discard",
+  "zh": "丢弃",
+  "group": "Group 27"
+ },
+ {
+  "en": "discharge",
+  "zh": "排放，卸货",
+  "group": "Group 27"
+ },
+ {
+  "en": "discourage",
+  "zh": "使气馁",
+  "group": "Group 27"
+ },
+ {
+  "en": "disguise",
+  "zh": "伪装",
+  "group": "Group 27"
+ },
+ {
+  "en": "dismiss",
+  "zh": "解雇，驳回",
+  "group": "Group 27"
+ },
+ {
+  "en": "distant",
+  "zh": "遥远的",
+  "group": "Group 27"
+ },
+ {
+  "en": "distinct",
+  "zh": "明显的",
+  "group": "Group 27"
+ },
+ {
+  "en": "distinction",
+  "zh": "区别",
+  "group": "Group 27"
+ },
+ {
+  "en": "distinguish",
+  "zh": "区分",
+  "group": "Group 27"
+ },
+ {
+  "en": "district",
+  "zh": "区域",
+  "group": "Group 27"
+ },
+ {
+  "en": "disturb",
+  "zh": "打扰",
+  "group": "Group 27"
+ },
+ {
+  "en": "diverse",
+  "zh": "多样的",
+  "group": "Group 27"
+ },
+ {
+  "en": "divide",
+  "zh": "划分",
+  "group": "Group 27"
+ },
+ {
+  "en": "division",
+  "zh": "分割，部门",
+  "group": "Group 27"
+ },
+ {
+  "en": "divorce",
+  "zh": "离婚",
+  "group": "Group 27"
+ },
+ {
+  "en": "document",
+  "zh": "文件",
+  "group": "Group 27"
+ },
+ {
+  "en": "domestic",
+  "zh": "国内的，家庭的",
+  "group": "Group 27"
+ },
+ {
+  "en": "dominate",
+  "zh": "主导",
+  "group": "Group 27"
+ },
+ {
+  "en": "doubtful",
+  "zh": "怀疑的",
+  "group": "Group 27"
+ },
+ {
+  "en": "draft",
+  "zh": "草稿",
+  "group": "Group 27"
+ },
+ {
+  "en": "drama",
+  "zh": "戏剧",
+  "group": "Group 27"
+ },
+ {
+  "en": "dramatic",
+  "zh": "戏剧性的",
+  "group": "Group 27"
+ },
+ {
+  "en": "duck",
+  "zh": "鸭子，躲避",
+  "group": "Group 28"
+ },
+ {
+  "en": "dump",
+  "zh": "倾倒",
+  "group": "Group 28"
+ },
+ {
+  "en": "dust",
+  "zh": "灰尘",
+  "group": "Group 28"
+ },
+ {
+  "en": "eager",
+  "zh": "渴望的",
+  "group": "Group 28"
+ },
+ {
+  "en": "ease",
+  "zh": "轻松，缓解",
+  "group": "Group 28"
+ },
+ {
+  "en": "echo",
+  "zh": "回声",
+  "group": "Group 28"
+ },
+ {
+  "en": "economic",
+  "zh": "经济的",
+  "group": "Group 28"
+ },
+ {
+  "en": "economical",
+  "zh": "节约的",
+  "group": "Group 28"
+ },
+ {
+  "en": "economy",
+  "zh": "经济",
+  "group": "Group 28"
+ },
+ {
+  "en": "elaborate",
+  "zh": "详尽的，阐述",
+  "group": "Group 28"
+ },
+ {
+  "en": "elect",
+  "zh": "选举",
+  "group": "Group 28"
+ },
+ {
+  "en": "electrical",
+  "zh": "电的",
+  "group": "Group 28"
+ },
+ {
+  "en": "elegant",
+  "zh": "优雅的",
+  "group": "Group 28"
+ },
+ {
+  "en": "element",
+  "zh": "元素",
+  "group": "Group 28"
+ },
+ {
+  "en": "embarrass",
+  "zh": "使尴尬",
+  "group": "Group 28"
+ },
+ {
+  "en": "emerge",
+  "zh": "出现",
+  "group": "Group 28"
+ },
+ {
+  "en": "emergency",
+  "zh": "紧急情况",
+  "group": "Group 28"
+ },
+ {
+  "en": "employee",
+  "zh": "雇员",
+  "group": "Group 28"
+ },
+ {
+  "en": "employment",
+  "zh": "就业",
+  "group": "Group 28"
+ },
+ {
+  "en": "enable",
+  "zh": "使能够",
+  "group": "Group 28"
+ },
+ {
+  "en": "encourage",
+  "zh": "鼓励",
+  "group": "Group 28"
+ },
+ {
+  "en": "engage",
+  "zh": "从事，吸引",
+  "group": "Group 28"
+ },
+ {
+  "en": "enlarge",
+  "zh": "扩大",
+  "group": "Group 28"
+ },
+ {
+  "en": "envious",
+  "zh": "嫉妒的",
+  "group": "Group 28"
+ },
+ {
+  "en": "era",
+  "zh": "时代",
+  "group": "Group 28"
+ },
+ {
+  "en": "erode",
+  "zh": "侵蚀",
+  "group": "Group 28"
+ },
+ {
+  "en": "escape",
+  "zh": "逃跑",
+  "group": "Group 28"
+ },
+ {
+  "en": "establish",
+  "zh": "建立",
+  "group": "Group 28"
+ },
+ {
+  "en": "event",
+  "zh": "事件",
+  "group": "Group 28"
+ },
+ {
+  "en": "evident",
+  "zh": "明显的",
+  "group": "Group 28"
+ },
+ {
+  "en": "evolve",
+  "zh": "进化",
+  "group": "Group 28"
+ },
+ {
+  "en": "exceed",
+  "zh": "超过",
+  "group": "Group 28"
+ },
+ {
+  "en": "exclude",
+  "zh": "排除",
+  "group": "Group 28"
+ },
+ {
+  "en": "execute",
+  "zh": "执行",
+  "group": "Group 28"
+ },
+ {
+  "en": "experience",
+  "zh": "经验",
+  "group": "Group 28"
+ },
+ {
+  "en": "experiment",
+  "zh": "实验",
+  "group": "Group 28"
+ },
+ {
+  "en": "expert",
+  "zh": "专家",
+  "group": "Group 28"
+ },
+ {
+  "en": "explode",
+  "zh": "爆炸",
+  "group": "Group 28"
+ },
+ {
+  "en": "export",
+  "zh": "出口",
+  "group": "Group 28"
+ },
+ {
+  "en": "extend",
+  "zh": "延伸",
+  "group": "Group 28"
+ },
+ {
+  "en": "external",
+  "zh": "外部的",
+  "group": "Group 28"
+ },
+ {
+  "en": "extra",
+  "zh": "额外的",
+  "group": "Group 28"
+ },
+ {
+  "en": "extreme",
+  "zh": "极端的",
+  "group": "Group 28"
+ },
+ {
+  "en": "facility",
+  "zh": "设施",
+  "group": "Group 28"
+ },
+ {
+  "en": "fade",
+  "zh": "褪色",
+  "group": "Group 28"
+ },
+ {
+  "en": "fate",
+  "zh": "命运",
+  "group": "Group 28"
+ },
+ {
+  "en": "feel",
+  "zh": "感觉",
+  "group": "Group 28"
+ },
+ {
+  "en": "festival",
+  "zh": "节日",
+  "group": "Group 28"
+ },
+ {
+  "en": "fiction",
+  "zh": "小说",
+  "group": "Group 28"
+ },
+ {
+  "en": "file",
+  "zh": "文件",
+  "group": "Group 28"
+ },
+ {
+  "en": "final",
+  "zh": "最终的",
+  "group": "Group 28"
+ },
+ {
+  "en": "flash",
+  "zh": "闪光",
+  "group": "Group 28"
+ },
+ {
+  "en": "flee",
+  "zh": "逃跑",
+  "group": "Group 29"
+ },
+ {
+  "en": "flock",
+  "zh": "羊群，聚集",
+  "group": "Group 29"
+ },
+ {
+  "en": "fluent",
+  "zh": "流利的",
+  "group": "Group 29"
+ },
+ {
+  "en": "fold",
+  "zh": "折叠",
+  "group": "Group 29"
+ },
+ {
+  "en": "forbid",
+  "zh": "禁止",
+  "group": "Group 29"
+ },
+ {
+  "en": "form",
+  "zh": "形式，形成",
+  "group": "Group 29"
+ },
+ {
+  "en": "formal",
+  "zh": "正式的",
+  "group": "Group 29"
+ },
+ {
+  "en": "frank",
+  "zh": "坦率的",
+  "group": "Group 29"
+ },
+ {
+  "en": "frown",
+  "zh": "皱眉",
+  "group": "Group 29"
+ },
+ {
+  "en": "fruit",
+  "zh": "水果",
+  "group": "Group 29"
+ },
+ {
+  "en": "fund",
+  "zh": "基金",
+  "group": "Group 29"
+ },
+ {
+  "en": "fundamental",
+  "zh": "基本的",
+  "group": "Group 29"
+ },
+ {
+  "en": "fuss",
+  "zh": "大惊小怪",
+  "group": "Group 29"
+ },
+ {
+  "en": "future",
+  "zh": "未来",
+  "group": "Group 29"
+ },
+ {
+  "en": "gather",
+  "zh": "聚集",
+  "group": "Group 29"
+ },
+ {
+  "en": "gaze",
+  "zh": "凝视",
+  "group": "Group 29"
+ },
+ {
+  "en": "gear",
+  "zh": "齿轮，装备",
+  "group": "Group 29"
+ },
+ {
+  "en": "generation",
+  "zh": "一代",
+  "group": "Group 29"
+ },
+ {
+  "en": "genius",
+  "zh": "天才",
+  "group": "Group 29"
+ },
+ {
+  "en": "geography",
+  "zh": "地理",
+  "group": "Group 29"
+ },
+ {
+  "en": "gesture",
+  "zh": "手势",
+  "group": "Group 29"
+ },
+ {
+  "en": "giant",
+  "zh": "巨大的，巨人",
+  "group": "Group 29"
+ },
+ {
+  "en": "glance",
+  "zh": "瞥见",
+  "group": "Group 29"
+ },
+ {
+  "en": "glimpse",
+  "zh": "一瞥",
+  "group": "Group 29"
+ },
+ {
+  "en": "global",
+  "zh": "全球的",
+  "group": "Group 29"
+ },
+ {
+  "en": "golden",
+  "zh": "金色的",
+  "group": "Group 29"
+ },
+ {
+  "en": "governor",
+  "zh": "州长，管理者",
+  "group": "Group 29"
+ },
+ {
+  "en": "grab",
+  "zh": "抓住",
+  "group": "Group 29"
+ },
+ {
+  "en": "grace",
+  "zh": "优雅",
+  "group": "Group 29"
+ },
+ {
+  "en": "gradual",
+  "zh": "渐进的",
+  "group": "Group 29"
+ },
+ {
+  "en": "graduate",
+  "zh": "毕业",
+  "group": "Group 29"
+ },
+ {
+  "en": "grand",
+  "zh": "宏大的",
+  "group": "Group 29"
+ },
+ {
+  "en": "grave",
+  "zh": "坟墓，严重的",
+  "group": "Group 29"
+ },
+ {
+  "en": "greedy",
+  "zh": "贪婪的",
+  "group": "Group 29"
+ },
+ {
+  "en": "grind",
+  "zh": "磨碎",
+  "group": "Group 29"
+ },
+ {
+  "en": "gross",
+  "zh": "总的，粗俗的",
+  "group": "Group 29"
+ },
+ {
+  "en": "halt",
+  "zh": "停止",
+  "group": "Group 29"
+ },
+ {
+  "en": "handle",
+  "zh": "处理，把手",
+  "group": "Group 29"
+ },
+ {
+  "en": "harbo(u)r",
+  "zh": "港口，心怀",
+  "group": "Group 29"
+ },
+ {
+  "en": "haste",
+  "zh": "匆忙",
+  "group": "Group 29"
+ },
+ {
+  "en": "hatred",
+  "zh": "仇恨",
+  "group": "Group 29"
+ },
+ {
+  "en": "hazard",
+  "zh": "危险",
+  "group": "Group 29"
+ },
+ {
+  "en": "headquarters",
+  "zh": "总部",
+  "group": "Group 29"
+ },
+ {
+  "en": "heal",
+  "zh": "治愈",
+  "group": "Group 29"
+ },
+ {
+  "en": "heavy",
+  "zh": "重的",
+  "group": "Group 29"
+ },
+ {
+  "en": "highlight",
+  "zh": "突出",
+  "group": "Group 29"
+ },
+ {
+  "en": "hono(u)rable",
+  "zh": "光荣的",
+  "group": "Group 29"
+ },
+ {
+  "en": "horror",
+  "zh": "恐怖",
+  "group": "Group 29"
+ },
+ {
+  "en": "hostile",
+  "zh": "敌对的",
+  "group": "Group 29"
+ },
+ {
+  "en": "household",
+  "zh": "家庭",
+  "group": "Group 30"
+ },
+ {
+  "en": "housing",
+  "zh": "住房",
+  "group": "Group 30"
+ },
+ {
+  "en": "hunger",
+  "zh": "饥饿",
+  "group": "Group 30"
+ },
+ {
+  "en": "hungry",
+  "zh": "饥饿的",
+  "group": "Group 30"
+ },
+ {
+  "en": "hurry",
+  "zh": "匆忙",
+  "group": "Group 30"
+ },
+ {
+  "en": "ideal",
+  "zh": "理想的",
+  "group": "Group 30"
+ },
+ {
+  "en": "identify",
+  "zh": "识别",
+  "group": "Group 30"
+ },
+ {
+  "en": "ignorance",
+  "zh": "无知",
+  "group": "Group 30"
+ },
+ {
+  "en": "ignorant",
+  "zh": "无知的",
+  "group": "Group 30"
+ },
+ {
+  "en": "image",
+  "zh": "形象",
+  "group": "Group 30"
+ },
+ {
+  "en": "imaginary",
+  "zh": "想象的",
+  "group": "Group 30"
+ },
+ {
+  "en": "immediate",
+  "zh": "立即的",
+  "group": "Group 30"
+ },
+ {
+  "en": "immense",
+  "zh": "巨大的",
+  "group": "Group 30"
+ },
+ {
+  "en": "impatient",
+  "zh": "不耐烦的",
+  "group": "Group 30"
+ },
+ {
+  "en": "implication",
+  "zh": "暗示，影响",
+  "group": "Group 30"
+ },
+ {
+  "en": "import",
+  "zh": "进口",
+  "group": "Group 30"
+ },
+ {
+  "en": "impressive",
+  "zh": "印象深刻的",
+  "group": "Group 30"
+ },
+ {
+  "en": "improvement",
+  "zh": "改进",
+  "group": "Group 30"
+ },
+ {
+  "en": "increase",
+  "zh": "增加",
+  "group": "Group 30"
+ },
+ {
+  "en": "incredible",
+  "zh": "不可思议的",
+  "group": "Group 30"
+ },
+ {
+  "en": "independent",
+  "zh": "独立的",
+  "group": "Group 30"
+ },
+ {
+  "en": "interpret",
+  "zh": "解释，口译",
+  "group": "Group 31"
+ },
+ {
+  "en": "intimate",
+  "zh": "亲密的",
+  "group": "Group 31"
+ },
+ {
+  "en": "invade",
+  "zh": "入侵",
+  "group": "Group 31"
+ },
+ {
+  "en": "invent",
+  "zh": "发明",
+  "group": "Group 31"
+ },
+ {
+  "en": "invest",
+  "zh": "投资",
+  "group": "Group 31"
+ },
+ {
+  "en": "legal",
+  "zh": "合法的",
+  "group": "Group 31"
+ },
+ {
+  "en": "less",
+  "zh": "较少的",
+  "group": "Group 31"
+ },
+ {
+  "en": "liar",
+  "zh": "骗子",
+  "group": "Group 31"
+ },
+ {
+  "en": "liberate",
+  "zh": "解放",
+  "group": "Group 31"
+ },
+ {
+  "en": "licence/-nse",
+  "zh": "执照",
+  "group": "Group 31"
+ },
+ {
+  "en": "mature",
+  "zh": "成熟的",
+  "group": "Group 31"
+ },
+ {
+  "en": "medium",
+  "zh": "中等的，媒介",
+  "group": "Group 31"
+ },
+ {
+  "en": "membership",
+  "zh": "会员资格",
+  "group": "Group 31"
+ },
+ {
+  "en": "memorial",
+  "zh": "纪念的",
+  "group": "Group 31"
+ },
+ {
+  "en": "memory",
+  "zh": "记忆",
+  "group": "Group 31"
+ },
+ {
+  "en": "obligation",
+  "zh": "义务",
+  "group": "Group 31"
+ },
+ {
+  "en": "oblige",
+  "zh": "迫使，感激",
+  "group": "Group 31"
+ },
+ {
+  "en": "obtain",
+  "zh": "获得",
+  "group": "Group 31"
+ },
+ {
+  "en": "occupation",
+  "zh": "职业，占领",
+  "group": "Group 31"
+ },
+ {
+  "en": "occur",
+  "zh": "发生",
+  "group": "Group 31"
+ },
+ {
+  "en": "permanent",
+  "zh": "永久的",
+  "group": "Group 31"
+ },
+ {
+  "en": "permission",
+  "zh": "许可",
+  "group": "Group 31"
+ },
+ {
+  "en": "persist",
+  "zh": "坚持",
+  "group": "Group 31"
+ },
+ {
+  "en": "personal",
+  "zh": "个人的",
+  "group": "Group 31"
+ },
+ {
+  "en": "physical",
+  "zh": "身体的，物理的",
+  "group": "Group 31"
+ },
+ {
+  "en": "primary",
+  "zh": "主要的，初级的",
+  "group": "Group 31"
+ },
+ {
+  "en": "prime",
+  "zh": "主要的，最好的",
+  "group": "Group 31"
+ },
+ {
+  "en": "principle",
+  "zh": "原则",
+  "group": "Group 31"
+ },
+ {
+  "en": "printing",
+  "zh": "印刷",
+  "group": "Group 31"
+ },
+ {
+  "en": "priority",
+  "zh": "优先",
+  "group": "Group 31"
+ },
+ {
+  "en": "profession",
+  "zh": "职业",
+  "group": "Group 31"
+ },
+ {
+  "en": "investigate",
+  "zh": "调查",
+  "group": "Group 32"
+ },
+ {
+  "en": "invite",
+  "zh": "邀请",
+  "group": "Group 32"
+ },
+ {
+  "en": "inward",
+  "zh": "向内的",
+  "group": "Group 32"
+ },
+ {
+  "en": "irrigate",
+  "zh": "灌溉",
+  "group": "Group 32"
+ },
+ {
+  "en": "isolate",
+  "zh": "隔离",
+  "group": "Group 32"
+ },
+ {
+  "en": "item",
+  "zh": "物品，条款",
+  "group": "Group 32"
+ },
+ {
+  "en": "jealous",
+  "zh": "嫉妒的",
+  "group": "Group 32"
+ },
+ {
+  "en": "journey",
+  "zh": "旅程",
+  "group": "Group 32"
+ },
+ {
+  "en": "judge",
+  "zh": "法官，判断",
+  "group": "Group 32"
+ },
+ {
+  "en": "junior",
+  "zh": "较年幼的，大三",
+  "group": "Group 32"
+ },
+ {
+  "en": "jury",
+  "zh": "陪审团",
+  "group": "Group 32"
+ },
+ {
+  "en": "justify",
+  "zh": "证明...正当",
+  "group": "Group 32"
+ },
+ {
+  "en": "keen",
+  "zh": "热切的，敏锐的",
+  "group": "Group 32"
+ },
+ {
+  "en": "killer",
+  "zh": "杀手",
+  "group": "Group 32"
+ },
+ {
+  "en": "kind",
+  "zh": "种类，友善的",
+  "group": "Group 32"
+ },
+ {
+  "en": "label",
+  "zh": "标签",
+  "group": "Group 32"
+ },
+ {
+  "en": "labo(u)r",
+  "zh": "劳动",
+  "group": "Group 32"
+ },
+ {
+  "en": "lag",
+  "zh": "滞后",
+  "group": "Group 32"
+ },
+ {
+  "en": "large",
+  "zh": "大的",
+  "group": "Group 32"
+ },
+ {
+  "en": "later",
+  "zh": "后来",
+  "group": "Group 32"
+ },
+ {
+  "en": "launch",
+  "zh": "发射，发起",
+  "group": "Group 32"
+ },
+ {
+  "en": "law",
+  "zh": "法律",
+  "group": "Group 32"
+ },
+ {
+  "en": "lecture",
+  "zh": "讲座",
+  "group": "Group 32"
+ },
+ {
+  "en": "lift",
+  "zh": "举起，电梯",
+  "group": "Group 32"
+ },
+ {
+  "en": "limitation",
+  "zh": "限制",
+  "group": "Group 32"
+ },
+ {
+  "en": "link",
+  "zh": "链接，联系",
+  "group": "Group 32"
+ },
+ {
+  "en": "list",
+  "zh": "列表",
+  "group": "Group 32"
+ },
+ {
+  "en": "little",
+  "zh": "少的",
+  "group": "Group 32"
+ },
+ {
+  "en": "live",
+  "zh": "居住，活的",
+  "group": "Group 32"
+ },
+ {
+  "en": "living",
+  "zh": "生活，活着的",
+  "group": "Group 32"
+ },
+ {
+  "en": "loan",
+  "zh": "贷款",
+  "group": "Group 32"
+ },
+ {
+  "en": "locate",
+  "zh": "位于",
+  "group": "Group 32"
+ },
+ {
+  "en": "location",
+  "zh": "位置",
+  "group": "Group 32"
+ },
+ {
+  "en": "logic",
+  "zh": "逻辑",
+  "group": "Group 32"
+ },
+ {
+  "en": "logical",
+  "zh": "合乎逻辑的",
+  "group": "Group 32"
+ },
+ {
+  "en": "loose",
+  "zh": "松的",
+  "group": "Group 32"
+ },
+ {
+  "en": "loyal",
+  "zh": "忠诚的",
+  "group": "Group 32"
+ },
+ {
+  "en": "manage",
+  "zh": "管理，设法做到",
+  "group": "Group 32"
+ },
+ {
+  "en": "manual",
+  "zh": "手册，手动的",
+  "group": "Group 32"
+ },
+ {
+  "en": "manufacture",
+  "zh": "制造",
+  "group": "Group 32"
+ },
+ {
+  "en": "mark",
+  "zh": "标记，分数",
+  "group": "Group 32"
+ },
+ {
+  "en": "master",
+  "zh": "掌握，硕士",
+  "group": "Group 32"
+ },
+ {
+  "en": "material",
+  "zh": "材料",
+  "group": "Group 32"
+ },
+ {
+  "en": "matter",
+  "zh": "事情，要紧",
+  "group": "Group 32"
+ },
+ {
+  "en": "mill",
+  "zh": "工厂，磨坊",
+  "group": "Group 32"
+ },
+ {
+  "en": "miracle",
+  "zh": "奇迹",
+  "group": "Group 32"
+ },
+ {
+  "en": "miserable",
+  "zh": "痛苦的",
+  "group": "Group 32"
+ },
+ {
+  "en": "mislead",
+  "zh": "误导",
+  "group": "Group 32"
+ },
+ {
+  "en": "mission",
+  "zh": "任务，使命",
+  "group": "Group 32"
+ },
+ {
+  "en": "modesty",
+  "zh": "谦虚",
+  "group": "Group 32"
+ },
+ {
+  "en": "moist",
+  "zh": "潮湿的",
+  "group": "Group 32"
+ },
+ {
+  "en": "motion",
+  "zh": "运动，动议",
+  "group": "Group 32"
+ },
+ {
+  "en": "motive",
+  "zh": "动机",
+  "group": "Group 32"
+ },
+ {
+  "en": "mount",
+  "zh": "登上，增加",
+  "group": "Group 32"
+ },
+ {
+  "en": "mutual",
+  "zh": "相互的",
+  "group": "Group 32"
+ },
+ {
+  "en": "myth",
+  "zh": "神话",
+  "group": "Group 32"
+ },
+ {
+  "en": "namely",
+  "zh": "即",
+  "group": "Group 32"
+ },
+ {
+  "en": "natural",
+  "zh": "自然的",
+  "group": "Group 32"
+ },
+ {
+  "en": "necessity",
+  "zh": "必需品，必要性",
+  "group": "Group 32"
+ },
+ {
+  "en": "nerve",
+  "zh": "神经，勇气",
+  "group": "Group 32"
+ },
+ {
+  "en": "nonsense",
+  "zh": "胡说",
+  "group": "Group 32"
+ },
+ {
+  "en": "notify",
+  "zh": "通知",
+  "group": "Group 32"
+ },
+ {
+  "en": "novelist",
+  "zh": "小说家",
+  "group": "Group 32"
+ },
+ {
+  "en": "nuisance",
+  "zh": "麻烦事",
+  "group": "Group 32"
+ },
+ {
+  "en": "objection",
+  "zh": "反对",
+  "group": "Group 32"
+ },
+ {
+  "en": "objective",
+  "zh": "目标，客观的",
+  "group": "Group 32"
+ },
+ {
+  "en": "occurrence",
+  "zh": "发生，事件",
+  "group": "Group 32"
+ },
+ {
+  "en": "odd",
+  "zh": "奇怪的，奇数的",
+  "group": "Group 32"
+ },
+ {
+  "en": "offense",
+  "zh": "犯罪，冒犯",
+  "group": "Group 32"
+ },
+ {
+  "en": "offensive",
+  "zh": "无礼的，攻击性的",
+  "group": "Group 32"
+ },
+ {
+  "en": "omit",
+  "zh": "省略",
+  "group": "Group 32"
+ },
+ {
+  "en": "ordinary",
+  "zh": "普通的",
+  "group": "Group 32"
+ },
+ {
+  "en": "original",
+  "zh": "原始的，原创的",
+  "group": "Group 32"
+ },
+ {
+  "en": "originality",
+  "zh": "独创性",
+  "group": "Group 32"
+ },
+ {
+  "en": "outcome",
+  "zh": "结果",
+  "group": "Group 32"
+ },
+ {
+  "en": "outlet",
+  "zh": "出口，发泄途径",
+  "group": "Group 32"
+ },
+ {
+  "en": "outline",
+  "zh": "大纲，轮廓",
+  "group": "Group 32"
+ },
+ {
+  "en": "output",
+  "zh": "输出，产量",
+  "group": "Group 32"
+ },
+ {
+  "en": "outset",
+  "zh": "开始",
+  "group": "Group 32"
+ },
+ {
+  "en": "overlook",
+  "zh": "俯瞰，忽视",
+  "group": "Group 32"
+ },
+ {
+  "en": "owe",
+  "zh": "欠",
+  "group": "Group 32"
+ },
+ {
+  "en": "package",
+  "zh": "包裹，包装",
+  "group": "Group 32"
+ },
+ {
+  "en": "painful",
+  "zh": "痛苦的",
+  "group": "Group 32"
+ },
+ {
+  "en": "panel",
+  "zh": "面板，专门小组",
+  "group": "Group 32"
+ },
+ {
+  "en": "partial",
+  "zh": "部分的，偏袒的",
+  "group": "Group 32"
+ },
+ {
+  "en": "passion",
+  "zh": "激情",
+  "group": "Group 32"
+ },
+ {
+  "en": "pat",
+  "zh": "轻拍",
+  "group": "Group 32"
+ },
+ {
+  "en": "patch",
+  "zh": "补丁，小块土地",
+  "group": "Group 32"
+ },
+ {
+  "en": "payment",
+  "zh": "支付",
+  "group": "Group 32"
+ },
+ {
+  "en": "perfect",
+  "zh": "完美的",
+  "group": "Group 32"
+ },
+ {
+  "en": "pile",
+  "zh": "堆",
+  "group": "Group 32"
+ },
+ {
+  "en": "pinch",
+  "zh": "捏，掐",
+  "group": "Group 32"
+ },
+ {
+  "en": "pleasure",
+  "zh": "快乐",
+  "group": "Group 32"
+ },
+ {
+  "en": "plunge",
+  "zh": "投入，暴跌",
+  "group": "Group 32"
+ },
+ {
+  "en": "policy",
+  "zh": "政策",
+  "group": "Group 32"
+ },
+ {
+  "en": "poll",
+  "zh": "民意调查",
+  "group": "Group 32"
+ },
+ {
+  "en": "pollute",
+  "zh": "污染",
+  "group": "Group 32"
+ },
+ {
+  "en": "portable",
+  "zh": "便携的",
+  "group": "Group 32"
+ },
+ {
+  "en": "portion",
+  "zh": "部分",
+  "group": "Group 32"
+ },
+ {
+  "en": "pose",
+  "zh": "造成，摆姿势",
+  "group": "Group 32"
+ },
+ {
+  "en": "possible",
+  "zh": "可能的",
+  "group": "Group 32"
+ },
+ {
+  "en": "potential",
+  "zh": "潜在的，潜力",
+  "group": "Group 32"
+ },
+ {
+  "en": "poverty",
+  "zh": "贫困",
+  "group": "Group 32"
+ },
+ {
+  "en": "power",
+  "zh": "力量，权力",
+  "group": "Group 32"
+ },
+ {
+  "en": "pray",
+  "zh": "祈祷",
+  "group": "Group 32"
+ },
+ {
+  "en": "predict",
+  "zh": "预测",
+  "group": "Group 32"
+ },
+ {
+  "en": "preface",
+  "zh": "前言",
+  "group": "Group 32"
+ },
+ {
+  "en": "prefer",
+  "zh": "更喜欢",
+  "group": "Group 32"
+ },
+ {
+  "en": "pregnant",
+  "zh": "怀孕的",
+  "group": "Group 32"
+ },
+ {
+  "en": "prejudice",
+  "zh": "偏见",
+  "group": "Group 32"
+ },
+ {
+  "en": "preparation",
+  "zh": "准备",
+  "group": "Group 32"
+ },
+ {
+  "en": "present",
+  "zh": "现在的，礼物，呈现",
+  "group": "Group 32"
+ },
+ {
+  "en": "pressure",
+  "zh": "压力",
+  "group": "Group 32"
+ },
+ {
+  "en": "previous",
+  "zh": "先前的",
+  "group": "Group 32"
+ },
+ {
+  "en": "pride",
+  "zh": "骄傲",
+  "group": "Group 32"
+ },
+ {
+  "en": "profile",
+  "zh": "简介，轮廓",
+  "group": "Group 32"
+ },
+ {
+  "en": "profit",
+  "zh": "利润",
+  "group": "Group 32"
+ },
+ {
+  "en": "program(me)",
+  "zh": "程序，节目",
+  "group": "Group 32"
+ },
+ {
+  "en": "project",
+  "zh": "项目，预测",
+  "group": "Group 32"
+ },
+ {
+  "en": "prominent",
+  "zh": "突出的",
+  "group": "Group 32"
+ },
+ {
+  "en": "pronounce",
+  "zh": "发音，宣布",
+  "group": "Group 32"
+ },
+ {
+  "en": "proper",
+  "zh": "适当的",
+  "group": "Group 32"
+ },
+ {
+  "en": "proportional",
+  "zh": "成比例的",
+  "group": "Group 32"
+ },
+ {
+  "en": "protest",
+  "zh": "抗议",
+  "group": "Group 32"
+ },
+ {
+  "en": "provide",
+  "zh": "提供",
+  "group": "Group 32"
+ },
+ {
+  "en": "provision",
+  "zh": "供应，条款",
+  "group": "Group 32"
+ },
+ {
+  "en": "publish",
+  "zh": "出版",
+  "group": "Group 32"
+ },
+ {
+  "en": "punctual",
+  "zh": "准时的",
+  "group": "Group 32"
+ },
+ {
+  "en": "punish",
+  "zh": "惩罚",
+  "group": "Group 32"
+ },
+ {
+  "en": "pursue",
+  "zh": "追求",
+  "group": "Group 32"
+ },
+ {
+  "en": "qualify",
+  "zh": "合格",
+  "group": "Group 32"
+ },
+ {
+  "en": "queue",
+  "zh": "排队",
+  "group": "Group 32"
+ },
+ {
+  "en": "quit",
+  "zh": "退出，停止",
+  "group": "Group 32"
+ },
+ {
+  "en": "quote",
+  "zh": "引用",
+  "group": "Group 32"
+ },
+ {
+  "en": "radical",
+  "zh": "激进的，根本的",
+  "group": "Group 32"
+ },
+ {
+  "en": "rage",
+  "zh": "愤怒",
+  "group": "Group 32"
+ },
+ {
+  "en": "raid",
+  "zh": "突袭",
+  "group": "Group 32"
+ },
+ {
+  "en": "rare",
+  "zh": "稀有的",
+  "group": "Group 32"
+ },
+ {
+  "en": "rarely",
+  "zh": "很少",
+  "group": "Group 32"
+ },
+ {
+  "en": "rather",
+  "zh": "相当，宁愿",
+  "group": "Group 32"
+ },
+ {
+  "en": "ratio",
+  "zh": "比率",
+  "group": "Group 38"
+ },
+ {
+  "en": "rational",
+  "zh": "理性的",
+  "group": "Group 38"
+ },
+ {
+  "en": "react",
+  "zh": "反应",
+  "group": "Group 38"
+ },
+ {
+  "en": "rear",
+  "zh": "后部，抚养",
+  "group": "Group 38"
+ },
+ {
+  "en": "rebel",
+  "zh": "反叛",
+  "group": "Group 38"
+ },
+ {
+  "en": "recall",
+  "zh": "回忆，召回",
+  "group": "Group 39"
+ },
+ {
+  "en": "reckon",
+  "zh": "认为，估算",
+  "group": "Group 39"
+ },
+ {
+  "en": "recognize/-ise",
+  "zh": "认出，承认",
+  "group": "Group 39"
+ },
+ {
+  "en": "recommend",
+  "zh": "推荐",
+  "group": "Group 39"
+ },
+ {
+  "en": "recover",
+  "zh": "恢复",
+  "group": "Group 39"
+ },
+ {
+  "en": "reference",
+  "zh": "参考，提及",
+  "group": "Group 39"
+ },
+ {
+  "en": "refine",
+  "zh": "精炼",
+  "group": "Group 39"
+ },
+ {
+  "en": "reflect",
+  "zh": "反映，反思",
+  "group": "Group 39"
+ },
+ {
+  "en": "reform",
+  "zh": "改革",
+  "group": "Group 39"
+ },
+ {
+  "en": "refresh",
+  "zh": "刷新，使恢复精神",
+  "group": "Group 39"
+ },
+ {
+  "en": "reject",
+  "zh": "拒绝",
+  "group": "Group 39"
+ },
+ {
+  "en": "reliable",
+  "zh": "可靠的",
+  "group": "Group 39"
+ },
+ {
+  "en": "rely",
+  "zh": "依赖",
+  "group": "Group 39"
+ },
+ {
+  "en": "remain",
+  "zh": "保持，剩余",
+  "group": "Group 39"
+ },
+ {
+  "en": "remarkable",
+  "zh": "非凡的",
+  "group": "Group 39"
+ },
+ {
+  "en": "remind",
+  "zh": "提醒",
+  "group": "Group 39"
+ },
+ {
+  "en": "representative",
+  "zh": "代表",
+  "group": "Group 39"
+ },
+ {
+  "en": "reputation",
+  "zh": "名声",
+  "group": "Group 39"
+ },
+ {
+  "en": "residence",
+  "zh": "住所",
+  "group": "Group 39"
+ },
+ {
+  "en": "resident",
+  "zh": "居民",
+  "group": "Group 39"
+ },
+ {
+  "en": "resign",
+  "zh": "辞职",
+  "group": "Group 39"
+ },
+ {
+  "en": "resistance",
+  "zh": "抵抗",
+  "group": "Group 39"
+ },
+ {
+  "en": "resistant",
+  "zh": "抵抗的",
+  "group": "Group 39"
+ },
+ {
+  "en": "resolve",
+  "zh": "解决，决心",
+  "group": "Group 39"
+ },
+ {
+  "en": "resort",
+  "zh": "度假胜地，诉诸",
+  "group": "Group 40"
+ },
+ {
+  "en": "resource",
+  "zh": "资源",
+  "group": "Group 40"
+ },
+ {
+  "en": "respective",
+  "zh": "各自的",
+  "group": "Group 40"
+ },
+ {
+  "en": "respond",
+  "zh": "回应",
+  "group": "Group 40"
+ },
+ {
+  "en": "restore",
+  "zh": "恢复",
+  "group": "Group 40"
+ },
+ {
+  "en": "restrict",
+  "zh": "限制",
+  "group": "Group 40"
+ },
+ {
+  "en": "retire",
+  "zh": "退休",
+  "group": "Group 40"
+ },
+ {
+  "en": "reward",
+  "zh": "奖励",
+  "group": "Group 40"
+ },
+ {
+  "en": "riot",
+  "zh": "暴乱",
+  "group": "Group 40"
+ },
+ {
+  "en": "rise",
+  "zh": "上升",
+  "group": "Group 40"
+ },
+ {
+  "en": "rival",
+  "zh": "竞争对手",
+  "group": "Group 40"
+ },
+ {
+  "en": "romantic",
+  "zh": "浪漫的",
+  "group": "Group 40"
+ },
+ {
+  "en": "rotate",
+  "zh": "旋转",
+  "group": "Group 40"
+ },
+ {
+  "en": "rough",
+  "zh": "粗糙的",
+  "group": "Group 40"
+ },
+ {
+  "en": "rouse",
+  "zh": "唤醒",
+  "group": "Group 40"
+ },
+ {
+  "en": "routine",
+  "zh": "常规",
+  "group": "Group 40"
+ },
+ {
+  "en": "sake",
+  "zh": "缘故",
+  "group": "Group 40"
+ },
+ {
+  "en": "sale",
+  "zh": "销售",
+  "group": "Group 40"
+ },
+ {
+  "en": "sample",
+  "zh": "样本",
+  "group": "Group 40"
+ },
+ {
+  "en": "save",
+  "zh": "拯救，节省",
+  "group": "Group 40"
+ },
+ {
+  "en": "scarce",
+  "zh": "稀少的",
+  "group": "Group 40"
+ },
+ {
+  "en": "scarcely",
+  "zh": "几乎不",
+  "group": "Group 40"
+ },
+ {
+  "en": "scatter",
+  "zh": "散开",
+  "group": "Group 40"
+ },
+ {
+  "en": "scenery",
+  "zh": "风景",
+  "group": "Group 40"
+ },
+ {
+  "en": "schedule",
+  "zh": "日程表",
+  "group": "Group 40"
+ },
+ {
+  "en": "scold",
+  "zh": "责骂",
+  "group": "Group 40"
+ },
+ {
+  "en": "scratch",
+  "zh": "抓，划痕",
+  "group": "Group 40"
+ },
+ {
+  "en": "screen",
+  "zh": "屏幕，筛选",
+  "group": "Group 41"
+ },
+ {
+  "en": "screw",
+  "zh": "螺丝，拧",
+  "group": "Group 41"
+ },
+ {
+  "en": "search",
+  "zh": "搜索",
+  "group": "Group 41"
+ },
+ {
+  "en": "section",
+  "zh": "部分，部门",
+  "group": "Group 41"
+ },
+ {
+  "en": "seize",
+  "zh": "抓住",
+  "group": "Group 41"
+ },
+ {
+  "en": "select",
+  "zh": "选择",
+  "group": "Group 41"
+ },
+ {
+  "en": "selection",
+  "zh": "选择",
+  "group": "Group 41"
+ },
+ {
+  "en": "sensible",
+  "zh": "明智的",
+  "group": "Group 41"
+ },
+ {
+  "en": "sentence",
+  "zh": "句子，判决",
+  "group": "Group 41"
+ },
+ {
+  "en": "sequence",
+  "zh": "顺序",
+  "group": "Group 41"
+ },
+ {
+  "en": "session",
+  "zh": "会议，一段时间",
+  "group": "Group 41"
+ },
+ {
+  "en": "setting",
+  "zh": "环境，设置",
+  "group": "Group 41"
+ },
+ {
+  "en": "settlement",
+  "zh": "解决，定居点",
+  "group": "Group 41"
+ },
+ {
+  "en": "severely",
+  "zh": "严重地",
+  "group": "Group 41"
+ },
+ {
+  "en": "shadow",
+  "zh": "影子",
+  "group": "Group 41"
+ },
+ {
+  "en": "shallow",
+  "zh": "浅的",
+  "group": "Group 41"
+ },
+ {
+  "en": "sharpen",
+  "zh": "削尖，使敏锐",
+  "group": "Group 41"
+ },
+ {
+  "en": "shelter",
+  "zh": "庇护所",
+  "group": "Group 41"
+ },
+ {
+  "en": "shield",
+  "zh": "盾牌，保护",
+  "group": "Group 41"
+ },
+ {
+  "en": "shiver",
+  "zh": "颤抖",
+  "group": "Group 41"
+ },
+ {
+  "en": "shortage",
+  "zh": "短缺",
+  "group": "Group 41"
+ },
+ {
+  "en": "show",
+  "zh": "展示",
+  "group": "Group 41"
+ },
+ {
+  "en": "shrug",
+  "zh": "耸肩",
+  "group": "Group 41"
+ },
+ {
+  "en": "significance",
+  "zh": "重要性",
+  "group": "Group 41"
+ },
+ {
+  "en": "sin",
+  "zh": "罪过",
+  "group": "Group 41"
+ },
+ {
+  "en": "sketch",
+  "zh": "素描，概述",
+  "group": "Group 41"
+ },
+ {
+  "en": "snap",
+  "zh": "折断，快照",
+  "group": "Group 41"
+ },
+ {
+  "en": "soak",
+  "zh": "浸泡",
+  "group": "Group 41"
+ },
+ {
+  "en": "sole",
+  "zh": "唯一的，脚底",
+  "group": "Group 42"
+ },
+ {
+  "en": "solve",
+  "zh": "解决",
+  "group": "Group 42"
+ },
+ {
+  "en": "sometime",
+  "zh": "某时",
+  "group": "Group 42"
+ },
+ {
+  "en": "sound",
+  "zh": "声音，健全的",
+  "group": "Group 42"
+ },
+ {
+  "en": "span",
+  "zh": "跨度",
+  "group": "Group 42"
+ },
+ {
+  "en": "specially",
+  "zh": "专门地",
+  "group": "Group 42"
+ },
+ {
+  "en": "sphere",
+  "zh": "球体，领域",
+  "group": "Group 42"
+ },
+ {
+  "en": "sportsman",
+  "zh": "运动员",
+  "group": "Group 42"
+ },
+ {
+  "en": "spring",
+  "zh": "春天，泉水，跳跃",
+  "group": "Group 42"
+ },
+ {
+  "en": "stack",
+  "zh": "堆叠",
+  "group": "Group 42"
+ },
+ {
+  "en": "stain",
+  "zh": "污点",
+  "group": "Group 42"
+ },
+ {
+  "en": "stake",
+  "zh": "股份，赌注",
+  "group": "Group 42"
+ },
+ {
+  "en": "state",
+  "zh": "状态，国家，陈述",
+  "group": "Group 42"
+ },
+ {
+  "en": "steer",
+  "zh": "驾驶",
+  "group": "Group 42"
+ },
+ {
+  "en": "stem",
+  "zh": "茎，起源于",
+  "group": "Group 42"
+ },
+ {
+  "en": "stiff",
+  "zh": "僵硬的",
+  "group": "Group 42"
+ },
+ {
+  "en": "sting",
+  "zh": "刺，蜇",
+  "group": "Group 42"
+ },
+ {
+  "en": "stir",
+  "zh": "搅拌，激起",
+  "group": "Group 42"
+ },
+ {
+  "en": "stock",
+  "zh": "股票，库存",
+  "group": "Group 42"
+ },
+ {
+  "en": "stress",
+  "zh": "压力，强调",
+  "group": "Group 42"
+ },
+ {
+  "en": "stretch",
+  "zh": "伸展",
+  "group": "Group 42"
+ },
+ {
+  "en": "stroke",
+  "zh": "中风，击打",
+  "group": "Group 42"
+ },
+ {
+  "en": "structure",
+  "zh": "结构",
+  "group": "Group 42"
+ },
+ {
+  "en": "style",
+  "zh": "风格",
+  "group": "Group 42"
+ },
+ {
+  "en": "subsequent",
+  "zh": "随后的",
+  "group": "Group 42"
+ },
+ {
+  "en": "substance",
+  "zh": "物质",
+  "group": "Group 42"
+ },
+ {
+  "en": "succeed",
+  "zh": "成功，继任",
+  "group": "Group 42"
+ },
+ {
+  "en": "suicide",
+  "zh": "自杀",
+  "group": "Group 42"
+ },
+ {
+  "en": "summarize/-ise",
+  "zh": "总结",
+  "group": "Group 42"
+ },
+ {
+  "en": "summit",
+  "zh": "峰会，顶峰",
+  "group": "Group 42"
+ },
+ {
+  "en": "superior",
+  "zh": "优越的，上级",
+  "group": "Group 43"
+ },
+ {
+  "en": "surround",
+  "zh": "包围",
+  "group": "Group 43"
+ },
+ {
+  "en": "survival",
+  "zh": "生存",
+  "group": "Group 43"
+ },
+ {
+  "en": "survive",
+  "zh": "幸存",
+  "group": "Group 43"
+ },
+ {
+  "en": "suspect",
+  "zh": "怀疑",
+  "group": "Group 43"
+ },
+ {
+  "en": "suspend",
+  "zh": "暂停，悬挂",
+  "group": "Group 43"
+ },
+ {
+  "en": "suspicion",
+  "zh": "怀疑",
+  "group": "Group 43"
+ },
+ {
+  "en": "sweep",
+  "zh": "打扫，席卷",
+  "group": "Group 43"
+ },
+ {
+  "en": "switch",
+  "zh": "开关，转换",
+  "group": "Group 43"
+ },
+ {
+  "en": "symbolic",
+  "zh": "象征的",
+  "group": "Group 43"
+ },
+ {
+  "en": "talent",
+  "zh": "才能",
+  "group": "Group 43"
+ },
+ {
+  "en": "teach",
+  "zh": "教",
+  "group": "Group 43"
+ },
+ {
+  "en": "temperature",
+  "zh": "温度",
+  "group": "Group 43"
+ },
+ {
+  "en": "temporary",
+  "zh": "临时的",
+  "group": "Group 43"
+ },
+ {
+  "en": "tension",
+  "zh": "紧张",
+  "group": "Group 43"
+ },
+ {
+  "en": "terminal",
+  "zh": "终点站，末端的",
+  "group": "Group 43"
+ },
+ {
+  "en": "thirst",
+  "zh": "口渴，渴望",
+  "group": "Group 43"
+ },
+ {
+  "en": "thoughtful",
+  "zh": "深思的，体贴的",
+  "group": "Group 43"
+ },
+ {
+  "en": "threaten",
+  "zh": "威胁",
+  "group": "Group 43"
+ },
+ {
+  "en": "thrive",
+  "zh": "茁壮成长",
+  "group": "Group 43"
+ },
+ {
+  "en": "tide",
+  "zh": "潮水",
+  "group": "Group 43"
+ },
+ {
+  "en": "tidy",
+  "zh": "整洁的",
+  "group": "Group 43"
+ },
+ {
+  "en": "timber",
+  "zh": "木材",
+  "group": "Group 43"
+ },
+ {
+  "en": "tired",
+  "zh": "疲倦的",
+  "group": "Group 43"
+ },
+ {
+  "en": "title",
+  "zh": "标题，头衔",
+  "group": "Group 43"
+ },
+ {
+  "en": "tone",
+  "zh": "语气，音调",
+  "group": "Group 43"
+ },
+ {
+  "en": "transformation",
+  "zh": "转变",
+  "group": "Group 43"
+ },
+ {
+  "en": "triumph",
+  "zh": "胜利",
+  "group": "Group 43"
+ },
+ {
+  "en": "trouble",
+  "zh": "麻烦",
+  "group": "Group 43"
+ },
+ {
+  "en": "trust",
+  "zh": "信任",
+  "group": "Group 43"
+ },
+ {
+  "en": "try",
+  "zh": "尝试",
+  "group": "Group 44"
+ },
+ {
+  "en": "tutor",
+  "zh": "导师，辅导",
+  "group": "Group 44"
+ },
+ {
+  "en": "type",
+  "zh": "类型，打字",
+  "group": "Group 44"
+ },
+ {
+  "en": "typical",
+  "zh": "典型的",
+  "group": "Group 44"
+ },
+ {
+  "en": "unceasingly",
+  "zh": "不断地",
+  "group": "Group 44"
+ },
+ {
+  "en": "uncover",
+  "zh": "揭露",
+  "group": "Group 44"
+ },
+ {
+  "en": "understanding",
+  "zh": "理解",
+  "group": "Group 44"
+ },
+ {
+  "en": "uneasy",
+  "zh": "不安的",
+  "group": "Group 44"
+ },
+ {
+  "en": "unique",
+  "zh": "独特的",
+  "group": "Group 44"
+ },
+ {
+  "en": "universal",
+  "zh": "普遍的，通用的",
+  "group": "Group 44"
+ },
+ {
+  "en": "unload",
+  "zh": "卸载",
+  "group": "Group 44"
+ },
+ {
+  "en": "unnatural",
+  "zh": "不自然的",
+  "group": "Group 44"
+ },
+ {
+  "en": "upright",
+  "zh": "直立的，正直的",
+  "group": "Group 44"
+ },
+ {
+  "en": "up-to-date",
+  "zh": "最新的",
+  "group": "Group 44"
+ },
+ {
+  "en": "usage",
+  "zh": "使用，用法",
+  "group": "Group 44"
+ },
+ {
+  "en": "used",
+  "zh": "用过的，习惯于",
+  "group": "Group 44"
+ },
+ {
+  "en": "utility",
+  "zh": "效用，公用事业",
+  "group": "Group 44"
+ },
+ {
+  "en": "valid",
+  "zh": "有效的",
+  "group": "Group 44"
+ },
+ {
+  "en": "value",
+  "zh": "价值",
+  "group": "Group 44"
+ },
+ {
+  "en": "vanish",
+  "zh": "消失",
+  "group": "Group 44"
+ },
+ {
+  "en": "variable",
+  "zh": "变量，可变的",
+  "group": "Group 44"
+ },
+ {
+  "en": "variety",
+  "zh": "多样性",
+  "group": "Group 44"
+ },
+ {
+  "en": "victim",
+  "zh": "受害者",
+  "group": "Group 44"
+ },
+ {
+  "en": "vigorous",
+  "zh": "精力充沛的",
+  "group": "Group 44"
+ },
+ {
+  "en": "violate",
+  "zh": "违反",
+  "group": "Group 44"
+ },
+ {
+  "en": "violence",
+  "zh": "暴力",
+  "group": "Group 44"
+ },
+ {
+  "en": "virtual",
+  "zh": "虚拟的，实际上的",
+  "group": "Group 44"
+ },
+ {
+  "en": "virtue",
+  "zh": "美德",
+  "group": "Group 44"
+ },
+ {
+  "en": "volunteer",
+  "zh": "志愿者",
+  "group": "Group 44"
+ },
+ {
+  "en": "vote",
+  "zh": "投票",
+  "group": "Group 44"
+ },
+ {
+  "en": "wage",
+  "zh": "工资",
+  "group": "Group 44"
+ },
+ {
+  "en": "wait",
+  "zh": "等待",
+  "group": "Group 44"
+ },
+ {
+  "en": "wander",
+  "zh": "漫步",
+  "group": "Group 44"
+ },
+ {
+  "en": "whereas",
+  "zh": "然而",
+  "group": "Group 44"
+ },
+ {
+  "en": "wire",
+  "zh": "电线",
+  "group": "Group 44"
+ },
+ {
+  "en": "wit",
+  "zh": "智慧",
+  "group": "Group 44"
+ },
+ {
+  "en": "within",
+  "zh": "在...之内",
+  "group": "Group 44"
+ },
+ {
+  "en": "wreck",
+  "zh": "失事，破坏",
+  "group": "Group 44"
+ }
+]
