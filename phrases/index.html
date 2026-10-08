@@ -56,8 +56,22 @@
   }
   select { min-width: 130px; }
   .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+  .btn-ghost.active { border-color: var(--red); color: var(--red); background: #fef0f0; }
+  .badge {
+    display: inline-block;
+    min-width: 18px;
+    padding: 0 5px;
+    margin-left: 5px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+  }
   .stats { margin-left: auto; font-size: 13px; color: var(--text-sub); white-space: nowrap; }
   .stats b { color: var(--green); }
+  .stats b.red { color: var(--red); }
 
   main {
     flex: 1;
@@ -129,6 +143,16 @@
     background: #e8f7f0;
     color: var(--green);
   }
+  .wrong-dot {
+    position: absolute;
+    top: 40px;
+    right: 16px;
+    font-size: 11px;
+    border-radius: 999px;
+    padding: 3px 10px;
+    background: #fdebec;
+    color: var(--red);
+  }
   .pos { position: absolute; bottom: 12px; right: 16px; font-size: 11px; color: #b6bccb; }
 
   .actions {
@@ -188,8 +212,9 @@
   <div class="toolbar">
     <select id="groupSel"></select>
     <button class="btn-ghost" id="btnShuffle">洗牌</button>
+    <button class="btn-ghost" id="btnWrongBook">错题本<span class="badge" id="wrongBadge">0</span></button>
     <button class="btn-ghost" id="btnReset">清空进度</button>
-    <span class="stats">已掌握 <b id="knownCount">0</b> / <span id="totalCount">0</span></span>
+    <span class="stats" id="statsLine"></span>
   </div>
 </header>
 
@@ -204,6 +229,7 @@
       <div class="face front">
         <span class="tag" id="tagFront"></span>
         <span class="known-dot" id="knownDot" hidden>已掌握</span>
+        <span class="wrong-dot" id="wrongDot" hidden>错题</span>
         <div class="word" id="wordFront"></div>
         <div class="hint">想一想中文意思，点击卡片查看</div>
         <span class="pos" id="posFront"></span>
@@ -217,7 +243,7 @@
   </div>
 
   <div class="done-panel" id="done" hidden>
-    <h2>本组完成 🎉</h2>
+    <h2 id="doneTitle">本组完成 🎉</h2>
     <p id="doneText"></p>
     <button id="btnAgainUnknown">只复习未掌握的卡片</button>
     <button id="btnRestart">重新开始本组</button>
@@ -230,55 +256,83 @@
   </div>
 </main>
 
-<footer>手机端与电脑端通用 · 数据保存在本地浏览器</footer>
+<footer>答错自动收录错题本 · 在错题本答对后消除 · 数据保存在本地浏览器</footer>
 
 <script id="data" type="application/json">[{"en":"a bid to do sth.","zh":"试图做某事 / 努力做某事","group":"Part 01"},{"en":"above all","zh":"首先；尤其是","group":"Part 01"},{"en":"act out","zh":"表演出来；付诸行动","group":"Part 01"},{"en":"after all","zh":"毕竟；终究","group":"Part 01"},{"en":"aim at","zh":"瞄准；旨在","group":"Part 01"},{"en":"all but","zh":"几乎；除...之外都","group":"Part 01"},{"en":"as well as","zh":"也；和...一样","group":"Part 01"},{"en":"at a time","zh":"一次；每次","group":"Part 01"},{"en":"at heart","zh":"内心里；本质上","group":"Part 01"},{"en":"at home","zh":"在家；自在","group":"Part 01"},{"en":"at the moment","zh":"此刻；目前","group":"Part 01"},{"en":"at the same time","zh":"同时；然而","group":"Part 01"},{"en":"at work","zh":"在工作；在起作用","group":"Part 01"},{"en":"all in all","zh":"总的来说","group":"Part 01"},{"en":"all manner of","zh":"各种各样的","group":"Part 01"},{"en":"all over","zh":"到处；遍及","group":"Part 01"},{"en":"all the time","zh":"一直；始终","group":"Part 01"},{"en":"all the way","zh":"一路上；一直","group":"Part 01"},{"en":"along with","zh":"连同；与...一起","group":"Part 01"},{"en":"anything but","zh":"绝不；根本不","group":"Part 01"},{"en":"as a result","zh":"结果；因此","group":"Part 01"},{"en":"as far as","zh":"远至；就...而言","group":"Part 01"},{"en":"as for/to","zh":"至于；关于","group":"Part 01"},{"en":"as good as","zh":"和...几乎一样；实际上等于","group":"Part 01"},{"en":"as if/though","zh":"好像；仿佛","group":"Part 01"},{"en":"as it is/was","zh":"实际上；照现状","group":"Part 01"},{"en":"as it were","zh":"可以说；仿佛","group":"Part 01"},{"en":"as soon as","zh":"一...就...","group":"Part 01"},{"en":"be about to do sth.","zh":"即将做某事","group":"Part 01"},{"en":"be addicted to","zh":"沉溺于；对...上瘾","group":"Part 01"},{"en":"be based on","zh":"基于；以...为基础","group":"Part 01"},{"en":"be better off","zh":"状况更好；更富裕","group":"Part 01"},{"en":"be in doubt","zh":"不确定；感到怀疑","group":"Part 01"},{"en":"be involved in","zh":"参与；卷入","group":"Part 01"},{"en":"be made up of","zh":"由...组成","group":"Part 01"},{"en":"be/keep/get in touch with","zh":"与...保持联系","group":"Part 01"},{"en":"be critical of","zh":"对...挑剔；批评","group":"Part 01"},{"en":"be destructive to","zh":"对...有破坏性","group":"Part 01"},{"en":"be doomed to","zh":"注定","group":"Part 01"},{"en":"be economical of","zh":"节约...","group":"Part 01"},{"en":"be embedded in sth.","zh":"嵌入/深深植根于...","group":"Part 01"},{"en":"be enthusiastic about","zh":"对...热心/充满热情","group":"Part 01"},{"en":"be equivalent to","zh":"相当于；等于","group":"Part 01"},{"en":"be identical with/to","zh":"与...完全相同","group":"Part 01"},{"en":"be indicative of","zh":"表明；暗示","group":"Part 01"},{"en":"be indifferent to","zh":"对...漠不关心","group":"Part 01"},{"en":"be intent on","zh":"专心致志于；决心要","group":"Part 01"},{"en":"come at","zh":"扑向；达到；得到","group":"Part 01"},{"en":"come between","zh":"介入...之间；离间","group":"Part 01"},{"en":"come by","zh":"顺便拜访；获得","group":"Part 01"},{"en":"come down","zh":"下来；下降；传承","group":"Part 01"},{"en":"come down to","zh":"归结为；涉及到","group":"Part 01"},{"en":"come in for","zh":"受到；接受","group":"Part 01"},{"en":"come off","zh":"成功；举行；脱落","group":"Part 01"},{"en":"come on","zh":"来吧；加油；进展","group":"Part 01"},{"en":"come out","zh":"出来；出版；结果是","group":"Part 01"},{"en":"come over","zh":"过来；顺便来访","group":"Part 01"},{"en":"come through","zh":"经历；安然度过；成功","group":"Part 01"},{"en":"come true","zh":"实现；成真","group":"Part 01"},{"en":"be on circuit","zh":"巡回；在巡回中","group":"Part 01"},{"en":"be out of control","zh":"失控","group":"Part 01"},{"en":"be pleased with","zh":"对...满意","group":"Part 01"},{"en":"be tied to","zh":"被束缚于；与...紧密相连","group":"Part 01"},{"en":"be used to","zh":"习惯于（doing）/ 被用来（do）","group":"Part 01"},{"en":"be willing to do sth.","zh":"愿意做某事","group":"Part 01"},{"en":"bear/keep...in mind","zh":"记住；牢记","group":"Part 01"},{"en":"become of","zh":"发生；变成（通常指遭遇）","group":"Part 01"},{"en":"begin with","zh":"以...开始","group":"Part 01"},{"en":"beside the point","zh":"离题；不相关","group":"Part 01"},{"en":"black and blue","zh":"青一块紫一块；遍体鳞伤","group":"Part 01"},{"en":"break away (from)","zh":"脱离；摆脱","group":"Part 01"},{"en":"break down","zh":"出故障；崩溃；分解","group":"Part 01"},{"en":"break off","zh":"中断；折断；突然停止","group":"Part 01"},{"en":"break one's heart","zh":"使人心碎","group":"Part 01"},{"en":"break out","zh":"爆发；突然发生","group":"Part 01"},{"en":"care for","zh":"照顾；喜欢；关心","group":"Part 01"},{"en":"carry away","zh":"带走；使失去理智","group":"Part 01"},{"en":"carry off","zh":"成功完成；夺走（生命）","group":"Part 01"},{"en":"carry on","zh":"继续；从事","group":"Part 01"},{"en":"carry out","zh":"执行；实施","group":"Part 01"},{"en":"carry over","zh":"延期；结转","group":"Part 01"},{"en":"carry through","zh":"完成；帮助度过难关","group":"Part 01"},{"en":"catch/take/get hold of","zh":"抓住；掌握","group":"Part 01"},{"en":"catch up with","zh":"赶上；追上","group":"Part 01"},{"en":"change one's mind","zh":"改变主意","group":"Part 01"},{"en":"come about","zh":"发生；产生","group":"Part 01"},{"en":"come across","zh":"偶然遇到；碰见","group":"Part 02"},{"en":"come along","zh":"出现；一起来；进展","group":"Part 02"},{"en":"come apart","zh":"破碎；瓦解","group":"Part 02"},{"en":"come around/round","zh":"苏醒；顺道拜访；改变看法","group":"Part 02"},{"en":"break through","zh":"突破；冲破","group":"Part 02"},{"en":"break up","zh":"分手；解散；打碎","group":"Part 02"},{"en":"bring about","zh":"导致；引起","group":"Part 02"},{"en":"bring around/round","zh":"说服；使苏醒","group":"Part 02"},{"en":"bring down","zh":"降低；打倒","group":"Part 02"},{"en":"bring forth","zh":"产生；提出","group":"Part 02"},{"en":"bring forward","zh":"提出；提前","group":"Part 02"},{"en":"bring off","zh":"成功完成","group":"Part 02"},{"en":"bring on","zh":"引起；导致；促进","group":"Part 02"},{"en":"bring out","zh":"出版；生产；使显出","group":"Part 02"},{"en":"bring through","zh":"使度过难关；拯救","group":"Part 02"},{"en":"bring to","zh":"使苏醒；使恢复知觉","group":"Part 02"},{"en":"bring up","zh":"抚养；提出；呕吐","group":"Part 02"},{"en":"brush aside","zh":"漠视；置之不理","group":"Part 02"},{"en":"brush up","zh":"复习；重温","group":"Part 02"},{"en":"cut back","zh":"削减；修剪","group":"Part 02"},{"en":"cut down","zh":"削减；砍倒","group":"Part 02"},{"en":"cut in","zh":"插嘴；超车抢道","group":"Part 02"},{"en":"cut off","zh":"切断；中断；隔绝","group":"Part 02"},{"en":"cut out","zh":"删除；裁剪；停止","group":"Part 02"},{"en":"cut up","zh":"切碎；抨击","group":"Part 02"},{"en":"draw in","zh":"引诱；进站；吸收","group":"Part 02"},{"en":"draw on","zh":"利用；吸（烟）；临近","group":"Part 02"},{"en":"draw up","zh":"起草；停下","group":"Part 02"},{"en":"drive at","zh":"意指；试图说明","group":"Part 02"},{"en":"drive away","zh":"赶走；驱车离开","group":"Part 02"},{"en":"due to","zh":"由于；因为","group":"Part 02"},{"en":"every now and then","zh":"时常；不时地","group":"Part 02"},{"en":"face to face","zh":"面对面地","group":"Part 02"},{"en":"build up","zh":"逐渐建立；增强","group":"Part 02"},{"en":"but for","zh":"要不是；如果没有","group":"Part 02"},{"en":"by far","zh":"...得多；显然（修饰比较级/最高级）","group":"Part 02"},{"en":"by heart","zh":"凭记忆；熟记","group":"Part 02"},{"en":"by the way","zh":"顺便说一下","group":"Part 02"},{"en":"by/take turns","zh":"轮流；依次","group":"Part 02"},{"en":"by way of","zh":"通过...方式；经由","group":"Part 02"},{"en":"call at","zh":"拜访（某地）；停靠","group":"Part 02"},{"en":"call for","zh":"要求；需要；去接","group":"Part 02"},{"en":"call in","zh":"召集；来访；请来","group":"Part 02"},{"en":"call off","zh":"取消","group":"Part 02"},{"en":"call on/upon (sb. to do sth.)","zh":"号召；拜访；请求","group":"Part 02"},{"en":"call up","zh":"打电话；召集；使人想起","group":"Part 02"},{"en":"can not but (do)","zh":"不得不；只好","group":"Part 02"},{"en":"care about","zh":"关心；在乎","group":"Part 02"},{"en":"come up","zh":"走近；发生；被提出","group":"Part 02"},{"en":"come up against","zh":"遇到（困难、反对等）","group":"Part 02"},{"en":"come up to","zh":"达到；符合","group":"Part 02"},{"en":"come up with","zh":"想出；提出","group":"Part 02"},{"en":"compete with","zh":"与...竞争","group":"Part 02"},{"en":"consensus on","zh":"关于...的共识","group":"Part 02"},{"en":"count against","zh":"对...不利","group":"Part 02"},{"en":"count down","zh":"倒计时","group":"Part 02"},{"en":"count in","zh":"把...算在内","group":"Part 02"},{"en":"count on/upon","zh":"依靠；指望","group":"Part 02"},{"en":"count out","zh":"逐一数出；不把...算入","group":"Part 02"},{"en":"count up","zh":"共计；把...加起来","group":"Part 02"},{"en":"cut across","zh":"抄近路穿过；超越","group":"Part 02"},{"en":"cut away","zh":"切掉；砍掉","group":"Part 02"},{"en":"face up to","zh":"勇敢面对；正视","group":"Part 02"},{"en":"fall apart","zh":"崩溃；破碎；瓦解","group":"Part 02"},{"en":"fall back","zh":"后退；退却","group":"Part 02"},{"en":"fall back on","zh":"依靠；求助于","group":"Part 02"},{"en":"fall behind","zh":"落后；拖欠","group":"Part 02"},{"en":"fall for","zh":"爱上；上当；受骗","group":"Part 02"},{"en":"fall in with","zh":"同意；赞成；偶然遇到","group":"Part 02"},{"en":"fall on/upon","zh":"降临；落在；进攻","group":"Part 02"},{"en":"fall out","zh":"争吵；脱落；解散","group":"Part 02"},{"en":"fall out with","zh":"与...争吵","group":"Part 02"},{"en":"fall through","zh":"失败；落空","group":"Part 02"},{"en":"fall to sth.","zh":"开始做某事；落到...身上","group":"Part 02"},{"en":"far and wide","zh":"到处；四面八方","group":"Part 02"},{"en":"far from","zh":"远非；一点也不","group":"Part 02"},{"en":"grow up","zh":"长大；成熟","group":"Part 02"},{"en":"hand down","zh":"传下去；传给后代","group":"Part 02"},{"en":"hand in","zh":"上交；提交","group":"Part 02"},{"en":"hand in hand","zh":"手拉手；密切关联","group":"Part 02"},{"en":"hand out","zh":"分发；散发","group":"Part 02"},{"en":"hand over","zh":"移交；交出","group":"Part 02"},{"en":"hang about/around","zh":"闲荡；徘徊","group":"Part 02"},{"en":"hang on","zh":"坚持；稍等；紧紧抓住","group":"Part 02"},{"en":"hang on to","zh":"紧紧抓住；保留","group":"Part 02"},{"en":"hang together","zh":"团结一致；相符","group":"Part 02"},{"en":"hang up","zh":"挂断电话；挂起","group":"Part 02"},{"en":"have/take a hand in","zh":"参与；插手","group":"Part 02"},{"en":"have it in mind to do sth.","zh":"打算做某事","group":"Part 02"},{"en":"have one's hands full","zh":"非常忙；手头工作很满","group":"Part 02"},{"en":"fill in","zh":"填写；填补","group":"Part 03"},{"en":"fill out","zh":"填写；变丰满","group":"Part 03"},{"en":"find out","zh":"查明；发现","group":"Part 03"},{"en":"for a while","zh":"一会儿","group":"Part 03"},{"en":"for all","zh":"尽管；虽然","group":"Part 03"},{"en":"for example","zh":"例如","group":"Part 03"},{"en":"for fear of/that","zh":"以免；生怕","group":"Part 03"},{"en":"for one's part","zh":"就某人而言","group":"Part 03"},{"en":"for the moment","zh":"暂时；目前","group":"Part 03"},{"en":"from (the bottom of) one's heart","zh":"从心底里；真诚地","group":"Part 03"},{"en":"gain ground","zh":"取得进展；普及","group":"Part 03"},{"en":"gain on","zh":"逼近；赶上","group":"Part 03"},{"en":"get a move on","zh":"赶快；行动起来","group":"Part 03"},{"en":"get about","zh":"走动；传开","group":"Part 03"},{"en":"get across","zh":"通过；使被理解","group":"Part 03"},{"en":"go back on","zh":"违背（诺言）；背弃","group":"Part 03"},{"en":"go by","zh":"经过；遵守；根据...判断","group":"Part 03"},{"en":"go down","zh":"下降；沉没；被接受","group":"Part 03"},{"en":"go for","zh":"去找；努力获取；喜欢","group":"Part 03"},{"en":"go in for","zh":"参加；从事；爱好","group":"Part 03"},{"en":"go into","zh":"进入；调查；从事","group":"Part 03"},{"en":"go off","zh":"爆炸；响起；变质","group":"Part 03"},{"en":"go on","zh":"继续；发生","group":"Part 03"},{"en":"go out","zh":"出去；熄灭；过时","group":"Part 03"},{"en":"go over","zh":"复习；检查；越过","group":"Part 03"},{"en":"go through","zh":"经历；仔细检查；通过","group":"Part 03"},{"en":"go under","zh":"沉没；失败；破产","group":"Part 03"},{"en":"go up","zh":"上升；增长；被建造","group":"Part 03"},{"en":"go with","zh":"伴随；与...相配","group":"Part 03"},{"en":"get ahead","zh":"取得进步；领先","group":"Part 03"},{"en":"get along","zh":"相处；进展","group":"Part 03"},{"en":"get around/round to","zh":"抽出时间做；开始考虑","group":"Part 03"},{"en":"get at","zh":"到达；意指；查明","group":"Part 03"},{"en":"get away","zh":"离开；逃脱","group":"Part 03"},{"en":"get back","zh":"回来；恢复；取回","group":"Part 03"},{"en":"get by","zh":"勉强过活；通过","group":"Part 03"},{"en":"get down","zh":"下来；咽下；使沮丧","group":"Part 03"},{"en":"get down to sth.","zh":"开始认真做某事","group":"Part 03"},{"en":"get into","zh":"进入；陷入；养成（习惯）","group":"Part 03"},{"en":"get off","zh":"下车；离开；逃脱惩罚","group":"Part 03"},{"en":"get on","zh":"上车；进展；相处","group":"Part 03"},{"en":"in advance","zh":"提前；预先","group":"Part 03"},{"en":"in all","zh":"总共；合计","group":"Part 03"},{"en":"in a moment","zh":"立刻；马上","group":"Part 03"},{"en":"in a way","zh":"在某种程度上","group":"Part 03"},{"en":"in between","zh":"在中间；介于两者之间","group":"Part 03"},{"en":"in confidence","zh":"私下地；秘密地","group":"Part 03"},{"en":"in hand","zh":"在掌握中；在进行中","group":"Part 03"},{"en":"in no way","zh":"决不；一点也不","group":"Part 03"},{"en":"in one's hands","zh":"在某人掌控中","group":"Part 03"},{"en":"in one's heart of hearts","zh":"在内心深处","group":"Part 03"},{"en":"in order to","zh":"为了","group":"Part 03"},{"en":"in part","zh":"部分地","group":"Part 03"},{"en":"in particular","zh":"尤其；特别","group":"Part 03"},{"en":"in place","zh":"在适当的位置；恰当","group":"Part 03"},{"en":"in place of","zh":"代替","group":"Part 03"},{"en":"get out","zh":"出去；泄露；出版","group":"Part 03"},{"en":"get over","zh":"克服；恢复；熬过","group":"Part 03"},{"en":"get through","zh":"通过；接通电话；完成","group":"Part 03"},{"en":"give off","zh":"发出（光、热、气味等）","group":"Part 03"},{"en":"give up","zh":"放弃；投降","group":"Part 03"},{"en":"give way","zh":"让步；退却；倒塌","group":"Part 03"},{"en":"go about","zh":"着手做；四处走动","group":"Part 03"},{"en":"go after","zh":"追求；追捕","group":"Part 03"},{"en":"go against","zh":"反对；违背；不利于","group":"Part 03"},{"en":"go ahead","zh":"前进；进行；请便","group":"Part 03"},{"en":"go along","zh":"前进；赞同；进行","group":"Part 03"},{"en":"go around/round","zh":"四处走动；流传；足够分配","group":"Part 03"},{"en":"go at","zh":"扑向；努力做","group":"Part 03"},{"en":"hold back","zh":"阻止；抑制；隐瞒","group":"Part 03"},{"en":"hold down","zh":"压制；保住（工作）","group":"Part 03"},{"en":"hold forth","zh":"滔滔不绝地讲；提供","group":"Part 03"},{"en":"hold off","zh":"推迟；抵挡","group":"Part 03"},{"en":"hold on","zh":"坚持；稍等；抓住不放","group":"Part 03"},{"en":"hold onto/on to","zh":"紧紧抓住；保持","group":"Part 03"},{"en":"hold out","zh":"伸出；坚持；提供","group":"Part 03"},{"en":"hold over","zh":"推迟；延期","group":"Part 03"},{"en":"hold to","zh":"坚持；遵守","group":"Part 03"},{"en":"hold up","zh":"举起；支撑；阻挡","group":"Part 03"},{"en":"hold with","zh":"赞同；容忍","group":"Part 03"},{"en":"how come","zh":"为什么；怎么会","group":"Part 03"},{"en":"in accord with","zh":"与...一致；符合","group":"Part 03"},{"en":"in so far as","zh":"就...而言；在...范围内","group":"Part 03"},{"en":"in the face of","zh":"面对；不顾","group":"Part 03"},{"en":"in the first place","zh":"首先；起初","group":"Part 03"},{"en":"in the future","zh":"在未来","group":"Part 03"},{"en":"in the long run","zh":"从长远来看","group":"Part 03"},{"en":"in the short run","zh":"从短期来看","group":"Part 03"},{"en":"in the/one's way","zh":"挡道；妨碍","group":"Part 03"},{"en":"in turn","zh":"依次；反过来","group":"Part 03"},{"en":"instead of","zh":"代替；而不是","group":"Part 04"},{"en":"keep at","zh":"坚持做；继续做","group":"Part 04"},{"en":"keep back","zh":"隐瞒；阻止；留下","group":"Part 04"},{"en":"keep down","zh":"压制；控制；使不升起","group":"Part 04"},{"en":"keep from","zh":"阻止；隐瞒；使不做","group":"Part 04"},{"en":"keep off","zh":"远离；避开；不接近","group":"Part 04"},{"en":"keep on","zh":"继续；穿着...不脱","group":"Part 04"},{"en":"never mind","zh":"没关系；别担心","group":"Part 04"},{"en":"no matter what","zh":"无论什么","group":"Part 04"},{"en":"no way","zh":"决不；没门","group":"Part 04"},{"en":"on (the) one hand...on the other hand","zh":"一方面...另一方面...","group":"Part 04"},{"en":"on average","zh":"平均而言","group":"Part 04"},{"en":"on earth","zh":"究竟；到底（用于强调）","group":"Part 04"},{"en":"on hand","zh":"在手边；出席；即将发生","group":"Part 04"},{"en":"on one's own","zh":"独自；独立地","group":"Part 04"},{"en":"on one's way to","zh":"在去...的路上","group":"Part 04"},{"en":"on the move","zh":"在移动中；在奔波","group":"Part 04"},{"en":"on the part of","zh":"就...而言；由...做出的","group":"Part 04"},{"en":"on the point of","zh":"正要...的时候","group":"Part 04"},{"en":"on the run","zh":"在逃；忙碌","group":"Part 04"},{"en":"on time","zh":"准时","group":"Part 04"},{"en":"keep to","zh":"遵守；坚持；局限于","group":"Part 04"},{"en":"keep up","zh":"保持；继续；不低落","group":"Part 04"},{"en":"keep up with","zh":"跟上；保持联系","group":"Part 04"},{"en":"kill two birds with one stone","zh":"一石二鸟；一举两得","group":"Part 04"},{"en":"lay off","zh":"解雇；停止；休息","group":"Part 04"},{"en":"lend sb. a hand","zh":"帮助某人","group":"Part 04"},{"en":"lie in","zh":"在于；睡懒觉","group":"Part 04"},{"en":"live off","zh":"靠...生活；依赖...生活","group":"Part 04"},{"en":"live on","zh":"以...为食；靠...生活","group":"Part 04"},{"en":"live out","zh":"活过（某段时间）；实践","group":"Part 04"},{"en":"live through","zh":"度过；经受住","group":"Part 04"},{"en":"live up to","zh":"不辜负；符合；实践","group":"Part 04"},{"en":"live with","zh":"忍受；与...同居","group":"Part 04"},{"en":"look after","zh":"照顾；照料","group":"Part 04"},{"en":"make up one's mind","zh":"下定决心","group":"Part 04"},{"en":"make use of","zh":"利用","group":"Part 04"},{"en":"map out","zh":"制定；计划；绘制","group":"Part 04"},{"en":"meet with","zh":"遭遇；会见；符合","group":"Part 04"},{"en":"miss out","zh":"错过；遗漏","group":"Part 04"},{"en":"mix up","zh":"混淆；弄乱","group":"Part 04"},{"en":"more and more","zh":"越来越多","group":"Part 04"},{"en":"more or less","zh":"或多或少；大约","group":"Part 04"},{"en":"more than","zh":"超过；不只是","group":"Part 04"},{"en":"move about/around","zh":"到处走动；经常搬家","group":"Part 04"},{"en":"move in on","zh":"逼近；干预；侵吞","group":"Part 04"},{"en":"move on","zh":"继续前进；离开；转换话题","group":"Part 04"},{"en":"move up","zh":"提升；上升；提前","group":"Part 04"},{"en":"narrow down","zh":"缩小；减少","group":"Part 04"},{"en":"look ahead","zh":"向前看；展望未来","group":"Part 04"},{"en":"look at","zh":"看；考虑；审视","group":"Part 04"},{"en":"look back","zh":"回顾；回头看","group":"Part 04"},{"en":"look down on/upon","zh":"看不起；轻视","group":"Part 04"},{"en":"look for","zh":"寻找；期望","group":"Part 04"},{"en":"look forward to","zh":"期待；盼望","group":"Part 04"},{"en":"look in (on) sb.","zh":"顺便看望某人","group":"Part 04"},{"en":"look into","zh":"调查；研究；向里看","group":"Part 04"},{"en":"look on","zh":"观看；旁观；看待","group":"Part 04"},{"en":"look out","zh":"当心；向外看","group":"Part 04"},{"en":"look over","zh":"检查；浏览","group":"Part 04"},{"en":"look through","zh":"浏览；看穿；仔细检查","group":"Part 04"},{"en":"look to sth.","zh":"注意；指望；面向","group":"Part 04"},{"en":"point out","zh":"指出；指明","group":"Part 04"},{"en":"pull apart","zh":"拉开；拆开；批评","group":"Part 04"},{"en":"pull away","zh":"开走；离开；脱身","group":"Part 04"},{"en":"pull down","zh":"拆毁；推翻；拉下","group":"Part 04"},{"en":"pull in","zh":"进站；靠边停下；吸引","group":"Part 04"},{"en":"pull off","zh":"成功完成；脱下；停靠","group":"Part 04"},{"en":"pull out","zh":"拔出；退出；驶出","group":"Part 04"},{"en":"pull over","zh":"靠边停车","group":"Part 04"},{"en":"pull through","zh":"度过难关；恢复健康","group":"Part 04"},{"en":"pull together","zh":"齐心协力；振作起来","group":"Part 04"},{"en":"pull up","zh":"停下；拔起；阻止","group":"Part 04"},{"en":"put across/over","zh":"解释清楚；使被理解","group":"Part 04"},{"en":"put aside","zh":"放在一边；储存；忽视","group":"Part 04"},{"en":"look up","zh":"查阅；向上看；好转","group":"Part 04"},{"en":"look up to sb.","zh":"尊敬某人；仰慕","group":"Part 04"},{"en":"lose heart","zh":"丧失信心；泄气","group":"Part 04"},{"en":"make a point of (doing sth.)","zh":"坚持做某事；重视做某事","group":"Part 04"},{"en":"make believe","zh":"假装；假扮","group":"Part 04"},{"en":"make for sth.","zh":"走向；有助于；导致","group":"Part 04"},{"en":"make it","zh":"成功；达到；及时赶到","group":"Part 04"},{"en":"make of","zh":"理解；由...制成（看得出原材料）","group":"Part 04"},{"en":"make off","zh":"匆忙离开；逃走","group":"Part 04"},{"en":"make one's way","zh":"前往；行进；成功","group":"Part 04"},{"en":"make out","zh":"辨认出；理解；填写","group":"Part 04"},{"en":"make up","zh":"组成；编造；化妆；和解","group":"Part 04"},{"en":"make up for","zh":"补偿；弥补","group":"Part 04"},{"en":"one way or another","zh":"无论如何；以某种方式","group":"Part 04"},{"en":"out of hand","zh":"失控；立即；无法控制","group":"Part 04"},{"en":"out of place","zh":"不在适当位置；不合适","group":"Part 05"},{"en":"out of practice","zh":"荒疏；缺乏练习","group":"Part 05"},{"en":"out of shape","zh":"变形；身体不佳","group":"Part 05"},{"en":"out of the way","zh":"偏僻的；不挡道；得到解决","group":"Part 05"},{"en":"out of work","zh":"失业","group":"Part 05"},{"en":"part of...","zh":"...的一部分","group":"Part 05"},{"en":"part with","zh":"放弃；交出；与...分离","group":"Part 05"},{"en":"pay attention to","zh":"注意；关注","group":"Part 05"},{"en":"pay off","zh":"还清；取得成功；得到回报","group":"Part 05"},{"en":"pick up","zh":"捡起；接人；学会；好转","group":"Part 05"},{"en":"pile up","zh":"堆积；积累","group":"Part 05"},{"en":"play a part","zh":"起作用；扮演角色","group":"Part 05"},{"en":"put away","zh":"收好；储存；放弃","group":"Part 05"},{"en":"put down","zh":"放下；记下；镇压","group":"Part 05"},{"en":"put forward","zh":"提出；推举；将...提前","group":"Part 05"},{"en":"put in","zh":"提出；提交；插入；花费","group":"Part 05"},{"en":"put...into practice","zh":"将...付诸实践","group":"Part 05"},{"en":"put off","zh":"推迟；搪塞；脱掉","group":"Part 05"},{"en":"put on","zh":"穿上；上演；增加（体重）","group":"Part 05"},{"en":"put out","zh":"熄灭；伸出；出版；使不便","group":"Part 05"},{"en":"put through","zh":"接通电话；完成；使经历","group":"Part 05"},{"en":"put up","zh":"举起；建造；张贴；提供住宿","group":"Part 05"},{"en":"put up with","zh":"忍受；容忍","group":"Part 05"},{"en":"quite a bit of","zh":"相当多的","group":"Part 05"},{"en":"rather than","zh":"而不是；宁可...也不愿","group":"Part 05"},{"en":"such as","zh":"例如；诸如","group":"Part 05"},{"en":"take sb. aback","zh":"使某人吃惊","group":"Part 05"},{"en":"take after","zh":"长得像；性格类似于（长辈）","group":"Part 05"},{"en":"take apart","zh":"拆开；严厉批评","group":"Part 05"},{"en":"take away","zh":"拿走；带走；减去","group":"Part 05"},{"en":"take back","zh":"收回；退回；使回忆起","group":"Part 05"},{"en":"take care of","zh":"照顾；处理；负责","group":"Part 05"},{"en":"take down","zh":"记下；拆卸；降低","group":"Part 05"},{"en":"take heart","zh":"振作起来；鼓起勇气","group":"Part 05"},{"en":"take in","zh":"吸收；理解；欺骗；收留","group":"Part 05"},{"en":"take off","zh":"起飞；脱下；成功；请假","group":"Part 05"},{"en":"take on","zh":"承担；呈现；雇佣；接受挑战","group":"Part 05"},{"en":"take one's breath away","zh":"使某人惊叹/窒息","group":"Part 05"},{"en":"take one's mind off sth.","zh":"转移某人对某事的注意力","group":"Part 05"},{"en":"regard...as","zh":"把...视为...","group":"Part 05"},{"en":"result from","zh":"由...引起；起因于","group":"Part 05"},{"en":"rule out","zh":"排除；取消；划去","group":"Part 05"},{"en":"run across","zh":"偶然遇到；跑着穿过","group":"Part 05"},{"en":"run away with sb.","zh":"与某人私奔；轻易获胜","group":"Part 05"},{"en":"run down","zh":"撞倒；耗尽；诋毁；停止","group":"Part 05"},{"en":"run for","zh":"竞选；跑向","group":"Part 05"},{"en":"run into","zh":"撞上；偶遇；陷入（困境）","group":"Part 05"},{"en":"run off","zh":"逃跑；复印；流掉","group":"Part 05"},{"en":"run out (of)","zh":"用完；耗尽","group":"Part 05"},{"en":"run over","zh":"碾过；溢出；快速浏览","group":"Part 05"},{"en":"run through","zh":"贯穿；浏览；排练","group":"Part 05"},{"en":"run to","zh":"跑到；达到；趋向","group":"Part 05"},{"en":"run up against","zh":"遇到（困难）；偶然碰见","group":"Part 05"},{"en":"spread out","zh":"散开；蔓延；展开","group":"Part 05"},{"en":"spring up","zh":"涌现；迅速生长","group":"Part 05"},{"en":"stand by","zh":"支持；袖手旁观；准备着","group":"Part 05"},{"en":"stand down","zh":"退出；退下；解除戒备","group":"Part 05"},{"en":"stand for","zh":"代表；象征；主张；容忍","group":"Part 05"},{"en":"stand in for sb.","zh":"代替某人；临时替代","group":"Part 05"},{"en":"stand out","zh":"突出；显眼；坚持","group":"Part 05"},{"en":"stand up","zh":"站起来；站得住脚；经得起","group":"Part 05"},{"en":"stand up for","zh":"支持；捍卫；维护","group":"Part 05"},{"en":"stand up to","zh":"勇敢面对；经得起；抵抗","group":"Part 05"},{"en":"stay away from","zh":"远离；避开","group":"Part 05"},{"en":"strike off","zh":"除去；删去；砍掉","group":"Part 05"},{"en":"strike out","zh":"用力打；删去；开辟新路","group":"Part 05"},{"en":"run up","zh":"升起；积累；快速缝制","group":"Part 05"},{"en":"see about sth.","zh":"处理；安排；考虑","group":"Part 05"},{"en":"see...off","zh":"为...送行；击退","group":"Part 05"},{"en":"see out","zh":"送...出门；持续到...结束","group":"Part 05"},{"en":"see through","zh":"看穿；识破；帮助度过难关","group":"Part 05"},{"en":"see to sth.","zh":"处理；照顾；负责","group":"Part 05"},{"en":"see to it that","zh":"务必；确保","group":"Part 05"},{"en":"seeing that","zh":"鉴于；由于；既然","group":"Part 05"},{"en":"seem like","zh":"看起来像；似乎","group":"Part 05"},{"en":"send in","zh":"提交；递送；呈报","group":"Part 05"},{"en":"send out","zh":"发出；派遣；长出","group":"Part 05"},{"en":"set about","zh":"着手做；开始做","group":"Part 05"},{"en":"set against","zh":"使反对；使对立；使抵消","group":"Part 05"},{"en":"set apart","zh":"区分开；留下；使突出","group":"Part 05"},{"en":"set aside","zh":"留出；放置一边；驳回","group":"Part 05"},{"en":"that is to say","zh":"也就是说；即","group":"Part 05"},{"en":"the moment (that)","zh":"一...就...","group":"Part 05"},{"en":"throw off","zh":"摆脱；扔掉；轻易击败","group":"Part 05"},{"en":"to my mind","zh":"在我看来；我认为","group":"Part 05"},{"en":"to one's heart's content","zh":"尽情地；心满意足地","group":"Part 05"},{"en":"to the point","zh":"切中要害；中肯","group":"Part 05"},{"en":"trip up","zh":"绊倒；使出错","group":"Part 05"},{"en":"turn around/round","zh":"转变；好转；转身","group":"Part 05"},{"en":"turn away","zh":"拒绝；走开；转过脸去","group":"Part 05"},{"en":"turn back","zh":"返回；翻回；阻止","group":"Part 06"},{"en":"turn down","zh":"拒绝；调低；关小","group":"Part 06"},{"en":"turn in","zh":"上交；归还；上床睡觉","group":"Part 06"},{"en":"turn off","zh":"关闭；拐弯；使失去兴趣","group":"Part 06"},{"en":"turn on","zh":"打开；接通；取决于","group":"Part 06"},{"en":"set back","zh":"推迟；使倒退；花费","group":"Part 06"},{"en":"set down","zh":"记下；放下；制定","group":"Part 06"},{"en":"set forth","zh":"提出；阐明；出发","group":"Part 06"},{"en":"set in","zh":"开始；来临；嵌入","group":"Part 06"},{"en":"set off","zh":"出发；激起；引爆","group":"Part 06"},{"en":"set on","zh":"攻击；使开始；决心","group":"Part 06"},{"en":"set one's heart on","zh":"决心要；一心想要","group":"Part 06"},{"en":"set out","zh":"出发；开始；陈述；布置","group":"Part 06"},{"en":"set up","zh":"建立；装配；开业；安排","group":"Part 06"},{"en":"show off","zh":"炫耀；卖弄","group":"Part 06"},{"en":"show up","zh":"露面；出现；使显现","group":"Part 06"},{"en":"sign up (for...)","zh":"报名参加；签约","group":"Part 06"},{"en":"so far","zh":"到目前为止","group":"Part 06"},{"en":"sooner or later","zh":"迟早；早晚","group":"Part 06"},{"en":"space out","zh":"使昏昏沉沉；间隔开","group":"Part 06"},{"en":"take out","zh":"取出；扣除；取得","group":"Part 06"},{"en":"take out on","zh":"向...发泄","group":"Part 06"},{"en":"take over","zh":"接管；接收；盛行","group":"Part 06"},{"en":"take part (in)","zh":"参加；参与","group":"Part 06"},{"en":"take place","zh":"发生；举行","group":"Part 06"},{"en":"take the place of","zh":"代替；取代","group":"Part 06"},{"en":"take to (doing)","zh":"喜欢上；开始从事；养成习惯","group":"Part 06"},{"en":"take...to heart","zh":"对...耿耿于怀；牢记在心","group":"Part 06"},{"en":"take up","zh":"占据；开始从事；接受","group":"Part 06"},{"en":"take up on","zh":"接受...的邀请；向...问","group":"Part 06"},{"en":"take up with","zh":"开始与...交往；致力于","group":"Part 06"},{"en":"tend to do sth.","zh":"倾向于做某事","group":"Part 06"},{"en":"tend to sb./sth.","zh":"照料/护理某人/某物","group":"Part 06"},{"en":"turn out","zh":"结果是；生产；关掉；出席","group":"Part 06"},{"en":"turn over","zh":"移交；翻阅；翻转；周转","group":"Part 06"},{"en":"turn to","zh":"求助于；转向；变成","group":"Part 06"},{"en":"turn up","zh":"出现；调高；发生","group":"Part 06"},{"en":"under one's breath","zh":"低声细语；压低嗓音","group":"Part 06"},{"en":"under way","zh":"在进行中；在航行中","group":"Part 06"},{"en":"up to","zh":"多达；取决于；胜任；正在做","group":"Part 06"},{"en":"wake up","zh":"醒来；唤醒；引起注意","group":"Part 06"},{"en":"walk away/off with","zh":"轻易获胜；顺手拿走","group":"Part 06"},{"en":"walk out","zh":"罢工；退席；走出","group":"Part 06"},{"en":"walk up","zh":"走上；走近；沿...走","group":"Part 06"},{"en":"wash one's hands of","zh":"洗手不干；不再参与","group":"Part 06"},{"en":"weave into","zh":"把...织入；把...编进","group":"Part 06"},{"en":"gentle wind/rain","zh":"微风/细雨","group":"Part 06"},{"en":"gentle heart","zh":"温柔的心","group":"Part 06"},{"en":"gentle slope","zh":"缓坡","group":"Part 06"},{"en":"glow with pride","zh":"得意洋洋；自豪","group":"Part 06"},{"en":"come to grief","zh":"遭受不幸；失败","group":"Part 06"},{"en":"bring sb. to grief","zh":"使某人遭受不幸","group":"Part 06"},{"en":"off (one's) guard","zh":"不提防；丧失警惕","group":"Part 06"},{"en":"on (one's) guard","zh":"警惕；提防","group":"Part 06"},{"en":"be immune to the disease","zh":"对该疾病免疫","group":"Part 06"},{"en":"be immune from taxation","zh":"免税","group":"Part 06"},{"en":"inform sb. of sth.","zh":"通知某人某事","group":"Part 06"},{"en":"inform against/on sb.","zh":"告发某人；举报","group":"Part 06"},{"en":"keep...informed","zh":"随时向...报告情况","group":"Part 06"},{"en":"the inner feelings","zh":"内心情感","group":"Part 06"},{"en":"the inner life","zh":"内心世界；精神生活","group":"Part 06"},{"en":"what is more","zh":"而且；更重要的是","group":"Part 06"},{"en":"wind up","zh":"结束；上发条；使紧张","group":"Part 06"},{"en":"work at/on","zh":"致力于；从事；钻研","group":"Part 06"},{"en":"work off","zh":"消除；发泄；偿清","group":"Part 06"},{"en":"work out","zh":"解决；算出；锻炼；结果良好","group":"Part 06"},{"en":"work up","zh":"逐步建立；激发；整理","group":"Part 06"},{"en":"write down","zh":"写下；记下","group":"Part 06"},{"en":"out of context","zh":"脱离上下文；断章取义","group":"Part 06"},{"en":"in the context of","zh":"在...背景下；在...语境中","group":"Part 06"},{"en":"defend...against/from","zh":"保护...免受","group":"Part 06"},{"en":"a blood donation","zh":"献血","group":"Part 06"},{"en":"make/give a donation","zh":"捐款；捐赠","group":"Part 06"},{"en":"the drift of opinion","zh":"舆论动向","group":"Part 06"},{"en":"catch the drift of an argument","zh":"理解论点的要旨","group":"Part 06"},{"en":"on edge","zh":"紧张不安；烦躁","group":"Part 06"},{"en":"interfere in sb.'s private affairs","zh":"干涉某人的私事","group":"Part 06"},{"en":"lag behind","zh":"落后；滞后","group":"Part 06"},{"en":"jet lag","zh":"时差反应","group":"Part 06"},{"en":"by tradition","zh":"按照传统","group":"Part 06"},{"en":"true to tradition","zh":"忠实于传统","group":"Part 06"},{"en":"observe sb. do sth.","zh":"观察某人做某事（全过程）","group":"Part 06"},{"en":"observe sb. doing sth.","zh":"观察某人正在做某事","group":"Part 06"},{"en":"pattern oneself after","zh":"模仿；效仿","group":"Part 06"},{"en":"penalty kick","zh":"点球；罚球","group":"Part 06"},{"en":"penalty area","zh":"罚球区；禁区","group":"Part 06"},{"en":"pension sb. off","zh":"发给某人养老金使其退休；解雇","group":"Part 06"},{"en":"draw a pension","zh":"领取养老金","group":"Part 06"},{"en":"win popularity","zh":"赢得人心；受欢迎","group":"Part 06"},{"en":"lose popularity","zh":"失去人心；失宠","group":"Part 06"},{"en":"on the edge of","zh":"在...边缘；濒临","group":"Part 07"},{"en":"encourage sb. to do sth.","zh":"鼓励某人做某事","group":"Part 07"},{"en":"discourage sb. from doing sth.","zh":"劝阻某人做某事","group":"Part 07"},{"en":"at fault","zh":"有责任；有错","group":"Part 07"},{"en":"find fault with","zh":"挑剔；找茬；抱怨","group":"Part 07"},{"en":"merits and faults","zh":"优缺点","group":"Part 07"},{"en":"on file","zh":"存档；归档","group":"Part 07"},{"en":"in file","zh":"排成纵队","group":"Part 07"},{"en":"file in","zh":"鱼贯而入","group":"Part 07"},{"en":"file out","zh":"鱼贯而出","group":"Part 07"},{"en":"try one's fortune","zh":"碰运气","group":"Part 07"},{"en":"make a fortune","zh":"发财；致富","group":"Part 07"},{"en":"a man of fortune","zh":"富人；有财产的人","group":"Part 07"},{"en":"at a glance","zh":"一瞥；看一眼","group":"Part 07"},{"en":"at first glance","zh":"乍一看；初看时","group":"Part 07"},{"en":"push around","zh":"摆布；欺负；使唤","group":"Part 07"},{"en":"push on","zh":"继续前进；推进","group":"Part 07"},{"en":"when push comes to shove","zh":"紧要关头；迫不得已时","group":"Part 07"},{"en":"in the raw","zh":"处于自然状态；未加工的","group":"Part 07"},{"en":"a raw soldier","zh":"新兵；无经验的士兵","group":"Part 07"},{"en":"a raw wound","zh":"裸露的伤口","group":"Part 07"},{"en":"launch into","zh":"投入；开始做；进入","group":"Part 07"},{"en":"launch an artificial satellite","zh":"发射人造卫星","group":"Part 07"},{"en":"launch a new enterprise","zh":"创办新企业","group":"Part 07"},{"en":"launch an attack","zh":"发动攻击","group":"Part 07"},{"en":"lease sth. from sb.","zh":"从某人处租借某物","group":"Part 07"},{"en":"lease sth. to sb.","zh":"把某物出租给某人","group":"Part 07"},{"en":"in a mess","zh":"乱七八糟；陷入困境","group":"Part 07"},{"en":"mess about/around","zh":"胡闹；瞎混；闲荡","group":"Part 07"},{"en":"mess up","zh":"弄乱；搞糟；破坏","group":"Part 07"},{"en":"in gear","zh":"处于正常状态；挂上挡","group":"Part 07"},{"en":"gear up","zh":"准备好；加速；促进","group":"Part 07"},{"en":"be geared to","zh":"适合于；适应于","group":"Part 07"},{"en":"on receipt of","zh":"一收到...就...","group":"Part 07"},{"en":"be in receipt of","zh":"已收到...","group":"Part 07"},{"en":"make inquiries of sb. about sth.","zh":"向某人询问某事","group":"Part 07"},{"en":"inquiry into...","zh":"对...的调查","group":"Part 07"},{"en":"inside out","zh":"里外翻转；彻底地","group":"Part 07"},{"en":"inside facts","zh":"内幕；内部事实","group":"Part 07"},{"en":"labor intensity","zh":"劳动强度","group":"Part 07"},{"en":"the intensity of the situation","zh":"局势的紧张程度","group":"Part 07"},{"en":"in the interest(s) of","zh":"为了...的利益；为了...起见","group":"Part 07"},{"en":"have no/an interest in","zh":"对...不感兴趣/感兴趣","group":"Part 07"},{"en":"interfere in","zh":"干涉；干预","group":"Part 07"},{"en":"interfere with","zh":"妨碍；干扰；乱动","group":"Part 07"},{"en":"be engaged to sb.","zh":"与某人订婚","group":"Part 07"},{"en":"engage in sth.","zh":"从事；参加；忙于","group":"Part 07"},{"en":"a wedding reception","zh":"婚宴；结婚喜宴","group":"Part 07"},{"en":"in faith","zh":"确实；毫无疑问","group":"Part 07"},{"en":"in good faith","zh":"真诚地；善意地","group":"Part 07"},{"en":"have faith in","zh":"信任；对...有信心","group":"Part 07"},{"en":"plug in","zh":"插入插头；接通电源","group":"Part 07"},{"en":"plug away (at)","zh":"埋头苦干；坚持不懈地做","group":"Part 07"},{"en":"a preliminary trial","zh":"初审；预审","group":"Part 07"},{"en":"a preliminary exam","zh":"初试；预考","group":"Part 07"},{"en":"preliminary remarks","zh":"开场白；前言","group":"Part 07"},{"en":"press on","zh":"继续前进；加紧进行","group":"Part 07"},{"en":"press sth. on sb.","zh":"把...强加于某人；硬给","group":"Part 07"},{"en":"press sb.'s hand","zh":"紧握某人的手","group":"Part 07"},{"en":"prevail on/upon","zh":"说服；劝说","group":"Part 07"},{"en":"mess with","zh":"乱动；干预；与...捣乱","group":"Part 07"},{"en":"neglect one's meals and sleep","zh":"废寝忘食","group":"Part 07"},{"en":"neglect one's duties","zh":"玩忽职守","group":"Part 07"},{"en":"keep...under (close) observation","zh":"对...进行（严密）监视/观察","group":"Part 07"},{"en":"fall under sb.'s observation","zh":"被某人看到；引起某人注意","group":"Part 07"},{"en":"escape observation","zh":"未被察觉；避开注意","group":"Part 07"},{"en":"mass observation","zh":"民意调查；大量观察","group":"Part 07"},{"en":"refresh oneself with a cup of tea","zh":"喝杯茶提神","group":"Part 07"},{"en":"refresh sb.'s memory","zh":"唤起某人的记忆；提醒","group":"Part 07"},{"en":"adhere to = cling to = stick to","zh":"坚持；遵守；粘附","group":"Part 07"},{"en":"restrain sb. from doing","zh":"阻止某人做某事","group":"Part 07"},{"en":"restrain oneself","zh":"克制自己","group":"Part 07"},{"en":"restrain sb. of sb.'s/one's liberty","zh":"束缚某人的自由","group":"Part 07"},{"en":"be beyond restraint","zh":"无法控制；不能抑制","group":"Part 07"},{"en":"be the ruin of sb.","zh":"成为某人毁灭/破产的原因","group":"Part 07"},{"en":"fall into ruin","zh":"毁灭；崩溃；破败","group":"Part 07"},{"en":"for the sake of","zh":"为了...的缘故；为了...的利益","group":"Part 07"},{"en":"for any sake","zh":"无论如何；千万","group":"Part 07"},{"en":"without sake","zh":"无缘无故；毫无理由","group":"Part 07"},{"en":"in sequence","zh":"依次；按顺序","group":"Part 07"},{"en":"a sequence of","zh":"一系列；一连串","group":"Part 07"},{"en":"in sequence of","zh":"按...的顺序","group":"Part 07"},{"en":"steer clear of","zh":"避开；绕开","group":"Part 07"},{"en":"steer a course","zh":"驾驶船只；确定路线","group":"Part 07"},{"en":"have a stroke","zh":"中风","group":"Part 07"},{"en":"at a/one stroke","zh":"一举；一下子","group":"Part 07"},{"en":"fling oneself into","zh":"投身于；扑倒在","group":"Part 07"},{"en":"fling out","zh":"冲出；愤然离开；抛出","group":"Part 07"},{"en":"have a fling","zh":"尽情放纵；尝试","group":"Part 07"},{"en":"in restraint of","zh":"为了抑制/约束...","group":"Part 07"},{"en":"with restraint","zh":"有节制地；克制地","group":"Part 08"},{"en":"without restraint","zh":"无拘无束地；毫无节制地","group":"Part 08"},{"en":"rival sb.","zh":"与某人竞争；与某人匹敌","group":"Part 08"},{"en":"without a rival","zh":"无可匹敌；无敌","group":"Part 08"},{"en":"a succession of","zh":"一连串的；一系列的","group":"Part 08"},{"en":"in succession","zh":"接连地；连续地","group":"Part 08"},{"en":"suck knowledge into one's mind","zh":"吸收知识","group":"Part 08"},{"en":"suck up","zh":"吸收；奉承；拍马屁","group":"Part 08"},{"en":"surplus population","zh":"过剩人口","group":"Part 08"},{"en":"surplus value","zh":"剩余价值","group":"Part 08"},{"en":"in view of","zh":"鉴于；考虑到","group":"Part 08"},{"en":"with a view to doing sth.","zh":"为了做某事；以...为目的","group":"Part 08"},{"en":"view...as","zh":"把...看作...","group":"Part 08"},{"en":"an abundance of...","zh":"大量的...；丰富的...","group":"Part 08"},{"en":"bias against","zh":"对...的偏见","group":"Part 08"},{"en":"bias toward","zh":"对...的偏向/偏爱","group":"Part 08"},{"en":"in a blaze","zh":"熊熊燃烧；闪耀","group":"Part 08"},{"en":"blaze a trail","zh":"开辟道路；带头","group":"Part 08"},{"en":"take a bribe","zh":"受贿","group":"Part 08"},{"en":"offer a bribe","zh":"行贿","group":"Part 08"},{"en":"in bud","zh":"发芽；含苞待放","group":"Part 08"},{"en":"government bulletin","zh":"政府公报","group":"Part 08"},{"en":"news bulletin","zh":"新闻简报","group":"Part 08"},{"en":"trade bulletin","zh":"贸易公报","group":"Part 08"},{"en":"carve...out of/from","zh":"从...中开辟出；用...雕刻出","group":"Part 08"},{"en":"carve...into","zh":"把...雕刻成","group":"Part 08"},{"en":"rope in","zh":"说服...参加；用绳围起","group":"Part 08"},{"en":"be on the ropes","zh":"濒临失败；处于困境","group":"Part 08"},{"en":"be at the end of (one's) rope","zh":"智穷力竭；山穷水尽","group":"Part 08"},{"en":"in abundance","zh":"大量地；充裕地","group":"Part 08"},{"en":"take caution against","zh":"提防；警惕","group":"Part 08"},{"en":"with caution","zh":"谨慎地；小心地","group":"Part 08"},{"en":"caution sb. against doing sth.","zh":"警告某人不要做某事","group":"Part 08"},{"en":"clasp hands","zh":"紧紧握手","group":"Part 08"},{"en":"clasp one's hands","zh":"双手合十；紧握双手","group":"Part 08"},{"en":"come to/reach the climax","zh":"达到高潮","group":"Part 08"},{"en":"at the climax of","zh":"处于...的高潮","group":"Part 08"},{"en":"confer sth. on sb.","zh":"授予某人某物（荣誉、学位等）","group":"Part 08"},{"en":"confer with sb. on/about sth.","zh":"与某人商议某事","group":"Part 08"},{"en":"cold closet","zh":"冷藏柜；冷气橱","group":"Part 08"},{"en":"water closet","zh":"厕所；抽水马桶","group":"Part 08"},{"en":"engine clutch","zh":"发动机离合器","group":"Part 08"},{"en":"in sb.'s clutches","zh":"在某人掌控之中","group":"Part 08"},{"en":"clutch at sth.","zh":"试图抓住某物","group":"Part 08"},{"en":"be detached from","zh":"与...分离；超脱于","group":"Part 08"},{"en":"be attached to","zh":"附属于；喜爱；依恋","group":"Part 08"},{"en":"differentiate...from...","zh":"区分...与...","group":"Part 08"},{"en":"differentiate between...and...","zh":"区分...与...","group":"Part 08"},{"en":"stand on one's dignity","zh":"保持尊严；要求受到尊重","group":"Part 08"},{"en":"beneath one's dignity","zh":"有失身份；有损尊严","group":"Part 08"},{"en":"discriminate against","zh":"歧视；排斥","group":"Part 08"},{"en":"discriminate between...and...","zh":"区分...与...","group":"Part 08"},{"en":"discriminate...from...","zh":"把...与...区别开","group":"Part 08"},{"en":"make a mock of sb.","zh":"嘲弄某人；模仿取笑","group":"Part 08"},{"en":"mock up","zh":"制作模型；仿制","group":"Part 08"},{"en":"monopoly bureau","zh":"专卖局","group":"Part 08"},{"en":"monopoly right","zh":"专卖权；垄断权","group":"Part 08"},{"en":"monopoly of sales","zh":"销售垄断","group":"Part 08"},{"en":"in mortgage","zh":"在抵押中","group":"Part 08"},{"en":"send by dispatch","zh":"快件发送；发送急件","group":"Part 08"},{"en":"with dispatch","zh":"迅速；尽快","group":"Part 08"},{"en":"take drastic measures","zh":"采取果断措施；采取激烈手段","group":"Part 08"},{"en":"a drastic debate","zh":"激烈的辩论","group":"Part 08"},{"en":"make drastic change","zh":"做出重大改变","group":"Part 08"},{"en":"escort sb. back","zh":"护送某人返回","group":"Part 08"},{"en":"under escort","zh":"在护送下；在押送下","group":"Part 08"},{"en":"live in exile","zh":"流亡生活","group":"Part 08"},{"en":"exile sb. to sth.","zh":"把某人流放到某地","group":"Part 08"},{"en":"flare out","zh":"突然发怒；闪耀","group":"Part 08"},{"en":"flare up","zh":"突然爆发；加剧；突然发怒","group":"Part 08"},{"en":"flatter sb. on/about sth.","zh":"就某事奉承某人","group":"Part 08"},{"en":"flatter oneself","zh":"自鸣得意；自以为是","group":"Part 08"},{"en":"a batch of","zh":"一批；一炉","group":"Part 08"},{"en":"batch production","zh":"批量生产","group":"Part 08"},{"en":"fall into a flutter","zh":"心慌意乱；忐忑不安","group":"Part 08"},{"en":"in a flutter","zh":"忐忑不安；激动","group":"Part 08"},{"en":"foster father/mother","zh":"养父/养母","group":"Part 08"},{"en":"foster son/daughter","zh":"养子/养女","group":"Part 08"},{"en":"gasp at","zh":"对...感到惊讶/震惊","group":"Part 08"},{"en":"incorporate...with","zh":"把...与...合并","group":"Part 08"},{"en":"incorporate...in/into","zh":"把...并入/纳入...","group":"Part 08"},{"en":"inject...into sb.","zh":"给某人注射...；向某人灌输...","group":"Part 08"},{"en":"inject sb. with","zh":"给某人注射...","group":"Part 08"},{"en":"contend for","zh":"争夺；争取","group":"Part 08"},{"en":"contend with","zh":"对付；与...竞争/搏斗","group":"Part 08"},{"en":"couch potato","zh":"沙发土豆；成天看电视的人","group":"Part 08"},{"en":"couch sth. (in sth.)","zh":"用...表达；隐含","group":"Part 08"},{"en":"from the cradle to the grave","zh":"从生到死；一辈子","group":"Part 08"},{"en":"in the cradle","zh":"在摇篮里；在幼年时期","group":"Part 08"}]</script>
 <script>
 const DATA = JSON.parse(document.getElementById('data').textContent);
 const $ = id => document.getElementById(id);
+const KNOWN_KEY = 'vp_known';
+const WRONG_KEY = 'vp_wrong';
 const store = {
-  get known() { try { return new Set(JSON.parse(localStorage.getItem('vp_known') || '[]')); } catch { return new Set(); } },
-  set known(set) { localStorage.setItem('vp_known', JSON.stringify([...set])); }
+  get known() { try { return new Set(JSON.parse(localStorage.getItem(KNOWN_KEY) || '[]')); } catch { return new Set(); } },
+  set known(set) { localStorage.setItem(KNOWN_KEY, JSON.stringify([...set])); },
+  get wrong() { try { return new Set(JSON.parse(localStorage.getItem(WRONG_KEY) || '[]')); } catch { return new Set(); } },
+  set wrong(set) { localStorage.setItem(WRONG_KEY, JSON.stringify([...set])); }
 };
 
 let known = store.known;
-let queue = [];          // array of data indices
-let cur = 0;             // pointer into queue
+let wrong = store.wrong;
+let mode = 'study';        // 'study' 正常学习 | 'wrong' 错题本
+let queue = [];            // array of data indices
+let cur = 0;               // pointer into queue
 let flipped = false;
 let filtered = DATA.map((_, i) => i); // current group filter
 
 // ---------- group select ----------
 const groupSel = $('groupSel');
 const groups = [...new Set(DATA.map(d => d.group))];
-groupSel.innerHTML = '<option value="">全部单词（' + DATA.length + '）</option>' +
+groupSel.innerHTML = '<option value="">全部（' + DATA.length + '）</option>' +
   groups.map(g => {
     const n = DATA.filter(d => d.group === g).length;
     return `<option value="${g}">${g}（${n}）</option>`;
   }).join('');
-groupSel.onchange = () => { filtered = DATA.map((d, i) => ({ d, i })).filter(x => !groupSel.value || x.d.group === groupSel.value).map(x => x.i); buildQueue(); };
-$('totalCount').textContent = DATA.length;
+groupSel.onchange = () => {
+  filtered = DATA.map((d, i) => ({ d, i })).filter(x => !groupSel.value || x.d.group === groupSel.value).map(x => x.i);
+  buildQueue();
+};
+
+// ---------- header stats / mode ----------
+function updateHeader() {
+  $('btnWrongBook').classList.toggle('active', mode === 'wrong');
+  $('btnWrongBook').innerHTML = mode === 'wrong'
+    ? '返回学习'
+    : '错题本<span class="badge">' + wrong.size + '</span>';
+  $('statsLine').innerHTML = mode === 'wrong'
+    ? '错题待消除 <b class="red">' + wrong.size + '</b>'
+    : '已掌握 <b>' + known.size + '</b> / <span>' + DATA.length + '</span>';
+}
 
 // ---------- queue ----------
-function buildQueue(keepUnknownOnly = false) {
+function buildQueue() {
   let list = filtered.slice();
-  if (keepUnknownOnly) list = list.filter(i => !known.has(DATA[i].en));
-  if (keepUnknownOnly && list.length === 0) { restartGroup(); return; }
+  if (mode === 'wrong') list = list.filter(i => wrong.has(DATA[i].en));
   queue = list;
   cur = 0;
   $('done').hidden = true;
   $('study').style.display = '';
+  $('actions').style.visibility = '';
+  updateHeader();
   render();
 }
-function restartGroup() { buildQueue(false); }
+function restartGroup() { buildQueue(); }
+function reviewUnknown() {
+  queue = filtered.filter(i => !known.has(DATA[i].en));
+  cur = 0;
+  $('done').hidden = true;
+  $('study').style.display = '';
+  $('actions').style.visibility = '';
+  render();
+}
 
 // ---------- render ----------
 function render() {
-  if (queue.length === 0) { renderDone(); return; }
-  if (cur >= queue.length) { renderDone(); return; }
+  if (queue.length === 0 || cur >= queue.length) { renderDone(); return; }
   const d = DATA[queue[cur]];
   $('wordFront').textContent = d.en;
   $('tagFront').textContent = d.group;
-  $('knownDot').hidden = !known.has(d.en);
+  $('knownDot').hidden = mode === 'wrong' || !known.has(d.en);
+  $('wrongDot').hidden = !wrong.has(d.en);
   $('posFront').textContent = `${cur + 1} / ${queue.length}`;
   $('wordBack').textContent = d.zh;
   $('tagBack').textContent = d.group;
@@ -289,23 +343,37 @@ function render() {
   $('btnFlip').disabled = false;
   $('btnUnknown').hidden = true;
   $('btnKnown').hidden = true;
+  $('btnKnown').textContent = mode === 'wrong' ? '答对了 →' : '认识 →';
+  $('btnUnknown').textContent = mode === 'wrong' ? '还没记住 ←' : '不认识 ←';
   $('progressFill').style.width = (cur / queue.length * 100) + '%';
   $('progressNum').textContent = `${cur} / ${queue.length}`;
-  $('knownCount').textContent = known.size;
+  updateHeader();
 }
 
 function renderDone() {
   $('study').style.display = 'none';
   $('done').hidden = false;
   $('actions').style.visibility = 'hidden';
-  const unknownInFilter = filtered.filter(i => !known.has(DATA[i].en)).length;
-  $('doneText').textContent = unknownInFilter === 0
-    ? '太棒了！当前范围的卡片全部掌握。'
-    : `本组完成，当前范围还有 ${unknownInFilter} 张未掌握。`;
-  $('btnAgainUnknown').hidden = unknownInFilter === 0;
+  if (mode === 'wrong') {
+    const wrongInFilter = filtered.filter(i => wrong.has(DATA[i].en)).length;
+    $('doneTitle').textContent = wrongInFilter === 0 ? '错题全部消除 🎉' : '本轮错题过完 🎉';
+    $('doneText').textContent = wrongInFilter === 0
+      ? '当前范围的错题都已重新答对。' + (wrong.size === 0 ? '错题本已清空，继续保持！' : '其他分组还有错题，可切换分组继续。')
+      : `还有 ${wrongInFilter} 张错题未消除，再练一遍直到全部答对。`;
+    $('btnAgainUnknown').hidden = true;
+    $('btnRestart').textContent = wrongInFilter === 0 ? '返回学习' : '再练一遍错题';
+  } else {
+    const unknownInFilter = filtered.filter(i => !known.has(DATA[i].en)).length;
+    $('doneTitle').textContent = '本组完成 🎉';
+    $('doneText').textContent = unknownInFilter === 0
+      ? '太棒了！当前范围的卡片全部掌握。'
+      : `本组完成，当前范围还有 ${unknownInFilter} 张未掌握。`;
+    $('btnAgainUnknown').hidden = unknownInFilter === 0;
+    $('btnRestart').textContent = '重新开始本组';
+  }
   $('progressFill').style.width = '100%';
   $('progressNum').textContent = `${queue.length} / ${queue.length}`;
-  $('knownCount').textContent = known.size;
+  updateHeader();
 }
 
 // ---------- interactions ----------
@@ -317,26 +385,56 @@ function flip() {
   $('btnUnknown').hidden = !flipped;
   $('btnKnown').hidden = !flipped;
 }
-function next() {
-  cur++;
+function afterAnswer() {
+  flipped = false;
+  updateHeader();
   render();
   $('actions').style.visibility = '';
 }
 $('card').onclick = flip;
 $('btnFlip').onclick = flip;
-$('btnKnown').onclick = () => { known.add(DATA[queue[cur]].en); store.known = known; next(); };
-$('btnUnknown').onclick = () => { queue.push(queue[cur]); next(); }; // re-queue at end
+// 正常模式：认识=加入已掌握；错题本：答对=从错题本消除
+$('btnKnown').onclick = () => {
+  const d = DATA[queue[cur]];
+  if (mode === 'wrong') {
+    wrong.delete(d.en);
+    store.wrong = wrong;
+    queue.splice(cur, 1);          // 不前进，下一张移到当前位置
+  } else {
+    known.add(d.en);
+    store.known = known;
+    cur++;
+  }
+  afterAnswer();
+};
+// 任何模式下不认识都收录错题本，并排到队尾再出现
+$('btnUnknown').onclick = () => {
+  const d = DATA[queue[cur]];
+  wrong.add(d.en);
+  store.wrong = wrong;
+  queue.push(queue[cur]);
+  if (mode === 'wrong') queue.splice(cur, 1);
+  else cur++;
+  afterAnswer();
+};
 $('btnShuffle').onclick = () => {
   for (let i = queue.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [queue[i], queue[j]] = [queue[j], queue[i]]; }
   cur = 0; render();
 };
 $('btnReset').onclick = () => {
-  if (!confirm('确定清空所有已掌握记录？')) return;
+  if (!confirm('确定清空所有已掌握记录？（错题本不受影响，需在错题本内答对消除）')) return;
   known = new Set(); store.known = known;
   buildQueue();
 };
-$('btnAgainUnknown').onclick = () => { $('actions').style.visibility = ''; buildQueue(true); };
-$('btnRestart').onclick = () => { $('actions').style.visibility = ''; restartGroup(); };
+$('btnWrongBook').onclick = () => {
+  mode = mode === 'study' ? 'wrong' : 'study';
+  buildQueue();
+};
+$('btnAgainUnknown').onclick = () => { $('actions').style.visibility = ''; reviewUnknown(); };
+$('btnRestart').onclick = () => {
+  $('actions').style.visibility = '';
+  if (mode === 'wrong') buildQueue(); else restartGroup();
+};
 
 document.onkeydown = e => {
   if (e.code === 'Space') { e.preventDefault(); flip(); }

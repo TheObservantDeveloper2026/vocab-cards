@@ -56,8 +56,22 @@
   }
   select { min-width: 130px; }
   .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+  .btn-ghost.active { border-color: var(--red); color: var(--red); background: #fef0f0; }
+  .badge {
+    display: inline-block;
+    min-width: 18px;
+    padding: 0 5px;
+    margin-left: 5px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+  }
   .stats { margin-left: auto; font-size: 13px; color: var(--text-sub); white-space: nowrap; }
   .stats b { color: var(--green); }
+  .stats b.red { color: var(--red); }
 
   main {
     flex: 1;
@@ -129,6 +143,16 @@
     background: #e8f7f0;
     color: var(--green);
   }
+  .wrong-dot {
+    position: absolute;
+    top: 40px;
+    right: 16px;
+    font-size: 11px;
+    border-radius: 999px;
+    padding: 3px 10px;
+    background: #fdebec;
+    color: var(--red);
+  }
   .pos { position: absolute; bottom: 12px; right: 16px; font-size: 11px; color: #b6bccb; }
 
   .actions {
@@ -188,8 +212,9 @@
   <div class="toolbar">
     <select id="groupSel"></select>
     <button class="btn-ghost" id="btnShuffle">洗牌</button>
+    <button class="btn-ghost" id="btnWrongBook">错题本<span class="badge" id="wrongBadge">0</span></button>
     <button class="btn-ghost" id="btnReset">清空进度</button>
-    <span class="stats">已掌握 <b id="knownCount">0</b> / <span id="totalCount">0</span></span>
+    <span class="stats" id="statsLine"></span>
   </div>
 </header>
 
@@ -204,6 +229,7 @@
       <div class="face front">
         <span class="tag" id="tagFront"></span>
         <span class="known-dot" id="knownDot" hidden>已掌握</span>
+        <span class="wrong-dot" id="wrongDot" hidden>错题</span>
         <div class="word" id="wordFront"></div>
         <div class="hint">想一想中文意思，点击卡片查看</div>
         <span class="pos" id="posFront"></span>
@@ -217,7 +243,7 @@
   </div>
 
   <div class="done-panel" id="done" hidden>
-    <h2>本组完成 🎉</h2>
+    <h2 id="doneTitle">本组完成 🎉</h2>
     <p id="doneText"></p>
     <button id="btnAgainUnknown">只复习未掌握的卡片</button>
     <button id="btnRestart">重新开始本组</button>
@@ -230,55 +256,83 @@
   </div>
 </main>
 
-<footer>手机端与电脑端通用 · 数据保存在本地浏览器</footer>
+<footer>答错自动收录错题本 · 在错题本答对后消除 · 数据保存在本地浏览器</footer>
 
 <script id="data" type="application/json">[{"en":"OSI reference model","zh":"OSI 参考模型","group":"一、网络体系结构"},{"en":"physical layer","zh":"物理层","group":"一、网络体系结构"},{"en":"data link layer","zh":"数据链路层","group":"一、网络体系结构"},{"en":"network layer","zh":"网络层","group":"一、网络体系结构"},{"en":"transport layer","zh":"传输层","group":"一、网络体系结构"},{"en":"session layer","zh":"会话层","group":"一、网络体系结构"},{"en":"presentation layer","zh":"表示层","group":"一、网络体系结构"},{"en":"application layer","zh":"应用层","group":"一、网络体系结构"},{"en":"TCP/IP model","zh":"TCP/IP 模型","group":"一、网络体系结构"},{"en":"encapsulation","zh":"封装","group":"一、网络体系结构"},{"en":"decapsulation","zh":"解封装","group":"一、网络体系结构"},{"en":"protocol","zh":"协议","group":"一、网络体系结构"},{"en":"interface","zh":"接口","group":"一、网络体系结构"},{"en":"service","zh":"服务","group":"一、网络体系结构"},{"en":"peer entity","zh":"对等实体","group":"一、网络体系结构"},{"en":"connection-oriented","zh":"面向连接","group":"一、网络体系结构"},{"en":"connectionless","zh":"无连接","group":"一、网络体系结构"},{"en":"reliable","zh":"可靠的","group":"一、网络体系结构"},{"en":"unreliable","zh":"不可靠的","group":"一、网络体系结构"},{"en":"flow control","zh":"流量控制","group":"一、网络体系结构"},{"en":"error control","zh":"差错控制","group":"一、网络体系结构"},{"en":"congestion control","zh":"拥塞控制","group":"一、网络体系结构"},{"en":"multiplexing","zh":"多路复用","group":"一、网络体系结构"},{"en":"demultiplexing","zh":"多路分用","group":"一、网络体系结构"},{"en":"PDU","zh":"Protocol Data Unit · 协议数据单元","group":"一、网络体系结构"},{"en":"SDU","zh":"Service Data Unit · 服务数据单元","group":"一、网络体系结构"},{"en":"twisted pair","zh":"双绞线","group":"二、物理层与传输介质"},{"en":"coaxial cable","zh":"同轴电缆","group":"二、物理层与传输介质"},{"en":"optical fiber","zh":"光纤","group":"二、物理层与传输介质"},{"en":"single-mode fiber","zh":"单模光纤","group":"二、物理层与传输介质"},{"en":"multi-mode fiber","zh":"多模光纤","group":"二、物理层与传输介质"},{"en":"UTP","zh":"非屏蔽双绞线","group":"二、物理层与传输介质"},{"en":"STP","zh":"Spanning Tree Protocol · 生成树协议","group":"二、物理层与传输介质"},{"en":"connector","zh":"连接器","group":"二、物理层与传输介质"},{"en":"transceiver","zh":"收发器","group":"二、物理层与传输介质"},{"en":"repeater","zh":"中继器","group":"二、物理层与传输介质"},{"en":"hub","zh":"集线器","group":"二、物理层与传输介质"},{"en":"bandwidth","zh":"带宽","group":"二、物理层与传输介质"},{"en":"throughput","zh":"吞吐量","group":"二、物理层与传输介质"},{"en":"latency / delay","zh":"延迟","group":"二、物理层与传输介质"},{"en":"jitter","zh":"抖动","group":"二、物理层与传输介质"},{"en":"attenuation","zh":"衰减","group":"二、物理层与传输介质"},{"en":"crosstalk","zh":"串扰","group":"二、物理层与传输介质"},{"en":"noise","zh":"噪声","group":"二、物理层与传输介质"},{"en":"modulation","zh":"调制","group":"二、物理层与传输介质"},{"en":"encoding","zh":"编码","group":"二、物理层与传输介质"},{"en":"baseband","zh":"基带","group":"二、物理层与传输介质"},{"en":"broadband","zh":"宽带","group":"二、物理层与传输介质"},{"en":"frame","zh":"帧","group":"三、数据链路层与局域网"},{"en":"MAC address","zh":"MAC 地址，介质访问控制地址","group":"三、数据链路层与局域网"},{"en":"LLC","zh":"Logical Link Control · 逻辑链路控制","group":"三、数据链路层与局域网"},{"en":"Ethernet","zh":"以太网","group":"三、数据链路层与局域网"},{"en":"CSMA/CD","zh":"Carrier Sense Multiple Access with Collision Detection · 载波监听多路访问/冲突检测","group":"三、数据链路层与局域网"},{"en":"collision domain","zh":"冲突域","group":"三、数据链路层与局域网"},{"en":"broadcast domain","zh":"广播域","group":"三、数据链路层与局域网"},{"en":"switch","zh":"交换机","group":"三、数据链路层与局域网"},{"en":"bridge","zh":"网桥","group":"三、数据链路层与局域网"},{"en":"VLAN","zh":"Virtual Local Area Network · 虚拟局域网","group":"三、数据链路层与局域网"},{"en":"trunk","zh":"干道链路","group":"三、数据链路层与局域网"},{"en":"Spanning Tree Protocol","zh":"生成树协议","group":"三、数据链路层与局域网"},{"en":"ARP","zh":"Address Resolution Protocol · 地址解析协议","group":"三、数据链路层与局域网"},{"en":"RARP","zh":"Reverse Address Resolution Protocol · 反向地址解析协议","group":"三、数据链路层与局域网"},{"en":"proxy ARP","zh":"代理 ARP","group":"三、数据链路层与局域网"},{"en":"PPP","zh":"Point-to-Point Protocol · 点对点协议","group":"三、数据链路层与局域网"},{"en":"HDLC","zh":"High-Level Data Link Control · 高级数据链路控制","group":"三、数据链路层与局域网"},{"en":"Frame Relay","zh":"帧中继","group":"三、数据链路层与局域网"},{"en":"WLAN","zh":"Wireless Local Area Network · 无线局域网","group":"三、数据链路层与局域网"},{"en":"IEEE 802.11","zh":"IEEE 802.11 无线标准","group":"三、数据链路层与局域网"},{"en":"SSID","zh":"Service Set Identifier · 服务集标识","group":"三、数据链路层与局域网"},{"en":"AP","zh":"Access Point · 接入点","group":"三、数据链路层与局域网"},{"en":"BSS","zh":"Basic Service Set · 基本服务集","group":"三、数据链路层与局域网"},{"en":"ESS","zh":"Extended Service Set · 扩展服务集","group":"三、数据链路层与局域网"},{"en":"packet","zh":"数据包","group":"四、网络层"},{"en":"IP address","zh":"IP 地址","group":"四、网络层"},{"en":"subnet mask","zh":"子网掩码","group":"四、网络层"},{"en":"subnetting","zh":"子网划分","group":"四、网络层"},{"en":"CIDR","zh":"Classless Inter-Domain Routing · 无类域间路由","group":"四、网络层"},{"en":"VLSM","zh":"Variable Length Subnet Mask · 可变长子网掩码","group":"四、网络层"},{"en":"IPv4","zh":"Internet Protocol version 4 · 互联网协议第4版","group":"四、网络层"},{"en":"IPv6","zh":"Internet Protocol version 6 · 互联网协议第6版","group":"四、网络层"},{"en":"routing","zh":"路由","group":"四、网络层"},{"en":"routing table","zh":"路由表","group":"四、网络层"},{"en":"static route","zh":"静态路由","group":"四、网络层"},{"en":"default route","zh":"默认路由","group":"四、网络层"},{"en":"dynamic routing","zh":"动态路由","group":"四、网络层"},{"en":"router","zh":"路由器","group":"四、网络层"},{"en":"next hop","zh":"下一跳","group":"四、网络层"},{"en":"metric","zh":"度量值","group":"四、网络层"},{"en":"administrative distance","zh":"管理距离","group":"四、网络层"},{"en":"RIP","zh":"Routing Information Protocol · 路由信息协议","group":"四、网络层"},{"en":"OSPF","zh":"Open Shortest Path First · 开放最短路径优先","group":"四、网络层"},{"en":"IS-IS","zh":"Intermediate System to Intermediate System · 中间系统到中间系统","group":"四、网络层"},{"en":"BGP","zh":"Border Gateway Protocol · 边界网关协议","group":"四、网络层"},{"en":"EIGRP","zh":"Enhanced Interior Gateway Routing Protocol · 增强型内部网关路由协议","group":"四、网络层"},{"en":"ICMP","zh":"Internet Control Message Protocol · 互联网控制报文协议","group":"四、网络层"},{"en":"IGMP","zh":"Internet Group Management Protocol · 互联网组管理协议","group":"四、网络层"},{"en":"DHCP","zh":"Dynamic Host Configuration Protocol · 动态主机配置协议","group":"四、网络层"},{"en":"DNS","zh":"Domain Name System · 域名系统","group":"四、网络层"},{"en":"NAT","zh":"Network Address Translation · 网络地址转换","group":"四、网络层"},{"en":"PAT","zh":"Port Address Translation · 端口地址转换","group":"四、网络层"},{"en":"VPN","zh":"Virtual Private Network · 虚拟专用网络","group":"四、网络层"},{"en":"segment","zh":"报文段","group":"五、传输层"},{"en":"datagram","zh":"数据报","group":"五、传输层"},{"en":"TCP","zh":"Transmission Control Protocol · 传输控制协议","group":"五、传输层"},{"en":"UDP","zh":"User Datagram Protocol · 用户数据报协议","group":"五、传输层"},{"en":"port","zh":"端口","group":"五、传输层"},{"en":"socket","zh":"套接字","group":"五、传输层"},{"en":"three-way handshake","zh":"三次握手","group":"五、传输层"},{"en":"sequence number","zh":"序号","group":"五、传输层"},{"en":"acknowledgment","zh":"确认","group":"五、传输层"},{"en":"window","zh":"窗口","group":"五、传输层"},{"en":"sliding window","zh":"滑动窗口","group":"五、传输层"},{"en":"retransmission","zh":"重传","group":"五、传输层"},{"en":"timeout","zh":"超时","group":"五、传输层"},{"en":"SYN","zh":"同步标志","group":"五、传输层"},{"en":"ACK","zh":"确认标志","group":"五、传输层"},{"en":"FIN","zh":"结束标志","group":"五、传输层"},{"en":"RST","zh":"复位标志","group":"五、传输层"},{"en":"congestion avoidance","zh":"拥塞避免","group":"五、传输层"},{"en":"slow start","zh":"慢启动","group":"五、传输层"},{"en":"fast retransmit","zh":"快速重传","group":"五、传输层"},{"en":"HTTP","zh":"Hypertext Transfer Protocol · 超文本传输协议","group":"六、应用层"},{"en":"HTTPS","zh":"Hypertext Transfer Protocol Secure · 安全超文本传输协议","group":"六、应用层"},{"en":"FTP","zh":"File Transfer Protocol · 文件传输协议","group":"六、应用层"},{"en":"TFTP","zh":"Trivial File Transfer Protocol · 简单文件传输协议","group":"六、应用层"},{"en":"SMTP","zh":"Simple Mail Transfer Protocol · 简单邮件传输协议","group":"六、应用层"},{"en":"POP3","zh":"Post Office Protocol version 3 · 邮局协议第3版","group":"六、应用层"},{"en":"IMAP","zh":"Internet Message Access Protocol · 互联网消息访问协议","group":"六、应用层"},{"en":"SNMP","zh":"Simple Network Management Protocol · 简单网络管理协议","group":"六、应用层"},{"en":"Telnet","zh":"远程登录协议","group":"六、应用层"},{"en":"SSH","zh":"Secure Shell · 安全外壳协议","group":"六、应用层"},{"en":"NFS","zh":"Network File System · 网络文件系统","group":"六、应用层"},{"en":"SMB","zh":"Server Message Block · 服务器消息块","group":"六、应用层"},{"en":"URL","zh":"Uniform Resource Locator · 统一资源定位符","group":"六、应用层"},{"en":"URI","zh":"Uniform Resource Identifier · 统一资源标识符","group":"六、应用层"},{"en":"FQDN","zh":"Fully Qualified Domain Name · 完全限定域名","group":"六、应用层"},{"en":"client-server","zh":"客户端-服务器","group":"六、应用层"},{"en":"peer-to-peer","zh":"对等网络","group":"六、应用层"},{"en":"API","zh":"Application Programming Interface · 应用程序编程接口","group":"六、应用层"},{"en":"firewall","zh":"防火墙","group":"七、网络安全"},{"en":"IDS","zh":"Intrusion Detection System · 入侵检测系统","group":"七、网络安全"},{"en":"IPS","zh":"Intrusion Prevention System · 入侵防御系统","group":"七、网络安全"},{"en":"antivirus","zh":"防病毒","group":"七、网络安全"},{"en":"authentication","zh":"认证","group":"七、网络安全"},{"en":"authorization","zh":"授权","group":"七、网络安全"},{"en":"accounting","zh":"计费/审计","group":"七、网络安全"},{"en":"AAA","zh":"认证、授权、计费","group":"七、网络安全"},{"en":"encryption","zh":"加密","group":"七、网络安全"},{"en":"decryption","zh":"解密","group":"七、网络安全"},{"en":"symmetric encryption","zh":"对称加密","group":"七、网络安全"},{"en":"asymmetric encryption","zh":"非对称加密","group":"七、网络安全"},{"en":"public key","zh":"公钥","group":"七、网络安全"},{"en":"private key","zh":"私钥","group":"七、网络安全"},{"en":"digital signature","zh":"数字签名","group":"七、网络安全"},{"en":"digital certificate","zh":"数字证书","group":"七、网络安全"},{"en":"CA","zh":"Certificate Authority · 证书颁发机构","group":"七、网络安全"},{"en":"PKI","zh":"Public Key Infrastructure · 公钥基础设施","group":"七、网络安全"},{"en":"IPSec","zh":"Internet Protocol Security · 互联网协议安全","group":"七、网络安全"},{"en":"SSL/TLS","zh":"安全套接层/传输层安全","group":"七、网络安全"},{"en":"ACL","zh":"Access Control List · 访问控制列表","group":"七、网络安全"},{"en":"virus","zh":"病毒","group":"七、网络安全"},{"en":"worm","zh":"蠕虫","group":"七、网络安全"},{"en":"Trojan horse","zh":"木马","group":"七、网络安全"},{"en":"spyware","zh":"间谍软件","group":"七、网络安全"},{"en":"ransomware","zh":"勒索软件","group":"七、网络安全"},{"en":"phishing","zh":"钓鱼攻击","group":"七、网络安全"},{"en":"DoS","zh":"Denial of Service · 拒绝服务","group":"七、网络安全"},{"en":"DDoS","zh":"Distributed Denial of Service · 分布式拒绝服务","group":"七、网络安全"},{"en":"man-in-the-middle","zh":"中间人攻击","group":"七、网络安全"},{"en":"spoofing","zh":"欺骗","group":"七、网络安全"},{"en":"sniffing","zh":"嗅探","group":"七、网络安全"},{"en":"vulnerability","zh":"漏洞","group":"七、网络安全"},{"en":"exploit","zh":"漏洞利用","group":"七、网络安全"},{"en":"patch","zh":"补丁","group":"七、网络安全"},{"en":"threat","zh":"威胁","group":"七、网络安全"},{"en":"risk","zh":"风险","group":"七、网络安全"},{"en":"DMZ","zh":"Demilitarized Zone · 隔离区","group":"七、网络安全"},{"en":"network management","zh":"网络管理","group":"八、网络管理"},{"en":"MIB","zh":"Management Information Base · 管理信息库","group":"八、网络管理"},{"en":"agent","zh":"代理","group":"八、网络管理"},{"en":"manager","zh":"管理器","group":"八、网络管理"},{"en":"trap","zh":"陷阱，告警","group":"八、网络管理"},{"en":"FCAPS","zh":"Fault, Configuration, Accounting, Performance, Security · 故障、配置、计费、性能、安全","group":"八、网络管理"},{"en":"QoS","zh":"Quality of Service · 服务质量","group":"八、网络管理"},{"en":"CoS","zh":"服务类别","group":"八、网络管理"},{"en":"DiffServ","zh":"Differentiated Services · 区分服务","group":"八、网络管理"},{"en":"IntServ","zh":"Integrated Services · 综合服务","group":"八、网络管理"},{"en":"traffic shaping","zh":"流量整形","group":"八、网络管理"},{"en":"traffic policing","zh":"流量监管","group":"八、网络管理"},{"en":"load balancing","zh":"负载均衡","group":"八、网络管理"},{"en":"SLA","zh":"Service Level Agreement · 服务等级协议","group":"八、网络管理"},{"en":"bandwidth management","zh":"带宽管理","group":"八、网络管理"},{"en":"Wi-Fi","zh":"无线保真","group":"九、无线与移动通信"},{"en":"Bluetooth","zh":"蓝牙","group":"九、无线与移动通信"},{"en":"ZigBee","zh":"紫蜂协议","group":"九、无线与移动通信"},{"en":"NFC","zh":"近场通信","group":"九、无线与移动通信"},{"en":"LTE","zh":"Long Term Evolution · 长期演进","group":"九、无线与移动通信"},{"en":"5G","zh":"Fifth Generation · 第五代移动通信","group":"九、无线与移动通信"},{"en":"wireless controller","zh":"无线控制器","group":"九、无线与移动通信"},{"en":"roaming","zh":"漫游","group":"九、无线与移动通信"},{"en":"BSSID","zh":"基本服务集标识","group":"九、无线与移动通信"},{"en":"WEP","zh":"Wired Equivalent Privacy · 有线等效保密","group":"九、无线与移动通信"},{"en":"WPA","zh":"Wi-Fi Protected Access · Wi-Fi 保护访问","group":"九、无线与移动通信"},{"en":"WPA2","zh":"Wi-Fi Protected Access 2 · Wi-Fi 保护访问 2","group":"九、无线与移动通信"},{"en":"WPA3","zh":"Wi-Fi Protected Access 3 · Wi-Fi 保护访问 3","group":"九、无线与移动通信"},{"en":"AES","zh":"Advanced Encryption Standard · 高级加密标准","group":"九、无线与移动通信"},{"en":"TKIP","zh":"Temporal Key Integrity Protocol · 临时密钥完整性协议","group":"九、无线与移动通信"},{"en":"channel","zh":"信道","group":"九、无线与移动通信"},{"en":"frequency band","zh":"频段","group":"九、无线与移动通信"},{"en":"2.4 GHz","zh":"2.4 吉赫兹","group":"九、无线与移动通信"},{"en":"5 GHz","zh":"5 吉赫兹","group":"九、无线与移动通信"},{"en":"MIMO","zh":"Multiple Input Multiple Output · 多入多出","group":"九、无线与移动通信"},{"en":"OFDM","zh":"Orthogonal Frequency Division Multiplexing · 正交频分复用","group":"九、无线与移动通信"},{"en":"DSSS","zh":"直接序列扩频","group":"九、无线与移动通信"},{"en":"FHSS","zh":"跳频扩频","group":"九、无线与移动通信"},{"en":"cloud computing","zh":"云计算","group":"十、云计算、数据中心与新技术"},{"en":"IaaS","zh":"Infrastructure as a Service · 基础设施即服务","group":"十、云计算、数据中心与新技术"},{"en":"PaaS","zh":"Platform as a Service · 平台即服务","group":"十、云计算、数据中心与新技术"},{"en":"SaaS","zh":"Software as a Service · 软件即服务","group":"十、云计算、数据中心与新技术"},{"en":"virtualization","zh":"虚拟化","group":"十、云计算、数据中心与新技术"},{"en":"virtual machine","zh":"虚拟机","group":"十、云计算、数据中心与新技术"},{"en":"hypervisor","zh":"虚拟机监控器","group":"十、云计算、数据中心与新技术"},{"en":"container","zh":"容器","group":"十、云计算、数据中心与新技术"},{"en":"Docker","zh":"Docker 容器技术","group":"十、云计算、数据中心与新技术"},{"en":"Kubernetes","zh":"Kubernetes 容器编排平台","group":"十、云计算、数据中心与新技术"},{"en":"SDN","zh":"Software-Defined Networking · 软件定义网络","group":"十、云计算、数据中心与新技术"},{"en":"NFV","zh":"Network Functions Virtualization · 网络功能虚拟化","group":"十、云计算、数据中心与新技术"},{"en":"overlay network","zh":"叠加网络","group":"十、云计算、数据中心与新技术"},{"en":"underlay network","zh":"底层网络","group":"十、云计算、数据中心与新技术"},{"en":"data center","zh":"数据中心","group":"十、云计算、数据中心与新技术"},{"en":"server","zh":"服务器","group":"十、云计算、数据中心与新技术"},{"en":"storage","zh":"存储","group":"十、云计算、数据中心与新技术"},{"en":"NAS","zh":"Network Attached Storage · 网络附加存储","group":"十、云计算、数据中心与新技术"},{"en":"SAN","zh":"Storage Area Network · 存储区域网络","group":"十、云计算、数据中心与新技术"},{"en":"RAID","zh":"Redundant Array of Independent Disks · 独立磁盘冗余阵列","group":"十、云计算、数据中心与新技术"},{"en":"edge computing","zh":"边缘计算","group":"十、云计算、数据中心与新技术"},{"en":"IoT","zh":"Internet of Things · 物联网","group":"十、云计算、数据中心与新技术"},{"en":"big data","zh":"大数据","group":"十、云计算、数据中心与新技术"},{"en":"AI","zh":"人工智能","group":"十、云计算、数据中心与新技术"},{"en":"blockchain","zh":"区块链","group":"十、云计算、数据中心与新技术"},{"en":"OSI","zh":"Open Systems Interconnection · 开放系统互连","group":"十一、高频缩略词及全称（部分）"},{"en":"ISO","zh":"International Organization for Standardization · 国际标准化组织","group":"十一、高频缩略词及全称（部分）"},{"en":"IP","zh":"Internet Protocol · 互联网协议","group":"十一、高频缩略词及全称（部分）"},{"en":"SSL","zh":"Secure Sockets Layer · 安全套接层","group":"十一、高频缩略词及全称（部分）"},{"en":"TLS","zh":"Transport Layer Security · 传输层安全","group":"十一、高频缩略词及全称（部分）"},{"en":"RSTP","zh":"Rapid Spanning Tree Protocol · 快速生成树协议","group":"十一、高频缩略词及全称（部分）"},{"en":"MSTP","zh":"Multiple Spanning Tree Protocol · 多生成树协议","group":"十一、高频缩略词及全称（部分）"},{"en":"VTP","zh":"VLAN Trunking Protocol · VLAN 干道协议","group":"十一、高频缩略词及全称（部分）"},{"en":"GVRP","zh":"GARP VLAN Registration Protocol · GARP VLAN 注册协议","group":"十一、高频缩略词及全称（部分）"},{"en":"MAC","zh":"Media Access Control · 介质访问控制","group":"十一、高频缩略词及全称（部分）"},{"en":"CSMA/CA","zh":"Carrier Sense Multiple Access with Collision Avoidance · 载波监听多路访问/冲突避免","group":"十一、高频缩略词及全称（部分）"},{"en":"RADIUS","zh":"Remote Authentication Dial-In User Service · 远程认证拨入用户服务","group":"十一、高频缩略词及全称（部分）"},{"en":"TACACS+","zh":"Terminal Access Controller Access Control System Plus · 增强型终端访问控制器访问控制系统","group":"十一、高频缩略词及全称（部分）"},{"en":"RSA","zh":"Rivest-Shamir-Adleman · RSA 加密算法","group":"十一、高频缩略词及全称（部分）"},{"en":"DES","zh":"Data Encryption Standard · 数据加密标准","group":"十一、高频缩略词及全称（部分）"},{"en":"3DES","zh":"Triple DES · 三重数据加密标准","group":"十一、高频缩略词及全称（部分）"},{"en":"MD5","zh":"Message Digest Algorithm 5 · 消息摘要算法第5版","group":"十一、高频缩略词及全称（部分）"},{"en":"SHA","zh":"Secure Hash Algorithm · 安全哈希算法","group":"十一、高频缩略词及全称（部分）"},{"en":"MPLS","zh":"Multiprotocol Label Switching · 多协议标签交换","group":"十一、高频缩略词及全称（部分）"},{"en":"VM","zh":"Virtual Machine · 虚拟机","group":"十一、高频缩略词及全称（部分）"},{"en":"VXLAN","zh":"Virtual Extensible LAN · 虚拟可扩展局域网","group":"十一、高频缩略词及全称（部分）"},{"en":"MTU","zh":"Maximum Transmission Unit · 最大传输单元","group":"十一、高频缩略词及全称（部分）"},{"en":"TTL","zh":"Time To Live · 生存时间","group":"十一、高频缩略词及全称（部分）"},{"en":"establish a connection","zh":"建立连接","group":"十二、常考固定搭配和表达"},{"en":"release a connection","zh":"释放连接","group":"十二、常考固定搭配和表达"},{"en":"forward packets","zh":"转发数据包","group":"十二、常考固定搭配和表达"},{"en":"route packets based on destination address","zh":"根据目的地址路由数据包","group":"十二、常考固定搭配和表达"},{"en":"encapsulate data into frames","zh":"将数据封装成帧","group":"十二、常考固定搭配和表达"},{"en":"decapsulate frames","zh":"解封装帧","group":"十二、常考固定搭配和表达"},{"en":"resolve IP address to MAC address","zh":"将 IP 地址解析为 MAC 地址","group":"十二、常考固定搭配和表达"},{"en":"dynamically assign IP addresses","zh":"动态分配 IP 地址","group":"十二、常考固定搭配和表达"},{"en":"translate private addresses to public addresses","zh":"将私有地址转换为公有地址","group":"十二、常考固定搭配和表达"},{"en":"authenticate users","zh":"认证用户","group":"十二、常考固定搭配和表达"},{"en":"encrypt data","zh":"加密数据","group":"十二、常考固定搭配和表达"},{"en":"ensure data integrity","zh":"确保数据完整性","group":"十二、常考固定搭配和表达"},{"en":"provide confidentiality","zh":"提供机密性","group":"十二、常考固定搭配和表达"},{"en":"prevent unauthorized access","zh":"防止未授权访问","group":"十二、常考固定搭配和表达"},{"en":"detect and prevent intrusions","zh":"检测并防止入侵","group":"十二、常考固定搭配和表达"},{"en":"monitor network performance","zh":"监控网络性能","group":"十二、常考固定搭配和表达"},{"en":"allocate bandwidth","zh":"分配带宽","group":"十二、常考固定搭配和表达"},{"en":"prioritize traffic","zh":"对流量划分优先级","group":"十二、常考固定搭配和表达"},{"en":"guarantee quality of service","zh":"保证服务质量","group":"十二、常考固定搭配和表达"},{"en":"balance load among servers","zh":"在服务器之间均衡负载","group":"十二、常考固定搭配和表达"},{"en":"virtualize network functions","zh":"虚拟化网络功能","group":"十二、常考固定搭配和表达"},{"en":"scale up / scale out","zh":"纵向扩展 / 横向扩展","group":"十二、常考固定搭配和表达"},{"en":"be referred to as","zh":"被称为","group":"十二、常考固定搭配和表达"},{"en":"consist of","zh":"由……组成","group":"十二、常考固定搭配和表达"},{"en":"be responsible for","zh":"负责……","group":"十二、常考固定搭配和表达"},{"en":"be used to do sth","zh":"被用来做……","group":"十二、常考固定搭配和表达"},{"en":"in order to","zh":"为了","group":"十二、常考固定搭配和表达"},{"en":"compared with","zh":"与……相比","group":"十二、常考固定搭配和表达"},{"en":"such as","zh":"例如","group":"十二、常考固定搭配和表达"},{"en":"as well as","zh":"以及，也","group":"十二、常考固定搭配和表达"}]</script>
 <script>
 const DATA = JSON.parse(document.getElementById('data').textContent);
 const $ = id => document.getElementById(id);
+const KNOWN_KEY = 'vn_known';
+const WRONG_KEY = 'vn_wrong';
 const store = {
-  get known() { try { return new Set(JSON.parse(localStorage.getItem('vn_known') || '[]')); } catch { return new Set(); } },
-  set known(set) { localStorage.setItem('vn_known', JSON.stringify([...set])); }
+  get known() { try { return new Set(JSON.parse(localStorage.getItem(KNOWN_KEY) || '[]')); } catch { return new Set(); } },
+  set known(set) { localStorage.setItem(KNOWN_KEY, JSON.stringify([...set])); },
+  get wrong() { try { return new Set(JSON.parse(localStorage.getItem(WRONG_KEY) || '[]')); } catch { return new Set(); } },
+  set wrong(set) { localStorage.setItem(WRONG_KEY, JSON.stringify([...set])); }
 };
 
 let known = store.known;
-let queue = [];          // array of data indices
-let cur = 0;             // pointer into queue
+let wrong = store.wrong;
+let mode = 'study';        // 'study' 正常学习 | 'wrong' 错题本
+let queue = [];            // array of data indices
+let cur = 0;               // pointer into queue
 let flipped = false;
 let filtered = DATA.map((_, i) => i); // current group filter
 
 // ---------- group select ----------
 const groupSel = $('groupSel');
 const groups = [...new Set(DATA.map(d => d.group))];
-groupSel.innerHTML = '<option value="">全部单词（' + DATA.length + '）</option>' +
+groupSel.innerHTML = '<option value="">全部（' + DATA.length + '）</option>' +
   groups.map(g => {
     const n = DATA.filter(d => d.group === g).length;
     return `<option value="${g}">${g}（${n}）</option>`;
   }).join('');
-groupSel.onchange = () => { filtered = DATA.map((d, i) => ({ d, i })).filter(x => !groupSel.value || x.d.group === groupSel.value).map(x => x.i); buildQueue(); };
-$('totalCount').textContent = DATA.length;
+groupSel.onchange = () => {
+  filtered = DATA.map((d, i) => ({ d, i })).filter(x => !groupSel.value || x.d.group === groupSel.value).map(x => x.i);
+  buildQueue();
+};
+
+// ---------- header stats / mode ----------
+function updateHeader() {
+  $('btnWrongBook').classList.toggle('active', mode === 'wrong');
+  $('btnWrongBook').innerHTML = mode === 'wrong'
+    ? '返回学习'
+    : '错题本<span class="badge">' + wrong.size + '</span>';
+  $('statsLine').innerHTML = mode === 'wrong'
+    ? '错题待消除 <b class="red">' + wrong.size + '</b>'
+    : '已掌握 <b>' + known.size + '</b> / <span>' + DATA.length + '</span>';
+}
 
 // ---------- queue ----------
-function buildQueue(keepUnknownOnly = false) {
+function buildQueue() {
   let list = filtered.slice();
-  if (keepUnknownOnly) list = list.filter(i => !known.has(DATA[i].en));
-  if (keepUnknownOnly && list.length === 0) { restartGroup(); return; }
+  if (mode === 'wrong') list = list.filter(i => wrong.has(DATA[i].en));
   queue = list;
   cur = 0;
   $('done').hidden = true;
   $('study').style.display = '';
+  $('actions').style.visibility = '';
+  updateHeader();
   render();
 }
-function restartGroup() { buildQueue(false); }
+function restartGroup() { buildQueue(); }
+function reviewUnknown() {
+  queue = filtered.filter(i => !known.has(DATA[i].en));
+  cur = 0;
+  $('done').hidden = true;
+  $('study').style.display = '';
+  $('actions').style.visibility = '';
+  render();
+}
 
 // ---------- render ----------
 function render() {
-  if (queue.length === 0) { renderDone(); return; }
-  if (cur >= queue.length) { renderDone(); return; }
+  if (queue.length === 0 || cur >= queue.length) { renderDone(); return; }
   const d = DATA[queue[cur]];
   $('wordFront').textContent = d.en;
   $('tagFront').textContent = d.group;
-  $('knownDot').hidden = !known.has(d.en);
+  $('knownDot').hidden = mode === 'wrong' || !known.has(d.en);
+  $('wrongDot').hidden = !wrong.has(d.en);
   $('posFront').textContent = `${cur + 1} / ${queue.length}`;
   $('wordBack').textContent = d.zh;
   $('tagBack').textContent = d.group;
@@ -289,23 +343,37 @@ function render() {
   $('btnFlip').disabled = false;
   $('btnUnknown').hidden = true;
   $('btnKnown').hidden = true;
+  $('btnKnown').textContent = mode === 'wrong' ? '答对了 →' : '认识 →';
+  $('btnUnknown').textContent = mode === 'wrong' ? '还没记住 ←' : '不认识 ←';
   $('progressFill').style.width = (cur / queue.length * 100) + '%';
   $('progressNum').textContent = `${cur} / ${queue.length}`;
-  $('knownCount').textContent = known.size;
+  updateHeader();
 }
 
 function renderDone() {
   $('study').style.display = 'none';
   $('done').hidden = false;
   $('actions').style.visibility = 'hidden';
-  const unknownInFilter = filtered.filter(i => !known.has(DATA[i].en)).length;
-  $('doneText').textContent = unknownInFilter === 0
-    ? '太棒了！当前范围的卡片全部掌握。'
-    : `本组完成，当前范围还有 ${unknownInFilter} 张未掌握。`;
-  $('btnAgainUnknown').hidden = unknownInFilter === 0;
+  if (mode === 'wrong') {
+    const wrongInFilter = filtered.filter(i => wrong.has(DATA[i].en)).length;
+    $('doneTitle').textContent = wrongInFilter === 0 ? '错题全部消除 🎉' : '本轮错题过完 🎉';
+    $('doneText').textContent = wrongInFilter === 0
+      ? '当前范围的错题都已重新答对。' + (wrong.size === 0 ? '错题本已清空，继续保持！' : '其他分组还有错题，可切换分组继续。')
+      : `还有 ${wrongInFilter} 张错题未消除，再练一遍直到全部答对。`;
+    $('btnAgainUnknown').hidden = true;
+    $('btnRestart').textContent = wrongInFilter === 0 ? '返回学习' : '再练一遍错题';
+  } else {
+    const unknownInFilter = filtered.filter(i => !known.has(DATA[i].en)).length;
+    $('doneTitle').textContent = '本组完成 🎉';
+    $('doneText').textContent = unknownInFilter === 0
+      ? '太棒了！当前范围的卡片全部掌握。'
+      : `本组完成，当前范围还有 ${unknownInFilter} 张未掌握。`;
+    $('btnAgainUnknown').hidden = unknownInFilter === 0;
+    $('btnRestart').textContent = '重新开始本组';
+  }
   $('progressFill').style.width = '100%';
   $('progressNum').textContent = `${queue.length} / ${queue.length}`;
-  $('knownCount').textContent = known.size;
+  updateHeader();
 }
 
 // ---------- interactions ----------
@@ -317,26 +385,56 @@ function flip() {
   $('btnUnknown').hidden = !flipped;
   $('btnKnown').hidden = !flipped;
 }
-function next() {
-  cur++;
+function afterAnswer() {
+  flipped = false;
+  updateHeader();
   render();
   $('actions').style.visibility = '';
 }
 $('card').onclick = flip;
 $('btnFlip').onclick = flip;
-$('btnKnown').onclick = () => { known.add(DATA[queue[cur]].en); store.known = known; next(); };
-$('btnUnknown').onclick = () => { queue.push(queue[cur]); next(); }; // re-queue at end
+// 正常模式：认识=加入已掌握；错题本：答对=从错题本消除
+$('btnKnown').onclick = () => {
+  const d = DATA[queue[cur]];
+  if (mode === 'wrong') {
+    wrong.delete(d.en);
+    store.wrong = wrong;
+    queue.splice(cur, 1);          // 不前进，下一张移到当前位置
+  } else {
+    known.add(d.en);
+    store.known = known;
+    cur++;
+  }
+  afterAnswer();
+};
+// 任何模式下不认识都收录错题本，并排到队尾再出现
+$('btnUnknown').onclick = () => {
+  const d = DATA[queue[cur]];
+  wrong.add(d.en);
+  store.wrong = wrong;
+  queue.push(queue[cur]);
+  if (mode === 'wrong') queue.splice(cur, 1);
+  else cur++;
+  afterAnswer();
+};
 $('btnShuffle').onclick = () => {
   for (let i = queue.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [queue[i], queue[j]] = [queue[j], queue[i]]; }
   cur = 0; render();
 };
 $('btnReset').onclick = () => {
-  if (!confirm('确定清空所有已掌握记录？')) return;
+  if (!confirm('确定清空所有已掌握记录？（错题本不受影响，需在错题本内答对消除）')) return;
   known = new Set(); store.known = known;
   buildQueue();
 };
-$('btnAgainUnknown').onclick = () => { $('actions').style.visibility = ''; buildQueue(true); };
-$('btnRestart').onclick = () => { $('actions').style.visibility = ''; restartGroup(); };
+$('btnWrongBook').onclick = () => {
+  mode = mode === 'study' ? 'wrong' : 'study';
+  buildQueue();
+};
+$('btnAgainUnknown').onclick = () => { $('actions').style.visibility = ''; reviewUnknown(); };
+$('btnRestart').onclick = () => {
+  $('actions').style.visibility = '';
+  if (mode === 'wrong') buildQueue(); else restartGroup();
+};
 
 document.onkeydown = e => {
   if (e.code === 'Space') { e.preventDefault(); flip(); }
