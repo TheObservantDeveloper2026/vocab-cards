@@ -342,27 +342,45 @@ function reviewUnknown() {
 }
 
 // ---------- render ----------
+let backFillTimer = null;
 function render() {
   if (queue.length === 0 || cur >= queue.length) { renderDone(); return; }
   const d = DATA[queue[cur]];
-  $('wordFront').innerHTML = d.en;
-  $('tagFront').textContent = d.group;
-  $('knownDot').hidden = mode === 'wrong' || !known.has(d.en);
-  $('wrongDot').hidden = !wrong.has(d.en);
-  $('posFront').textContent = `${cur + 1} / ${queue.length}`;
-  $('wordBack').innerHTML = d.zh;
-  $('tagBack').textContent = d.group;
-  $('enBack').textContent = d.en;
+  const wasFlipped = flipped;
+  if (backFillTimer) { clearTimeout(backFillTimer); backFillTimer = null; }
   flipped = false;
   $('card').classList.remove('flipped');
   $('btnFlip').hidden = false;
   $('btnFlip').disabled = false;
   $('btnUnknown').hidden = true;
   $('btnKnown').hidden = true;
+  // 正面内容立即更新（翻回时正面后半段才可见，安全）
+  $('wordFront').innerHTML = d.en;
+  $('tagFront').textContent = d.group;
+  $('knownDot').hidden = mode === 'wrong' || !known.has(d.en);
+  $('wrongDot').hidden = !wrong.has(d.en);
+  $('posFront').textContent = `${cur + 1} / ${queue.length}`;
   $('btnKnown').textContent = mode === 'wrong' ? '答对了 →' : '答对 →';
   $('btnUnknown').textContent = mode === 'wrong' ? '还没记住 ←' : '答错 ←';
   $('progressFill').style.width = (cur / queue.length * 100) + '%';
   $('progressNum').textContent = `${cur} / ${queue.length}`;
+  // 答案（背面）内容：若当前已翻转，翻回动画前半段背面仍可见，
+  // 先清空避免新答案闪现，等动画过半（约 250ms）背面不可见时再填入
+  if (wasFlipped) {
+    $('wordBack').innerHTML = '';
+    $('enBack').textContent = '';
+    $('tagBack').textContent = '';
+    backFillTimer = setTimeout(() => {
+      $('wordBack').innerHTML = d.zh;
+      $('tagBack').textContent = d.group;
+      $('enBack').textContent = d.en;
+      backFillTimer = null;
+    }, 250);
+  } else {
+    $('wordBack').innerHTML = d.zh;
+    $('tagBack').textContent = d.group;
+    $('enBack').textContent = d.en;
+  }
   updateHeader();
 }
 
